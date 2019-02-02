@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="10cm" height="8cm" viewBox="61 69 191 152" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <text font-size="14.1111" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="93" y="83">
+    <tspan x="93" y="83">Deviations  (Q-Q plot, </tspan>
+    <tspan x="93" y="100.639">                    residuals)</tspan>
+  </text>
+  <text font-size="14.1111" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="174" y="138">
+    <tspan x="174" y="138">Ideas</tspan>
+    <tspan x="174" y="155.639">for new </tspan>
+    <tspan x="174" y="173.278">models</tspan>
+  </text>
+  <text font-size="14.1111" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="61" y="183">
+    <tspan x="61" y="183">Model </tspan>
+    <tspan x="61" y="200.639">comparison</tspan>
+    <tspan x="61" y="218.278">~Z1/Z2</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000000" d="M 163.973,119.728 A 100.758,100.758 0 0 0 126,86"/>
+    <polygon style="fill: #000000" points="167.969,126.016 158.972,119.378 164.562,119.334 167.881,114.836 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000000" points="167.969,126.016 158.972,119.378 164.562,119.334 167.881,114.836 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000000" d="M 126.82,180.724 A 87.2324,87.2324 0 0 0 168.728,160.728"/>
+    <polygon style="fill: #000000" points="119.469,181.824 129.264,176.434 126.963,181.529 129.658,186.426 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000000" points="119.469,181.824 129.264,176.434 126.963,181.529 129.658,186.426 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000000" d="M 96.7091,94.2937 A 62.6179,62.6179 0 0 0 84,168"/>
+    <polygon style="fill: #000000" points="102.238,89.4174 96.5272,99.0295 95.9277,93.4716 91.1217,90.6164 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000000" points="102.238,89.4174 96.5272,99.0295 95.9277,93.4716 91.1217,90.6164 "/>
+  </g>
+</svg>

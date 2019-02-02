@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Calibrated Bayes for X-ray spectra</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+		
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/github.css">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal h2 {
+			font-size: 150%;
+		}
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		.reveal img {
+			border: none !important;
+		}
+		.reveal code {
+			font-size: 1em;
+			line-height: 1.1em;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<section>
+	<h1>Calibrated&nbsp;Bayes for X-ray&nbsp;spectra</h1>
+	<p>
+	<center>Johannes Buchner (MPE)</center>
+	<p>
+	<p>johannes.buchner.acad [&auml;t] gmx.com
+	<p>http://arxiv.org/abs/1402.0004
+	<p>
+</section>
+
+<section>
+	<h2>About me</h2>
+	<ul>
+	<li>models with 3-30 parameters, numerical
+	<li>Author of <ul><li>APEMoST (PTMCMC)
+	<li>PyMultiNest
+	<li>BXA (+50 other projects on github)
+	</ul>
+	<li>Bayesian inference since 7 years
+	<li>MCMC/nested sampling techniques
+	<li>before: optical/radio, now: X-ray AGN (spectra, LF)
+	</ul>
+</section>
+
+<section>
+	<h2>Overview</h2>
+	<ol>
+	<li>Introduction to model selection (graphically)
+	<li>Methods for computing model selection
+	<li>Calibrated Bayes, application to X-ray spectra
+	<li>Current project: field inference
+	</ol>
+</section>
+
+<section>
+	<h2>Bayes theorem</h2>
+	<img src="customimg/bayes/venn.svg" style="background-color: white; float: right; width: 40%;">
+<script type="math/tex">A\smallfrown B	=	B\smallfrown A \\
+p(A\smallfrown B)	=	p(B\smallfrown A) \\
+p(A|B)p(B)	=	p(B|A)p(A) \\
+p(A|B)	=	\frac{p(B|A)p(A)}{p(B)} \\
+p(\theta|D)	=	\frac{p(D|\theta)p(\theta)}{p(D)}</script>
+	<p class="fragment">Is this interpretation allowed?
+</section>
+
+<section>
+	<h2>The likelihood function $p(D|\theta) = \cal{L}$</h2>
+	<ul>
+	<img src="customimg/bayes/poisson.svg" style="background-color: white; float: right; width: 40%;">
+	A process has N outcomes
+	<li>propensity/tendency for the process to produce a spectific outcome D?
+	<li>In the long run: frequency of D occurring
+	<li>Example: Gaussian process
+	<img src="customimg/bayes/gauss1.png" style="background-color: white; float: right;">
+	$$ \cal{L} \sim \exp\left\{ -\frac{1}{2}\left(\frac{d-\mu}{\sigma}\right)^{2}\right\} $$
+</section>
+
+<section>
+	<h2>The problem with likelihoods</h2>
+	<ul>
+	<div style="float:right; border: 1px solid #555; padding: 0 1em 0.3em 0.3em; ">Data: squeaky noise<br />
+	<ol>
+	<li>Cat
+	<ul>
+	<li>Meows
+	<li>walks around on stairs
+	<li>walks around on floor
+	</ul>
+	<li>Poltergeist
+	<ul><li>makes squeaky noise</ul>
+	</ol>
+	</div>
+	
+	<li>Can construct a likelihood that produces always and only the observed data $\cal{L} = 1$
+	<li>But process not very <strong>probable</strong> - combine
+	<li>Interpretation of the data in context of other information (Discussion & Results)
+	</ul>
+</section>
+
+<section>
+	<h2>BI as update rule</h2>	
+	<img src="customimg/bayes/gauss.svg" style="background-color: white; float: left; width: 50%;">
+	<img src="customimg/bayes/priorindep.svg" style="background-color: white; float: right; width: 30%;">
+	$ p(\theta|D) \sim p(\theta) \prod_{i}\exp\left\{ -\frac{1}{2}\left(\frac{d_{i}-\mu}{\sigma}\right)^{2}\right\} $
+	<ul><li>More data: add terms to the right
+	<li>First term: absence of data, starting point for update rule
+</section>
+
+
+<section>
+	<h2>Discrete introduction to BI:</h2>
+	<ul><img src="customimg/bayes/coins1.svg" style="background-color: white; float: right; width: 40%;">
+	<li>evaluate <em>likelihood</em> at every point
+	<ul><li>how prone is the process to produce the observed data</ul>
+	<li>Compute relative importance: $$\cal{L} / \overline{{\cal L}}$$
+	<li>Grab those that <br/>make up 90% of $\sum{\cal L}$
+	<li>$Z = \overline{{\cal L}}$ "evidence" is average likelihood
+</section>
+
+
+<section>
+	<h2>How to place grid points</h2>
+	<ul>
+	<li><img src="customimg/bayes/coins2.svg" style="background-color: white; float: right; width: 40%;">
+	Result is dependent on placement
+	<li>Equal spacing in $\theta_1$ or in $\log \theta_1$.
+	<li>Choice of spacing is called "prior"
+	<li>coin = investment in computing there, put coins where it is worthwhile
+</section>
+
+<section>
+	<img src="customimg/bayes/coins3.svg" style="background-color: white; float: right; width: 70%;">
+	<h2>Two models</h2>
+	<ul>
+	<li>Compare two parameter spaces by
+	$$\left.\sum{{\cal L}}\right|_{M1} / \left.\sum{{\cal L}}\right|_{M2} $$
+	<li>How many coins to put in M1, M2? 
+	<li>model prior
+</section>
+
+<section>
+	<h2>Parameter&nbsp;Estimation vs. Model&nbsp;Comparison</h2>
+	<div style="text-align: left;">
+	<div style="">
+	<img src="customimg/bayes/coins3_posterior.svg" style="background-color: white;float: right; height: 4em;">
+	<img src="customimg/bayes/coins1_posterior.svg" style="background-color: white;float: right; height: 4em; margin-right: 1em;">
+	</div>
+	<ul style="width: 55%; float: right;">
+	<li>prior is measure, rule of averaging, deformation of space to "natural variables", investment in/weighting of sub-regions
+	<li>most common priors: uniform, log-uniform.
+	<li>model priors are relative size of spaces
+	</div>
+	<ul style="width: 30%"><li>Remove coins contributing less than 10%.
+	<li>Under Bayesian inference, same problem:<ul><li> comparing bags of hypotheses</ul>
+	</ul>
+</section>
+
+<section>
+	<h2>Prior transforms</h2>
+	<script type="math/tex">\int_a^b{f(x)g(x) dx} = \int_0^1{f(G^{-1}(u))~ du}</script>
+	<p>
+	<div class="fragment">
+	where <script type="math/tex">G</script> is the cumulative distribution of <script type="math/tex">g</script>:
+	<p><script type="math/tex">G(x) = \int_{-\infty}^{x}{g(x') dx'}, G(a) = 0, G(b) = 1</script>
+	
+	<div class="fragment"><ul><li>transformation through inverse of CDF
+	<li>compresses unimportant regions
+	<li>"native units": <script type="math/tex">P(\theta|D)\propto \int_0^1{P(D|u) du} </script>
+	</ul></div>
+	</div>
+</section>
+
+
+<section>
+	<h2>Exploration</h2>
+	<ul><li>for dim&leq;3, grids are best
+	<li>otherwise, <ul><li>sparse grids or <li>randomized methods (MCMC, nested sampling)
+</section>
+
+<section>
+	<h2>MCMC Exploration</h2>
+	<ul>
+	<img src="customimg/bayes/mcmc_transition1.svg" style="background-color: white; float: right;">
+	<li>Missing ingredient: transition kernel
+	<img src="customimg/bayes/mcmc_transition2.svg" style="background-color: white; float: right;">
+	<li>tune to the problems
+	<li>Fraction of visits ~ converges to ~&nbsp;probability of hypothesis
+	<li>Where does chain spend 90% of its visits
+</section>
+
+
+<section>
+	<h2>Comparing models</h2>
+	<ul>
+	<img src="customimg/bayes/mcmc_transition1.svg" style="background-color: white; float: right;">
+	<img src="customimg/bayes/mcmc_transition2.svg" style="background-color: white; float: right;">
+	<li>With MCMC: RJMCMC
+	<li>Does not work: too difficult to make a good transition kernel
+	<li>How else? Just compute that integral for every space.
+</section>
+
+<section>
+	<h2>MCMC problems</h2>
+	<img src="customimg/bayes/mcmc_transition3.svg" style="background-color: white; float: right;">
+	<ul><li>Need transition kernel that can overcome separated maxima in likelihood
+	<li>Solutions: PTMCMC
+	<li>high-dim: acceptance can be very small, good region is tiny volume
+	<li>Solutions: HMCMC
+</section>
+
+
+<section>
+	<h2>nested sampling idea</h2>
+	<ul>
+	<img src="customimg/bayes/exploration_mcmc.svg" style="background-color: white; float: right; width: 50%">
+	<li>MCMC: only consider likelihood ratios. Integration by vertical slices
+	<li>nested sampling: compute geometric size at various likelihood thresholds
+	<img src="customimg/bayes/exploration_nested.svg" style="background-color: white; float: right; width: 50%">
+	<li>orthogonal, unique re-ordering of volume by likelihood
+	</ul>
+	$$\sum\underbrace{\text{Shrinkage}\times\text{Likelihood}}_{\text{Importance of shell}}=Z$$
+</section>
+
+
+<section>
+	<h2>nested sampling algorithm</h2>
+	<ul>
+	<div style="width:4em; vertical-align: top; float: left; margin-right: 1em; padding-bottom: 5em;">
+	<img src="customimg/nested0.png" style="background-color: white;"/>
+	<img src="customimg/nested1.png" style="background-color: white;"/>
+	</div>
+	<li>Start with volume 1, draw randomly uniformly 200 points
+	<li>
+	<img src="customimg/bayes/nested_shrinkage.svg" style="background-color: white; width: 40%; vertical-align: top; float: right;"/>
+	remove one, volume shrinks by 1/200.
+	
+	<li>draw a new one excluding the removed volume
+	<li>Unique ordering of space required: via likelihood
+	<br/>
+	<center><strong>draw a new uniformly random point, with&nbsp;higher&nbsp;likelihood</strong>
+	<br/>(the crux of nested sampling)</center>
+	<li>Scanning up vertically, done at some point
+	<ul><li>converges (flat at highest likelihood)
+	</ul>
+</section>
+
+
+<section>
+	<h2>Missing ingredients</h2>
+	<ul>
+	<li>Insert tuned transition kernel into MCMC
+	<li>Insert constrained drawing algorithm into nested sampling
+	<li>General solutions: MultiNest, MCMC, HMCMC, Galilean, RadFriends
+	<ul style="font-size: 75%;"><li>Buchner (2014, submitted) - <em>Statistical tests for nested sampling and the RadFriends algorithm</em>
+</section>
+
+
+
+<section>
+	<h2>RadFriends / MultiNest</h2>
+	<ul>
+	<img src="img/friendsbs_shapes_nice_part.png" style="background-color: white; float: right; width: 40%;"/>
+	<li><b>Use existing points</b> to guess contour
+	<li>Expand contour a little bit
+	<li>Draw uniformly from contour
+	<li>Reject points below likelihood threshold
+	<li>RadFriends: Compute distance at which every point has a neighbor. Bootstrap (Leave out) for safety.
+	<li>MultiNest clusters and uses ellipses
+</section>
+
+
+<section>
+	<h2>RadFriends / MultiNest</h2>
+	<img src="img/friendsbs_shapes_nice.png" style="background-color: white; "/>
+	<li>RadFriends: Compute distance at which every point has a neighbor. Bootstrap (Leave out) for safety.
+	<li>MultiNest clusters and uses ellipses
+</section>
+
+
+
+<section>
+	<h2>What to do with Z</h2>
+	<ul>
+	<li>Z1, Z2
+	$$ \frac{p(M1|D)}{p(M2|D)}=\frac{Z1\cdot p(M1)}{Z2\cdot p(M2)} $$
+	$$ \frac{p(M_{1}|D)}{\sum p(M_{i}|D)}=\frac{Z_{1}\cdot p(M_{i})}{\sum_{i}Z_{i}\cdot p(M_{i})} $$
+	<li>model priors: leave to reader or motivated by theory
+	<li>Discard highly improbable model or marginalise
+	<li>Does $\frac{p(M1|D)}{p(M2|D)} = 3/1$ mean M2 is correct in a quarter of the cases?
+</section>
+
+<section>
+	<h2>Method summary</h2>
+	<div style="float: right; width: 35%; border-left: 1px solid #555;">
+	<p>Problems with 
+	<ul>
+	<li>Multiple maxima
+	<li>low information state
+	<li>peculiar shapes in likelihood
+	<li>numerical likelihood
+	</ul>
+	</div>
+	<ul style="widtH: 55%;">
+	<li>Parameter estimation:<ul>
+	<li><em>low-dim</em>: <br/>Nested sampling - MultiNest
+	<li><em>high-dim</em>: HMCMC with multiple chains - Stan
+	</ul>
+	<li>Model selection:<ul>
+	<li><em>low-dim</em>: <br/>Nested sampling - MultiNest
+	<li><em>high-dim</em>: fund me! NS + some MCMC variants -- experimental work needed!
+	</ul>
+</section>
+
+
+<section>
+	<h2>Alternative methods for model selection</h2>
+	<ul>
+	<div style="width: 40%; float: right; padding-left: 0.3em; border-left: 1px solid #555; ">As $n\rightarrow\infty$, information well constrained in a 
+	<ul><li>single
+	<li>prior-independent
+	<li>Gaussian-shaped maximum
+	<li>inside the parameter space
+	</ul>
+	</div>
+	<li>$\Delta \left(- 2\log\cal{L}\right) \sim \chi^2$ distributed
+	<li>LaPlace Approximation, Wilks' theorem, F-test, LR-test, BIC, AIC
+	<li>Unification: Watanabe (2014), WBIC/WAIC.
+	<li>"Wilks's theorem should not apply — YET it works!!"
+	<li>Narrow field of validity. General solution is computing Z.
+</section>
+
+
+<section>
+	<h2>II: Calibrated Bayes</h2>
+	<ul>
+	<li>BI is theoretically motivated. Is it any good?
+	<li>Any application has approximations and assumptions in
+	<ul><li>model, distributions, data extraction, prior
+	</ul>
+	<li>Motivation for Bayes factor/level to cut at (free parameter?)
+</section>
+
+<section>
+	<h2>Calibrated Bayes</h2>
+	Questions of Frequentists/Likelihoodists to their method:
+	<ol>
+	<li>How efficient is the method at ruling out?
+	<li>What in the data drives the result (strength)?
+	<ul><li>Is the method robust against changes in the data, prior choice</ul>
+	<li>How often does the method give the wrong result?
+	<li>How does the method behave when the model is wrong
+	<ul><li>due to outliers, systematic effects from data reduction</ul>
+	<li>How does failure look like?
+	</ol>
+	If you answer these questions, you are doing calibrated Bayes.
+</section>
+
+
+<section>
+	<h2>Application: X-ray spectra</h2>
+	<img src="customimg/xdata.png" style="background-color: white">
+	<ul style="font-size: 75%;"><li>Buchner et al. (2014) - <em>X-ray spectral modeling of the AGN obscuring region in the CDFS: Bayesian model selection</em>
+	</ul>
+</section>
+
+<section>
+	<h2>Processes in AGN</h2>
+	<img src="customimg/torusmodel.png" style="background-color: white; border: none;">
+	<img src="img/spectral_features.png" style="float:right; background-color: white">
+</section>
+
+<section>
+	<h2>Obscurer models considered</h2>
+	<img src="img/torusmodels.svg" style="background-color: white; border: none;">
+</section>
+
+<section>
+	<h2>Spectra: 179</h2>
+	<img src="img/toruscomponents.png" style="background-color: white; width: 50%">
+	<img src="customimg/table.png" style="float:right; background-color: white">
+</section>
+
+
+<section>
+	<h2>Spectra: 179</h2>
+	<img src="img/torus+reflection+scatteringcomponents.png" style="background-color: white; width: 50%">
+	<div>(Answering: What drives the result?)</div>
+	<img src="customimg/table.png" style="float:right; background-color: white">
+</section>
+
+<section>
+	<h2>Efficiency of model comparison</h2>
+	<p>true model $\rightarrow$ assigned model
+	<ol style="padding-right: 1em;">
+	<li>A $\rightarrow$ A
+	<li>B $\rightarrow$ B
+	<li>A $\rightarrow$ B
+	<li>B $\rightarrow$ A
+	</ol>
+	<ul>
+	<li>minimize error frequency (3 + 4, red)
+	<li>Frequentist analysis?
+	<ul><li>vary data, analyse method: frequentist $D|H$
+	<li>vary hypotheses, analyse data: Bayesian $H|D$
+</section>
+
+<section>
+	<h2>Comparison $\hat{L}$ vs. $Z$</h2>
+	<p style="text-align: left;">
+	<img src="customimg/stackedarea3_0_1_lower.png" style="background-color: white; width: 60%; margin-right: 1em; float:left; vertical-align: top;" />
+	red: wabs $\rightarrow$ powerlaw
+	<br />
+	<br />red: powerlaw $\rightarrow$ wabs
+	<div style="float:right; color: grey;">Appendix 2, Buchner et al. (2014)</div>
+</section>
+
+<section>
+	<h2>Model for all AGN</h2>
+	<ul>
+	<li>Combine data sets by multiplicating Z
+	$$\frac{p(M1|D,D')}{p(M2|D,D')}=\frac{Z1\cdot Z1'\cdot p(M1)}{Z2\cdot Z2'\cdot p(M2)}$$
+	<li>Is a single object / data set dominant?
+	<li>Bootstrap multiplication
+	<li>M1 is preferred in 100% of bootstraps -- not a peculiar sample.
+	(Addressing: Is the method robust?)
+</section>
+
+
+<section>
+	<h2>Robustness</h2>
+	<ul>
+	<li>BI is not <u>robust</u> (technical term)
+	<li>because likelihood is not robust
+	<img src="customimg/bayes/gauss_robust.svg" style="background-color: white">
+	<br/>"outliers" are taken seriously, all information is used (<u>sensitive</u>).
+</section>
+
+<section>
+	<h2>Behaviour when model is wrong</h2>
+	<img src="customimg/photoz_eq.png" style="background-color: white; width: 40%"/>
+	<img src="customimg/photoz.png" style="background-color: white; width: 40%"/>
+	<br/>posterior becomes very narrow and sensitive
+</section>
+
+<section>
+	<h2>Behaviour when model is wrong</h2>
+	<ul>
+	<li>flying blind with BI. <ul><li>likelihood, Z not informative for goodness of fit</ul>
+	<li>need outside help: <ul><li><b>visualisation</b>, sanity checks, predictive posterior, ...</ul>
+	<li>posterior goes to borders of the parameter space, unphysical values
+	<li>posterior becomes very narrow
+</section>
+
+<section>
+	<h2>Fixes</h2>
+	<ul>
+	<li>Arrogant Bayesian answer: Just include the missing feature in the model
+	<li>Bayesian answer 2: Add systematic uncertainty to each data point
+	<ul><li>general approach to make BI robust, <b>but</b> high-dim
+	</ul>
+	<li>Statisticians answer: visualise
+	<li>Astronomers answer: simulations
+	<li>Remove potentially contaminated data (where model does not apply)
+</section>
+
+<section>
+	<h2>Model discovery</h2>
+	<div>
+	<img src="customimg/090402_robot_scientist_ross_king.jpg" style="background-color: white; width: 40%; float: right">
+	<img src="customimg/discovery-loop.png" style="background-color: white">
+	<ul>
+	<li>BI works only in a closed system (relative probabilities).
+	<li>AI: closed world assumption. Everything else does not exist
+	<li>can not break out of scheme. Humans can; creativity & expert knowledge required.
+	<li>Deductive reasoning vs Inductive reasoning
+	</ul>
+	</div>
+</section>
+
+<section>
+	<h3>Summary: Calibrated Bayes</h3>
+	<div style="font-size: 90%;">Questions to the method (including assumptions/approximations):
+	<ol>
+	<li>How <u>efficient</u> is the method at ruling out?
+	<li>What in the data <u>drives</u> the result (strength)?
+	<ul><li>Is the method <u>robust</u> against changes in the data, prior choice</ul>
+	<li>How often does the method give the <u>wrong</u> result?
+	<li>How does the method behave when the <u>model is wrong</u>?
+	<ul><li>due to outliers, systematic effects from data reduction</ul>
+	<li>How does <u>failure</u> look like?
+	<li>Go beyond the current model and <u>discover</u> a new model?
+	</ol>
+	<p>
+	If you answer these questions, you are doing <u>calibrated Bayes</u>.
+	<br/>Using non-Bayesian methods (simulations, visualisation, p-values).
+	</div>
+</section>
+
+<section>
+	<h2>Current project: AGN LF</h2>
+	<ul><img src="customimg/bayes/hierbayes_simple.svg" style="background-color: white; float: right; width: 50%;">
+	<li>number density distribution $f(L_X, z, N_H)$
+	<li>selection function known, but not analytic
+	<li>probability clouds -- visualisation (binning) difficult
+</section>
+
+<section>
+	<h2>Model: Smooth 3d field</h2>
+	<img src="customimg/smoothnesspriors.svg" style="background-color: white; ">
+	<ul>
+	<li>value constant, slope constant
+	<li><u>a</u> way to encode a smoothness prior
+	<li>PE with HMCMC (Stan), 1000 dim.
+</section>
+
+<section>
+	<h2>Field results</h2>
+	<img src="img/fieldsummary_comparison_totallf_L.png" style="background-color: white; ">
+</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+			/*Reveal.addEventListener( 'ready', function( event ) {
+				$('section').click(function( event ) {
+					if (!event.ctrlKey && !event.shiftKey && !event.altKey)
+						Reveal.next();
+				});
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );*/
+
+		</script>
+
+
+		<!--<div class="share-reveal" style="display: none; position: absolute; bottom: 14px; left: 50%; margin-left: -230px; z-index: 20;">-->
+		<!--<div class="share-reveal" style="display: none; position: absolute; top: 14px; text-align:right; right: 1em; margin-left: -230px; z-index: 20;">
+			<a href="http://arxiv.org/abs/1402.0004" style="font-size:2em !important;">http://arxiv.org/abs/1402.0004</a>
+		</div>-->
+
+		<script>
+			if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+				document.querySelector( '.share-reveal' ).style.display = 'block';
+				document.querySelector( '.fork-reveal' ).style.display = 'block';
+			}
+		</script>
+	</body>
+</html>
+

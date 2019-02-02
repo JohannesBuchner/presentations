@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>X-ray Spectral Analysis</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		.reveal img {
+			border-color: #AAA !important;
+		}
+		.reveal h2, .reveal h1, reveal .present {
+			padding-top: 0;
+			margin-top: 0;
+		}
+		.note {
+			color: #CCC;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<h3>Probing the AGN geometry <br />with Bayesian techniques</h3>
+	<p>Santiago de Chile, May 2015</p>
+	<h3>Johannes Buchner (MPE$\rightarrow$PUC)</h3>
+	<p style='font-size: 0.7em'>in collaboration with A. Georgakakis, K. Nandra, L. Hsu, C. Rangel, M. Brightman, A. Merloni and M. Salvato</p>
+	<p>Buchner et al. 2014 - <a href="http://arxiv.org/abs/1402.0004">arxiv:1402.0004</a>
+</section>
+
+<section>
+	<h3>About me, Johannes Buchner</h3>
+	
+	<ul style="font-size: 70%">
+	<li>Studied Astronomy &amp; Computer Science in Vienna
+	<ul><li>developed MCMC software for stellar pulsation analysis</ul>
+	<li>Master: Computer Science / Machine Learning in NZ, at a Radio Astronomy institute
+	<ul><li>developed PyMultiNest -- Python nested sampling package</ul>
+	<li>Doctorate: Astronomy @ Max Planck institute for extr.Physics
+	<ol><li>Bayesian X-ray spectral analysis with 
+	Bayesian model comparison of physically motivated models (today)
+	<li>Population analysis of Active Galaxies (MCMC/Stan)
+	<li>published a nested sampling paper in Statistics&amp;Computing (Springer)
+	</ul>
+</section>
+
+<section>
+	<h2>Astronomical problem</h2>
+	<ul><li>Black holes in the centers of all massive galaxies
+	<li>matter falls in, spirals, heats, creates radiation. <span style="font-size: 30%; color: grey;">drawing</span>
+	<li>$E = M \cdot c^2$ 
+	<li>luminosity $\rightarrow$ mass inflow
+	</ul>
+</section>
+<!--
+<section>
+	<img src="customimg/slides_agn_intro.png" style="background-color: white; " />
+</section>
+-->
+<section>
+	<h2>Observables</h2>
+	<img src="customimg/xdata.png" s>
+	<p>X-ray telescopes produce spectra via Poisson process.
+	$$\cal{L}=\prod_i \lambda_i^{k_i} \cdot \exp\{-\lambda_i\}/k_i!$$
+	</p>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>powerlaw</h4>
+	<img src="img/powerlawcomponents.png"></br>
+</section>
+
+<section>
+	<h2>Spectral models</h2>
+	<img src="img/torusmodels+spectrum.png" style="background-color: white; " />
+</section>
+
+
+<section>
+	<h2>Bayesian inference</h2>
+	$$ p(A|B) p(B) = p(B|A) p(A) $$
+	<p>
+	$$ p(\theta|D,M) = {p(\theta|M)p(D|\theta,M)\over p(D|\theta,M)} $$
+	parameter posterior probability distributions.
+	assume $\int p(\theta|D,M)d\theta = 1 \rightarrow \int p(\theta|M)p(D|\theta,M)=p(D|\theta,M)=Z $
+	closed world assumption within defined parameter space of model M.
+	</p>
+	<p>
+	$$p(M|D)={p(M)p(D|M)\over p(D)}$$
+	assume $\sum p(M|D)=1 \rightarrow p(D)=\sum p(D|M)p(M)$
+	closed world assumption among models.
+	</p>
+</section>
+
+<section>
+	<h2>Bayesian inference</h2>
+	Nice properties:
+	<ul>
+	<li>can distinguish between physical effects (models) and 
+	constrain physical parameters consistently
+	<li>models with large predictive diversity are punished
+	<li>(Py)MultiNest makes it easy to compute Z and posterior distribution
+	for up to 40 parameters, for arbitrary models
+	<li>now becoming more common practice in Exoplanet searches, Cosmology, etc.
+</section>
+
+<section>
+	<h2>Parameters: of torus+scattering</h2>
+	<img src="img/spectral_features.png" style="float: right; width: 40%">
+	<ul>
+	<li>Normalisation ~ luminosity
+	<li>Column density $N_H={10}^{20-26}\text{cm}^{-2}$
+	<li>Soft scattering normalisation: $f_{scat} &lt; 10\%$
+	<li>Photon index: $\Gamma$
+	<li>Redshift
+</section>
+<section>
+	<h2>Parameters: of torus+scattering</h2>
+	<ul>
+	<li>Uniform: log Normalisation ~ log Luminosity
+	<li>Uniform: Column density $\log N_H/\text{cm}^{-2} = {20-26}$
+	<li>Uniform: Soft scattering normalisation: $\log f_{scat}={10}^{-10 ... -1}$
+	<li>Photon index: informed, from nearby objects, $\Gamma \sim 1.95 \pm 0.15$ (Nandra&amp;Pounds 1994)
+	<li>Redshift: informed probability distribution, from other observations.
+</section>
+
+<section>
+	<h4>unobscured powerlaw</h4>
+	<script type="math/tex">\log Z = -64.3, \log N_H=20</script>
+	<img src="img/powerlawcomponents.png"></br>
+</section>
+
+<section>
+	<h4>absorbed with tiny blob in the LOS</h4>
+	<script type="math/tex">\log Z = -12.7, \log N_H=22.28\pm 0.04</script>
+	<img src="img/wabscomponents.png"></br>
+</section>
+
+<section>
+	<h4>torus+scattering</h4>
+	<script type="math/tex">\log Z = -4.7, \log N_H=22.45\pm 0.05</script>
+	<img src="img/torus+scatteringcomponents.png"></br>
+</section>
+
+<section>
+	<h4>torus+pexmon+scattering</h4>
+	<script type="math/tex">\log Z = 0.0, \log N_H=22.44\pm 0.05</script>
+	<img src="img/torus+reflection+scatteringcomponents.png"></br>
+</section>
+
+<section>
+	<h4>wabs+pexmon+scattering</h4>
+	<script type="math/tex">\log Z = -0.3, \log N_H=22.49\pm 0.05</script>
+	<img src="img/wabs+reflection+scatteringcomponents.png"></br>
+</section>
+
+
+<section>
+	<h2>Model comparison results</h2>
+	<img src="img/torus+reflection+scatteringmarg.png">
+</section>
+
+<section>
+	<h2>Physically motivated models</h2>
+	<img src="img/torusmodels+spectrum.png" style="background-color: white; " />
+</section>
+
+
+<section>
+	<h2>Models to compare</h2>
+	<img src="img/model_interactions.png" style="background-color: white; " />
+</section>
+
+<section>
+	<h2>Model comparison results</h2>
+	<img src="customimg/table.png" style="width: 99%; background-color: white">
+</section>
+
+<section>
+	<h2>Model comparison</h2>
+	<ul>
+	<li>Can distinguish some models, others are equally probable
+	<li>Have made use of
+	<ul>
+	<li>local AGN information $\leftrightarrow$ $\Gamma$
+	<li>other $\lambda$ information $\leftrightarrow$ $z$
+	</ul>
+	<li>Have derived parameter distributions and $Z$ simultaneously
+	<li>incorporating uncertainty in $\Gamma$, $z$
+	<li>Can tell that it does not know
+</section>
+
+<section>
+	<h2>How can geometries be distinguished?</h2>
+	<ul>
+	<li>How to increase strength of data?
+	<li>Combine many objects
+	<li>Traditionally: stacking
+	<ul>
+	<li>lose information in averaging
+	<li>averaging of different redshifts?
+	</ul>
+	<li>Here, multiply Z to combine information
+	$$Z_1 = \prod_\mu Z_1^\mu$$
+</section>
+
+
+<section>
+	<h2>Results for the full CDFS sample</h2>
+	<img src="customimg/table2_long.png">
+	<li>Bootstrapping
+</section>
+
+
+<section>
+	<h2>Conclusions</h2>
+	<ul>
+	<li>Possible geometries:
+	<img src="img/torusmodels_posterior.png" style="float:right; width: 40%">
+	<ul>
+	<li>Absorbed powerlaw necessary
+	<li>Soft scattering powerlaw detected
+	<li>Additional Compton-reflection detected
+	<li>Torus model preferred (also in CT AGN)
+	</ul>
+	<li>first use of nested sampling for model comparison & parameter estimation
+	in X-ray astronomy
+	<li>Buchner et al. 2014 - <a href="http://arxiv.org/abs/1402.0004">arxiv:1402.0004</a>
+	<li>coming next: population analysis of the $L$, $N_H$ distribution of 
+	Active Galactic Nuclei with non-parametric Bayesian analysis.
+</section>
+
+
+
+<section>
+<section>
+	<h2>Nested Sampling</h2>
+	<ul>
+	<div><img src="customimg/nested0.png" style="background-color: white; width:4.5em; vertical-align: top; float: left; margin-right: 1em;"/>draw randomly uniformly 200 points
+	<br/>always remove least likely point, replace with a new draw of higher likelihood
+	</div><br style="clear: both">
+	<div><img src="customimg/nested1.png" style="background-color: white; width:4.5em; vertical-align: top; float: left; margin-right: 1em;"/>converges to maximum likelihood, stops when flat
+	</div><br style="clear: both">
+	<div><img src="customimg/nested2.png" style="background-color: white; width:4.5em; vertical-align: top; float: left; margin-right: 1em;"/>how to draw new points efficiently?
+	<br/>MultiNest does it via clustering and ellipses
+	</div><br style="clear: both">
+</section>
+
+<section>
+	<h2>Nested Sampling with MultiNest</h2>
+	<p style="text-align: left;">explores the problem in 
+	<ul><li>high dimensions (3-20)
+	<li>handles multiple maxima
+	<li>handles peculiar shapes
+	<li>runs efficiently to convergence <br/>(typically 10000-40000 points)
+	</ul>
+	<p style="text-align: left;">measures and describes shapes (like MCMC)
+</section>
+
+<section>
+	<h1>model inadequacy</h1>
+	Have cool tools now, but:
+	<ul>
+	<li>Is the model right?
+	<li>Where is the model wrong?
+	<li>Systematic effects?
+	<li>Discover new physics beyond the model
+</section>
+
+<section>
+	<h2>Common route: residuals</h2>
+	New idea: Q-Q plot (no binning) 
+	<div style="float:right; color: grey;">(Appendix 1)</div>
+	<img src="customimg/qq-intro.png" style="background-color: white" />
+	<p>good fit if straight line
+</section>
+
+<section>
+	<h2>Q-Q plot primer</h2>
+	<img src="customimg/qq-primer.png" style="background-color: white" />
+</section>
+
+<section>
+	<img src="customimg/318_bg_qq_cmp.png" style="background-color: white" />
+</section>
+
+<section>
+	<h2>Generate ideas for new models</h2>
+	<img src="customimg/discovery-loop2.png" style="background-color: white" />
+</section>
+
+
+<section>
+	<h2>Summary</h2>
+	<ul><li>
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.1, Appendix 3)</div>
+	<b>Parameter estimation</b>: <br/>explore multiple maxima
+	<br/>general solution with nested sampling <br/>
+	<li>
+	<b>Model comparison</b>: <br/>Likelihood ratio is less effective than Z ratios
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.2, Appendix 2)</div>
+	<br/>computed by nested sampling; has right interpretation
+	<li>
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.3, Appendix 1)</div>
+	<b>Model discovery</b>: <br/>Q-Q plots + model comparison
+	</ul>
+	
+	<p><a href="http://arxiv.org/abs/1402.0004">arxiv:1402.0004</a> 
+	<a href="https://github.com/JohannesBuchner/BXA">github.com/JohannesBuchner/BXA</a>
+</section>
+
+</section>
+
+
+<section>
+	<h2>Likelihood ratio tests / F-test</h2>
+	<ul><li>
+	<img src="customimg/lrtest.svg" style="background-color: white; width: 40%; float: right;" />
+	only if special case
+	<li>not at borders (feature detection)
+	<li>only if $n\rightarrow\infty$
+	<li class="fragment">do not compute it, interpretation is wrong; critisize papers mis-interpreting the statistic
+</section>
+
+
+<section>
+	<h2>Pragmatic viewpoint</h2>
+	<p>distinguish two models via data can use any statistic
+	<p>does not have to be probabilistic
+	
+	<ul><li>can be counts in the 6keV bin
+	<li>determine discriminating threshold via simulations
+	<ul style="font-size: 0.7em;"><li>false association rate ($B\rightarrow A$, $A\rightarrow B$)
+	<li>correct association rate ($A\rightarrow A$, $B\rightarrow B$)
+</section>
+
+<section>
+	<h2>Comparison $\hat{L}$ vs. $Z$</h2>
+	<p style="text-align: left;">
+	<img src="customimg/stackedarea3_0_1_lower.png" style="background-color: white; width: 60%; margin-right: 1em; float:left; vertical-align: top;" />
+	red: falsely choose powerlaw, for wabs input
+	<br />
+	<br />red: falsely choose wabs, for powerlaw input
+	<div style="float:right; color: grey;">(Appendix 2)</div>
+</section>
+
+<section>
+	<h2>$Z$ more effective than $\hat{L}$</h2>
+	<div style="text-align: left">
+	what is $Z$? Integral of likelihood / average
+	<p>Bayesian evidence
+	$$ {P(A|D)\over P(B|D)} = {P(A)\over P(B)} \times {Z_A\over Z_B} $$
+	<p>interpretation of Z-ratio under flat priors:
+	<ul><li>prob. that this model is the right one, rather than the other.
+	<li>A, B or equal
+	</div>
+	How to compute integral?
+</section>
+
+
+
+
+
+<section>
+	<h2>Connecting</h2>
+	Need to connect C-stat calculation with algorithm
+	<h3>BXA: Bayesian X-ray Analysis</h3>
+	<ul><li>MultiNest for Sherpa / (Py)Xspec
+	<li>installed on ds42 under <pre style="display: inline;">/utils/bxa</pre>
+	<li>documentation: <a href="https://github.com/JohannesBuchner/BXA">github.com/JohannesBuchner/BXA</a>
+	</ul>
+</section>
+
+<section>
+	<h2>Analysis</h2>
+	<p style="text-align: left;">Likelihood value evaluated "everywhere"
+	
+	<ul><li><img src="customimg/intervals.png" style="background-color: white; width: 40%; float: right; margin: 0.5em;"/>
+	ML analysis: find confidence intervals
+	<ul style="font-size: 0.7em;"><li>defined via: how often the estimator (maximum) gives the right answer
+	<li>different for different estimators - property of the method
+	</ul>
+	<li>credible intervals
+	<ul style="font-size: 0.7em;"><li>defined via: prob. that the true value is inside this range rather than outside is x%.
+	</ul>
+	</ul>
+	<p style="text-align: left;">results coincide for some choice of prior (usually "flat").
+</section>
+
+<section>
+	<h2>How?</h2>
+	posterior "chain" from MCMC/nested sampling: 
+	representation through point density
+	<img src="img/LNH_comp.svg" style="background-color: white; width: 60%; float: right;"/>
+	<table style="font-size: 0.7em;">
+	<thead>
+	<tr><th>norm<th>$N_H$<th>$z$</tr>
+	</thead>
+	<tr><td>-4.1<td>22.4<td>2.3</tr>
+	<tr><td>-4.3<td>22.45<td>2.4</tr>
+	<tr><td>-4.3<td>22.38<td>2.5</tr>
+	<tr><td>...<td>...<td>&nbsp;</tr>
+	</table>
+	<p>just make histogram of 1/2 columns
+	<p>contains all correlations
+</section>
+
+
+<section>
+	<h2>Error propagation: example</h2>
+	<table style="font-size: 0.7em; float: left;">
+	<thead>
+	<tr><th>norm<th>$N_H$<th>$z$</tr>
+	</thead>
+	<tr><td>-4.1<td>22.4<td>2.3</tr>
+	<tr><td>-4.3<td>22.45<td>2.4</tr>
+	<tr><td>-4.3<td>22.38<td>2.5</tr>
+	<tr><td>...<td>...<td>&nbsp;</tr>
+	</table>
+	for every parameter vector <br/> (norm, $N_H$, $z$, ...), set the model
+	<ul><li>set $N_H$ = 0
+	<li>compute intrinsic flux
+	<li>compute luminosity <br/>using $z$ and flux
+	</ul>
+	<hr style="clear: both;" />
+	<p>incorporates uncertainty in $z$ <u>and</u> the parameters!
+	<ul><li>just do your calculation with every value instead of one
+</section>
+
+
+<section>
+	<h1>model inadequacy</h1>
+	Have cool tools now, but:
+	<ul>
+	<li>Is the model right?
+	<li>Where is the model wrong?
+	<li>Systematic effects?
+	<li>Discover new physics beyond the model
+</section>
+
+<section>
+	<h2>Common route: residuals</h2>
+	New idea: Q-Q plot (no binning) 
+	<div style="float:right; color: grey;">(Appendix 1)</div>
+	<img src="customimg/qq-intro.png" style="background-color: white" />
+	<p>good fit if straight line
+</section>
+
+<section>
+	<h2>Q-Q plot primer</h2>
+	<img src="customimg/qq-primer.png" style="background-color: white" />
+</section>
+
+<section>
+	<img src="customimg/318_bg_qq_cmp.png" style="background-color: white" />
+</section>
+
+<section>
+	<h2>Generate ideas for new models</h2>
+	<img src="customimg/discovery-loop2.png" style="background-color: white" />
+</section>
+
+
+<section>
+	<h2>Summary</h2>
+	<ul><li>
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.1, Appendix 3)</div>
+	<b>Parameter estimation</b>: <br/>explore multiple maxima
+	<br/>general solution with nested sampling <br/>
+	<li>
+	<b>Model comparison</b>: <br/>Likelihood ratio is less effective than Z ratios
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.2, Appendix 2)</div>
+	<br/>computed by nested sampling; has right interpretation
+	<li>
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.3, Appendix 1)</div>
+	<b>Model discovery</b>: <br/>Q-Q plots + model comparison
+	</ul>
+	
+	<p><a href="http://arxiv.org/abs/1402.0004">arxiv:1402.0004</a> 
+	<a href="https://github.com/JohannesBuchner/BXA">github.com/JohannesBuchner/BXA</a>
+</section>
+
+
+<section>
+<section>
+	<h2>Pragmatic viewpoint</h2>
+	<p>distinguish two models via data can use any statistic
+	<p>does not have to be probabilistic
+	
+	<ul><li>can be counts in the 6keV bin
+	<li>determine discriminating threshold via simulations
+	<ul style="font-size: 0.7em;"><li>false association rate ($B\rightarrow A$, $A\rightarrow B$)
+	<li>correct association rate ($A\rightarrow A$, $B\rightarrow B$)
+</section>
+
+<section>
+	<h2>Comparison $\hat{L}$ vs. $Z$</h2>
+	<p style="text-align: left;">
+	<img src="customimg/stackedarea3_0_1_lower.png" style="background-color: white; width: 60%; margin-right: 1em; float:left; vertical-align: top;" />
+	red: falsely choose powerlaw, for wabs input
+	<br />
+	<br />red: falsely choose wabs, for powerlaw input
+	<div style="float:right; color: grey;">(Appendix 2)</div>
+</section>
+
+<section>
+	<h2>$Z$ more effective than $\hat{L}$</h2>
+	<div style="text-align: left">
+	what is $Z$? Integral of likelihood / average
+	<p>Bayesian evidence
+	$$ {P(A|D)\over P(B|D)} = {P(A)\over P(B)} \times {Z_A\over Z_B} $$
+	<p>interpretation of Z-ratio under flat priors:
+	<ul><li>prob. that this model is the right one, rather than the other.
+	<li>A, B or equal
+	</div>
+</section>
+</section>
+
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				],
+			});
+			Reveal.addEventListener( 'ready', function( event ) {
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );
+
+		</script>
+	</body>
+</html>
+

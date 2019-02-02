@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bayesian model selection for X-ray spectra</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/github.css">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		.reveal img {
+			border: none !important;
+		}
+		.reveal code {
+			font-size: 1em;
+			line-height: 1.1em;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<section>
+	<h2>Bayesian model selection for X-ray spectra</h2>
+	<p>
+	<center>Johannes Buchner (MPE)</center>
+	<p>
+	<p>http://arxiv.org/abs/1402.0004
+	<p>
+</section>
+
+<section>
+	<h2>Overview</h2>
+	<ol>
+	<li> X-ray data collection
+	<li> Likelihood (C-stat)
+	<li> Fitting with Xspec
+	<li> Analysis with BXA (PyXspec or Sherpa)
+	<li> What does it all mean?
+	<li> Summary
+	<li> Discovering models, false positive rates
+	</ol>
+	<p>
+	<p>
+</section>
+
+<section>
+	<h2>X-ray data collection</h2>
+	<img src="customimg/xdata.png" style="background-color: white">
+</section>
+
+<section>
+	<h2>Likelihood for Data collection process</h2>
+	<center>Poisson statistic (C-stat)</center>
+	<p>Poisson likelihood($\theta$ $\rightarrow$ model $\rightarrow$ telescope; data)
+	<p>$$\cal{L}(\theta|M)$$
+	<p>Tells how likely it is to generate the observed data, assuming parameters $\theta$ and 
+	<p>model $M$ are the real ones.
+	<p>Many outcomes possible
+</section>
+
+<section>
+	<h2>Fitting in PyXspec</h2>
+	<pre class="python"><code>import bxa.xspec as bxa
+from xspec import *
+Fit.statMethod = 'cstat'
+Plot.xAxis = 'keV'
+s = Spectrum('example-file.fak')
+s.notice("0.2-8.0")
+
+m = Model("pow")
+# set parameters range : val, delta, min, bottom, top, max
+m.powerlaw.norm.values = ",,1e-10,1e-10,1e1,1e1" # 10^-10 .. 10
+m.powerlaw.PhoIndex.values = ",,1,1,5,5"         #      1 .. 3
+
+m.fit()
+
+
+
+
+
+
+</code></pre>
+	<ul>
+	<li> Fitting find where $\theta$ makes $\cal{L}$ maximal
+	<li> Contour
+	<li> Fisher information
+	<li> MCMC
+	</ul>
+	<p>
+</section>
+
+<section>
+	<h2>Analysis in PyXspec or Sherpa</h2>
+	<pre class="python"><code>import bxa.xspec as bxa
+from xspec import *
+Fit.statMethod = 'cstat'
+Plot.xAxis = 'keV'
+s = Spectrum('example-file.fak')
+s.ignore("**"); s.notice("0.2-8.0")
+
+m = Model("pow")
+# set parameters range : val, delta, min, bottom, top, max
+m.powerlaw.norm.values = ",,1e-10,1e-10,1e1,1e1" # 10^-10 .. 10
+m.powerlaw.PhoIndex.values = ",,1,1,5,5"         #      1 .. 3
+
+transformations = [
+	bxa.create_uniform_prior_for( m, m.powerlaw.PhoIndex),
+	bxa.create_jeffreys_prior_for(m, m.powerlaw.norm)       ]
+
+bxa.standard_analysis(transformations, 
+	outputfiles_basename = 'simplest-',)
+</code></pre>
+</section>
+
+<section>
+	<h2>Explanation needed</h2>
+	<img src="customimg/cond.png" style="float:right; background-color: white">
+	<img src="customimg/hist.png" style="float:right; background-color: white">
+	Parameter chains
+	<table>
+	<thead>
+	<tr><th>$N_H$<th>$\Gamma$</tr>
+	</thead>
+	<tr><td>22.4<td>1.9</tr>
+	<tr><td>22.45<td>1.8</tr>
+	<tr><td>22.38<td>1.8</tr>
+	<tr><td>...<td>...</tr>
+	</table>
+</section>
+
+<section>
+	<h2>Model comparison</h2>
+	<p>produces $Z$ value: "evidence for the current model"
+	<p>
+	<p>Bayes factor $$B = \frac{Z_1}{Z_2}$$
+	<p>Odds ratio $$O = \frac{P_1}{P_2} \frac{Z_1}{Z_2} = 100$$
+	<p>model 1 is 100x more probably than model 2, given this data
+	<p>
+	<p>$O \sim 1$: can not distinguish!
+</section>
+
+<section>
+	<h2>Pragmatic view</h2>
+	<ul>
+	<li> Why fitting is poor
+	<ul>
+	<li> multiple peaks
+	<li> uncertainty estimates in multiple dimensions are dodgy
+	</ul>
+	<li>Bayesian inference with MCMC
+	<li>Bayesian inference with nested sampling
+	<ul>
+	<li> Global algorithm
+	<li> samples from parameter space
+	<li> explores multiple peaks
+	<li> computes integral, quite fast
+	</ul>
+	</ul>
+	<p>
+</section>
+
+<section>
+	<h2>Application: obscurer of AGN</h2>
+	<img src="img/torusmodels.png" style="float:right; background-color: white">
+	<p>CDFS: ~300 AGN detected
+	<p>
+</section>
+
+<section>
+	<h2>Model definition: Torus</h2>
+	<img src="customimg/torusmodel.png" style="background-color: white; border: none;">
+	<p>represents physical scenario: $\Gamma$, $N_H$, normalisation</p>
+	<img src="img/spectral_features.png" style="float:right; background-color: white">
+	<p>
+</section>
+
+<section>
+	<h2>Parameters</h2>
+	<center><table>
+	<tr><td>Normalisation ~ L<td>log-uniform</tr>
+	<tr><td>$\Gamma$<td>informed prior $1.95\pm0.15$</tr>
+	<tr><td>column density $N_H$<td>log-uniform</tr>
+	<tr><td>z<td>informed prior: photo-z pdf</tr>
+	</table></center>
+</section>
+
+<section>
+	<h2>Spectra: 179</h2>
+	<img src="img/torus+reflection+scatteringcomponents.png" style="background-color: white">
+	<img src="customimg/table.png" style="float:right; background-color: white">
+	<p>
+</section>
+
+<section>
+	<h2>Proposal</h2>
+	<table>
+	<tr><th>Already best practise<th>Proposed<th>&nbsp;</tr>
+	<tr><td>
+	<ul>
+	<li>No binning (except for visualisation)
+	<li>model the background
+	<li>C-stat / Poisson likelihood
+	</ul>
+	</td><td>
+	<ul>
+	<li>Compute parameters, uncertainties
+	<li>Compute Z
+	<li>Compare Models
+	<li>Easy!
+	</ul>
+	</td><td>
+	<ul>
+	<li> A method for combining pieces of information
+	<li> z + local information + X-ray data
+	<li> Experiment design
+	</td>
+	</tr></table>
+	<p> $\rightarrow$ see paper
+</section>
+
+<section>
+	<h2>Change</h2>
+	$\frac{d\text{method}}{dt} \sim 0$
+	
+	<ul>
+	<li>be pragmatic
+	<li>How good is the method?
+	<li>Do you understand why it works (for what kind of problems)?
+	<li>When does it fail?
+	<li>How does failure look like? Can you detect it?
+	<li>Systematic errors?
+	
+</section>
+
+<section>
+	<h2>Statistics background</h2>
+	$$ p(H|M,D) = \frac{p(H|M) p(D,M)}{Z} $$
+	$$ Z = \int{p(H|M) p(D,M)} = p(D|M) $$
+	$$ Z = \int{p(\theta|M) \cal{L}(\theta)} d\theta $$
+	$$ O = \frac{p(M_A|D)}{p(M_B|D)} = \frac{p(M_A) p(D|M_A)}{p(M_B) p(D|M_B)} $$
+	"Average likelihood over parameter space"
+</section>
+
+<section>
+	<h2>Model discovery</h2>
+	<img src="customimg/318_bg_qq_cmp.png" style="background-color: white">
+</section>
+<section>
+	<h2>Model discovery</h2>
+	<img src="customimg/discovery-loop.png" style="background-color: white">
+	<img src="customimg/090402_robot_scientist_ross_king.jpg" style="background-color: white">
+</section>
+
+<section>
+	<h2>False detection probability</h2>
+	<img src="customimg/stackedarea3_0_1.png" style="background-color: white">
+	<p>
+</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+			/*Reveal.addEventListener( 'ready', function( event ) {
+				$('section').click(function( event ) {
+					if (!event.ctrlKey && !event.shiftKey && !event.altKey)
+						Reveal.next();
+				});
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );*/
+
+		</script>
+
+
+		<!--<div class="share-reveal" style="display: none; position: absolute; bottom: 14px; left: 50%; margin-left: -230px; z-index: 20;">-->
+		<div class="share-reveal" style="display: none; position: absolute; top: 14px; text-align:right; right: 1em; margin-left: -230px; z-index: 20;">
+			<a href="http://arxiv.org/abs/1402.0004" style="font-size:2em !important;">http://arxiv.org/abs/1402.0004</a>
+		</div>
+
+		<script>
+			if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+				document.querySelector( '.share-reveal' ).style.display = 'block';
+				document.querySelector( '.fork-reveal' ).style.display = 'block';
+			}
+		</script>
+	</body>
+</html>
+

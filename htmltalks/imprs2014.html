@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>XLF</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		.reveal img {
+			border-color: #AAA !important;
+		}
+		.reveal h2, .reveal h1, reveal .present {
+			padding-top: 0;
+			margin-top: 0;
+		}
+		.note {
+			color: #CCC;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<h2>Hidden&nbsp;Accretion onto&nbsp;Supermassive Black&nbsp;Holes</h2>
+	<h3>Revealed</h3>
+	<p>X-ray AGN Workshop / Apr 2014</p>
+	<h3>Johannes Buchner</h3>
+	<p style='font-size: 0.7em'>MPE :: High-Energy :: AGN
+	<p style='font-size: 0.7em'>in collaboration with A.&nbsp;Georgakakis, K.&nbsp;Nandra, <b>Li-Ting&nbsp;Hsu, Sotiria&nbsp;Fotopoulou, Marie-Luise&nbsp;Menzel</b>, C.&nbsp;Rangel, M.&nbsp;Brightman, A.&nbsp;Merloni and M.&nbsp;Salvato</p>
+</section>
+
+<section>
+	<h2>Overview</h2>
+	<ol>
+	<li>Active Galactic Nuclei (AGN) in X-ray
+	<!--<ul><li>why and how</ul>-->
+	<li>Obscuration effects
+	<li>Research question
+	<li>Approach &amp; Data
+	<li>Visualisations
+	<li>Models for the obscurer
+</section>
+
+<section>
+	<h2>X-ray effects</h2>
+	<img src="customimg/xsect_plot.png" style="height: 15em">
+	<p style='font-size: 0.7em; padding: 0; margin: 0;'>Emittors, Detectors, Telescope location
+</section>
+
+<section>
+	<img src="customimg/slides_agn_sketch.png" style="background-color: white" />
+</section>
+
+<section>
+	<img src="customimg/slides_agn_intro.png" style="background-color: white" />
+</section>
+<section>
+	<h2>X-ray spectrum of AGN</h2>
+	<ul>
+	<li>Powerlaw - Luminosity $L$
+	<li>Absorption - Column density $N_H$
+	<li>Squeezing - Redshift $z$
+	<li>Soft scattering component
+	<li class="fragment">Compton scattering - Covering $R$
+	<img src="customimg/torusmodels_part.png" style="background-color: white" />
+	Buchner+2014
+	</ul>
+</section>
+
+<section>
+	<h2>Research Question</h2>
+	<ul>
+	<li>Relationship accretion - obscuration ($L_X$ - $N_H$)
+	<li>Cosmic evolution, Co-evolution with galaxies?
+	</ul>
+	<div class="fragment">
+	<p>$\Rightarrow$ Investigate distribution of population <br/>in luminosity, redshift and $N_H$
+	<ul>
+		<li>What fraction are obscured $N_H>{10}^{22} \text{cm}^{-2}$?
+		<li>What fraction are Compton-thick $N_H>{10}^{24} \text{cm}^{-2}$?
+		<li>Does the obscurer "react" to the luminosity?
+	</ul>
+	</div>
+</section>
+
+<section>
+	<h2>Survey fields</h2>
+	<img src="customimg/fields.png" style="background-color: white" />
+</section>
+<section>
+	<h2>Data</h2>
+	<img src="customimg/summarizedLz.png" style="background-color: white" />
+</section>
+
+<section>
+	<h2>Side-note: X-ray spectra</h2>
+	<ul>
+	<div style="float: right">
+	<img src="customimg/detector_counts.png" style="background-color: white; padding: 0.3em;" />
+	<br/>
+	</div>
+	<li>$\phi = k / t$ ?
+	<li>$k \sim \text{Poisson}(\phi \cdot t \cdot \text{bias})$
+	<li>$\rightarrow$ find all $\phi$ that could produce $k$ counts
+	<li class="fragment">$\rightarrow$ Find all $L_X$, $z$, $N_H$ which could produce $k$ (spectrum)
+	<img src="customimg/dual.png" style="background-color: white; width: 10em; float: right;" />
+</section>
+
+<section>
+	<h2>Data</h2>
+	<img src="customimg/summarizedLz.png" style="background-color: white" />
+	$z=0.5-3$, $L_X={10}^{42-46} \text{erg/s}$<br/>
+	What is the distribution of the population?
+</section>
+
+
+<section>
+	<h2>Luminosity function</h2>
+	<img src="customimg/Lzbins.png" style="background-color: white" />
+	<ul>
+	<li>$\phi = k / V$ ?
+	<li>$k \sim \text{Poisson}(\phi \cdot t \cdot \text{bias})$
+	<li>$\rightarrow$ find all $\phi$ that could produce $k$ detected objects
+	<ul class="fragment">
+	<li>Bias against faint, obscured, high-z
+	<li>Can use smoothness between bins
+	<li>Uncertainty which bin
+</section>
+
+<section>
+	<h2>Model</h2>
+	<img src="customimg/Lzcube.png" style="background-color: white; padding: 0.5em 1em;" />
+	<br/>
+	<ul>
+	<li>"Fit a 3d histogram"
+	<li>Smooth density function
+	<li>"Debiased"
+</section>
+
+
+<section>
+	<img src="customimg/Lzcube_totallf.png" style="background-color: white; float:right; width: 4.5em; z-index: 3; position: absolute; left: 85%; border: 0;" />
+	<h3 style="text-align: left;">Total luminosity function</h3>
+	<img src="customimg/fieldsummary_comparison_totallf_L.png" style="background-color: white; " />
+</section>
+
+
+<section>
+	<img src="customimg/Lzcube_evol.png" style="background-color: white; float:right; width: 4.5em; z-index: 3; position: absolute; left: 85%; border: 0;" />
+	<h3 style="text-align: left;">Density evolution</h3>
+	<img src="customimg/fieldsummary_z.png" style="background-color: white; width: 47%; " />
+	<img src="customimg/fieldsummary_z+CT.png" style="background-color: white; width: 47%" />
+	$\int \phi dL$
+	<p>
+	<span style="color: blue;">Obscured</span>: ${{76}^{+4}_{-5}\%}$,
+	<span style="color: green;">Compton-thick</span>: ${36}^{+8}_{-8}\%$
+</section>
+
+<section>
+	<img src="customimg/Lzcube_evol.png" style="background-color: white; float:right; width: 4.5em; z-index: 3; position: absolute; left: 85%; border: 0;" />
+	<h3 style="text-align: left;">Luminosity density</h3>
+	<img src="customimg/fieldsummary_z_moment.png" style="background-color: white; float: right; width: 60%;" />
+	$$\int L \times \phi dL$$
+	<!--$L_{bol} = \epsilon \cdot \dot{M}$-->
+	<p>Accretion happens mostly in obscured AGN (75%)
+	<!---<ul style="width: 35%">
+	<li>Accretion happens mostly in obscured AGN (75%)
+	<li>Compton-thick contribute as much as obscured Compton-thin AGN
+	</ul>-->
+</section>
+
+<section>
+	<h3>Accretion relics</h3>
+	<ol>
+	<li>$L_{bol} = \epsilon \cdot \dot{M}$ (Thermal equilibrium of accretion disk)
+	<li>$\epsilon = 0.1$ (non-rotating BH: 0.06, rotating BH: 0.4)
+	<li>$L_{bol} = 40 \times L_X$ (Elvis+99, first order)
+	</ol>
+	<p>
+	$$\Rightarrow \dot{M}(L) = 40 \times L_X / \epsilon$$
+	The luminosity output of the AGN population indicates how much mass
+	is being trapped into black holes (Soltan argument)
+</section>
+
+<section>
+	<h3>Accretion relics</h3>
+	<img src="customimg/fieldsummary_BHMdensity_evolution_z_simple.png" style="background-color: white; width: 65%" />
+</section>
+
+<section>
+	<h3>Obscuration - Luminosity</h3>
+	<img src="customimg/fieldsummary_comparison_obscfrac_merged_L.png" style="background-color: white; width: 100%" />
+</section>
+
+
+<section>
+	<h3>Models</h3>
+	<img src="img/models_obscuration_effect.png" style="background-color: white; width: 60%" />
+</section>
+
+<section>
+	<h3>Evolutionary model</h3>
+	<img src="img/bknpow.png" style="background-color: white; width: 60%" />
+</section>
+
+<section>
+	<h3>More realistic picture of AGN</h3>
+	<img src="img/agn-illustration2.png" style="background-color: white; width: 80%" />
+</section>
+
+<section>
+	<h3>Conclusions</h3>
+	<ul>
+	<li>Sample of 2000 AGN analysed for X-ray properties $L$, $z$, $N_H$
+	<li>luminosity function determined $\phi(L, z, N_H)$
+	<li>fraction $N_H>10^{22} \text{cm}^{-2}$: 75% (45°)
+	<li>fraction $N_H>10^{24} \text{cm}^{-2}$: 35% (20°)
+	<li>The accretion in obscured AGN can explain local black hole mass density
+	<li>Obscured fraction is luminosity dependent
+	<ul>
+	<li>Relationship evolves
+	<li>why? $\rightarrow$ need more research
+	<ul><li>parametric model
+</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+				overview: false,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				],
+			});
+			Reveal.addEventListener( 'ready', function( event ) {
+				$('section').click(function( event ) {
+					if (!event.ctrlKey && !event.shiftKey && !event.altKey)
+						Reveal.next();
+				});
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );
+
+		</script>
+	</body>
+</html>
+

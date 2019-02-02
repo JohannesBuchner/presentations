@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="24cm" height="12cm" viewBox="73 42 480 235" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path style="fill: none; fill-opacity:0; stroke-width: 6; stroke: #ff0000" d="M 348.2 222.8 C 262.2,169.8 276.7,235 268.7,240"/>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="92.2" y1="276.3" x2="92.2" y2="78.5361"/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="97.2,78.5361 92.2,68.5361 87.2,78.5361 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="74.2" y1="255.3" x2="491.964" y2="255.3"/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="491.964,260.3 501.964,255.3 491.964,250.3 "/>
+  </g>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="493.2" y="250.175">
+    <tspan x="493.2" y="250.175">energy</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="104.2" y1="265.3" x2="104.2" y2="255.3"/>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="104.2" y="251.3">
+    <tspan x="104.2" y="251.3">0.1</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="440.2" y1="263.3" x2="440.2" y2="255.3"/>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="440.2" y="251.3">
+    <tspan x="440.2" y="251.3">10</tspan>
+  </text>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="521.2" y="260.3">
+    <tspan x="521.2" y="260.3">(keV)</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 6; stroke: #ff0000" x1="348.2" y1="222.8" x2="399.2" y2="258.3"/>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="130.95" y="58.05">
+    <tspan x="130.95" y="58.05">photon flux</tspan>
+  </text>
+  <path style="fill: none; fill-opacity:0; stroke-width: 6; stroke: #ff0000" d="M 269.7 239 C 122.966,127.015 136.7,200 128.7,205"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke-dasharray: 18; stroke: #000099" x1="87.7" y1="212" x2="506.112" y2="211.91"/>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="408.212" y="205.832">
+    <tspan x="408.212" y="205.832">background</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 5.6; stroke: #000099" x1="157.7" y1="252" x2="157.7" y2="82"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 5.6; stroke: #000099" x1="367.7" y1="252" x2="367.7" y2="82"/>
+</svg>

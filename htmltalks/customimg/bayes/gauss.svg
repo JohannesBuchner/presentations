@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="11cm" height="5cm" viewBox="69 7 215 87" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="70" y1="80" x2="270.264" y2="80"/>
+    <polygon style="fill: #000000" points="277.764,80 267.764,85 270.264,80 267.764,75 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="277.764,80 267.764,85 270.264,80 267.764,75 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="80" y1="29.7361" x2="80" y2="90"/>
+    <polygon style="fill: #000000" points="80,22.2361 85,32.2361 80,29.7361 75,32.2361 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="80,22.2361 85,32.2361 80,29.7361 75,32.2361 "/>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="110" y1="50" x2="120" y2="40"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="110" y1="40" x2="120" y2="50"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="130" y1="60" x2="140" y2="50"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="130" y1="50" x2="140" y2="60"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="150" y1="40" x2="160" y2="30"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="150" y1="30" x2="160" y2="40"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="170" y1="50" x2="180" y2="40"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="170" y1="40" x2="180" y2="50"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="190" y1="70" x2="200" y2="60"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="190" y1="60" x2="200" y2="70"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="210" y1="54.6249" x2="220" y2="44.6249"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="210" y1="44.6249" x2="220" y2="54.6249"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="230" y1="50" x2="240" y2="40"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000099" x1="230" y1="40" x2="240" y2="50"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 110 20 C 110,20 110,26 108,30 C 106,34 100,37.6667 100,46 C 100,54.3333 106,56 108,60 C 110,64 110,72 110,72"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 135.796 30 C 135.796,30 135.796,36 133.796,40 C 131.796,44 125.796,47.6667 125.796,56 C 125.796,64.3333 131.796,66 133.796,70 C 135.796,74 135.796,82 135.796,82"/>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="280" y="90">
+    <tspan x="280" y="90">i</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="70" y="20">
+    <tspan x="70" y="20">y</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000099" x1="115.125" y1="34.75" x2="115.125" y2="54.75"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000099" x1="135.125" y1="45" x2="135.125" y2="65"/>
+</svg>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="24cm" height="14cm" viewBox="69 14 474 268" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke-dasharray: 6; stroke: #666666" x1="270" y1="70" x2="530" y2="250"/>
+  <text font-size="16.9333" style="fill: #666666;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="300" y="88">
+    <tspan x="300" y="88">intrinsic </tspan>
+    <tspan x="300" y="109.167">        power law</tspan>
+  </text>
+  <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" d="M 400 160 C 314,107 314.5,189.387 282.5,266.388"/>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:end;font-family:sans-serif;font-style:normal;font-weight:normal" x="396" y="175">
+    <tspan x="396" y="175">photo -  </tspan>
+    <tspan x="396" y="196.167">electric   </tspan>
+    <tspan x="396" y="217.333">absorption</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke-dasharray: 4; stroke: #000000" x1="330" y1="260" x2="120" y2="260"/>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="390" y="260">
+    <tspan x="390" y="260">reflection</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke-dasharray: 6; stroke: #000000" x1="80" y1="140" x2="280" y2="280"/>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="127" y="162">
+    <tspan x="127" y="162">scattering</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 346.079,156.531 A 277.319,277.319 0 0 0 314.428,132.793"/>
+    <polygon style="fill: #000000" points="348.339,158.503 344.029,157.309 346.111,156.494 346.708,154.339 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="348.339,158.503 344.029,157.309 346.111,156.494 346.708,154.339 "/>
+    <polygon style="fill: #000000" points="311.903,131.175 316.357,131.575 314.455,132.751 314.255,134.978 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="311.903,131.175 316.357,131.575 314.455,132.751 314.255,134.978 "/>
+  </g>
+  <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke-dasharray: 4; stroke: #000000" d="M 330 260 C 420,260 390,180 440,220"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke-dasharray: 4; stroke: #000000" d="M 440 220 C 440,220 470,250 510,270"/>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="90" y1="180" x2="90" y2="32.2361"/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="95,32.2361 90,22.2361 85,32.2361 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="70" y1="60" x2="487.764" y2="60"/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="487.764,65 497.764,60 487.764,55 "/>
+  </g>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="130" y="30">
+    <tspan x="130" y="30">photon</tspan>
+    <tspan x="130" y="51.1667">flux</tspan>
+  </text>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="480" y="45.875">
+    <tspan x="480" y="45.875">energy</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="100" y1="70" x2="100" y2="60"/>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="100" y="56">
+    <tspan x="100" y="56">0.1</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="436" y1="68" x2="436" y2="60"/>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="436" y="56">
+    <tspan x="436" y="56">20</tspan>
+  </text>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="508" y="56">
+    <tspan x="508" y="56">(keV)</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x1="400" y1="160" x2="540" y2="256"/>
+</svg>

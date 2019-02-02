@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="8cm" height="7cm" viewBox="90 48 151 135" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <polygon style="fill: #69b5ff" points="130,160 190,160 190,140 170,90 166.482,82.8357 160,80 153.514,83.241 150,90 130,140 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2.35099e-37; stroke: #000000" points="130,160 190,160 190,140 170,90 166.482,82.8357 160,80 153.514,83.241 150,90 130,140 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="100" y1="69.7361" x2="100" y2="160"/>
+    <polygon style="fill: #000000" points="100,62.2361 105,72.2361 100,69.7361 95,72.2361 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="100,62.2361 105,72.2361 100,69.7361 95,72.2361 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="230.264" y1="160" x2="100" y2="160"/>
+    <polygon style="fill: #000000" points="237.764,160 227.764,165 230.264,160 227.764,155 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="237.764,160 227.764,165 230.264,160 227.764,155 "/>
+  </g>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 100 160 C 140,160 140.08,80 160,80"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 220 160 C 180,160 180,80 160,80"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="100" y1="140" x2="240" y2="140"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="140" y="180">
+    <tspan x="140" y="180">parameter</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="90" y="60">
+    <tspan x="90" y="60">likelihood</tspan>
+  </text>
+</svg>

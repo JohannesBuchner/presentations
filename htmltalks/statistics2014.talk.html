@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bayesian model selection for X-ray spectra</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+<section>
+	<h2>Bayesian model selection for X-ray spectra</h2>
+	<p>
+	<center>Johannes Buchner (MPE)</center>
+	<p>
+	<p>http://arxiv.org/abs/1402.0004
+	<p>
+</section>
+
+<section>
+	<h2>Overview</h2>
+	<ul>
+	<li> X-ray data collection
+	<li> Likelihood (C-stat)
+	<li> Fitting with Xspec
+	<li> Analysis with BXA (PyXspec or Sherpa)
+	<li> What does it all mean?
+	<li> Summary
+	<li> Discovering models, false positive rates
+	</ul>
+	<p>
+	<p>
+</section>
+
+<section>
+	<h2>X-ray data collection</h2>
+	<img src="customimg/xdata.png" style="float:right; background-color: white">
+	<p>
+</section>
+
+<section>
+	<h2>Likelihood for Data collection process</h2>
+	<center>Poisson statistic (C-stat)</center>
+	<p>
+	<p>Poisson likelihood($\theta$ $\rightarrow$ model $\rightarrow$ telescope; data)
+	<p>$$\cal{L}(\theta|M)$$
+	<p>
+	<p>Tells how likely it is to generate the observed data, assuming parameters $\theta$ and 
+	<p>model $M$ are the real ones.
+	<p>
+	<p>Many outcomes possible
+	<p>
+</section>
+
+<section>
+	<h2>Fitting in PyXspec</h2>
+	<code class="python">#!/usr/bin/env python
+import bxa.xspec as bxa
+from xspec import *
+
+Fit.statMethod = 'cstat'
+Plot.xAxis = 'keV'
+
+s = Spectrum('example-file.fak')
+s.notice("0.2-8.0")
+m = Model("pow")
+
+# set model parameters ranges
+#                         val, delta, min, bottom, top, max
+m.powerlaw.norm.values = ",,1e-10,1e-10,1e1,1e1" # 10^-10 .. 10
+m.powerlaw.PhoIndex.values = ",,1,1,3,3"       #     1 .. 3
+
+fit()
+
+</code>
+	<ul>
+	<li> Fitting find where $\theta$ makes $\cal{L}$ maximal
+	<li> Contour
+	<li> Fisher information
+	<li> MCMC
+	</ul>
+	<p>
+</section>
+
+<section>
+	<h2>Analysis in PyXspec or Sherpa</h2>
+	<code class="python">#!/usr/bin/env python
+"""
+Example of doing BXA in X-spec
+"""
+import bxa.xspec as bxa
+from xspec import *
+
+Fit.statMethod = 'cstat'
+Plot.xAxis = 'keV'
+
+s = Spectrum('example-file.fak')
+s.ignore("**"); s.notice("0.2-8.0")
+m = Model("pow")
+
+# set model parameters ranges
+#                         val, delta, min, bottom, top, max
+m.powerlaw.norm.values = ",,1e-10,1e-10,1e1,1e1" # 10^-10 .. 10
+m.powerlaw.PhoIndex.values = ",,1,1,3,3"       #     1 .. 3
+
+transformations = [
+	bxa.create_uniform_prior_for( m, m.powerlaw.PhoIndex),
+	bxa.create_jeffreys_prior_for(m, m.powerlaw.norm),
+]
+
+# send it off!
+bxa.standard_analysis(transformations,
+	outputfiles_basename = 'simplest-',
+	verbose=True, # show a bit of progress
+	resume=True, # MultiNest supports resuming a crashed/aborted run
+	)
+
+</code>
+	<p>
+</section>
+
+<section>
+	<h2>Explanation needed: Chains</h2>
+	<img src="customimg/hist.png" style="float:right; background-color: white">
+	<img src="customimg/cond.png" style="float:right; background-color: white">
+	<p>
+</section>
+
+<section>
+	<h2>Model comparison</h2>
+	<p>produces Z value: "evidence for the current model"
+	<p>$$B = \frac{Z_1}{Z_2}$$
+	<p>$$O = \frac{P_1}{P_2} \frac{Z_1}{%_2} = 100$$
+	<p>model 1 is 100x more probably than model 2, given this data
+	<p>
+	<p>$O~1$: can not distinguish!
+	<p>
+	<p>
+</section>
+
+<section>
+	<h2>Pragmatic view</h2>
+	<ul>
+	<li> Why fitting is poor
+	<ul>
+	<li> multiple peaks
+	<li> uncertainty estimates in multiple dimensions are dodgy
+	</ul>
+	<li> MCMC
+	<li> nested sampling
+	<ul>
+	<li> Global algorithm
+	<li> samples from parameter space
+	<li> explores multiple peaks
+	<li> computes integral, quite fast
+	</ul>
+	</ul>
+	<p>
+</section>
+
+<section>
+	<h2>Application / Priors</h2>
+	<img src="img/torusmodels.png" style="float:right; background-color: white">
+	<p>CDFS: ~300 AGN detected
+	<p>
+</section>
+
+<section>
+	<h2>Model definition: Torus</h2>
+	<img src="customimg/torusmodel.png" style="float:right; background-color: white">
+	<p>represents physical scenario
+	<img src="img/spectral_features.png" style="float:right; background-color: white">
+	<p>
+</section>
+
+<section>
+	<h2>Parameters</h2>
+	<ul>
+	<li> Normalisation ~ L  
+	<ul>
+	<li> log-uniform
+	</ul>
+	<li> $\Gamma$             
+	<ul>
+	<li> informed prior $1.95\pm0.15$
+	</ul>
+	<li> column density $N_H$
+	<ul>
+	<li> log-uniform
+	</ul>
+	<li> z
+	<ul>
+	<li> informed: pdf
+	</ul>
+	</ul>
+	<p>
+</section>
+
+<section>
+	<h2>Spectra: 179</h2>
+	<img src="img/torus+reflection+scatteringcomponents.png" style="float:right; background-color: white">
+	<img src="customimg/table.png" style="float:right; background-color: white">
+	<p>
+</section>
+
+<section>
+	<h2>Summary</h2>
+	<p>Current best practice
+	<ul>
+	<li> No binning (except for visualisation)
+	<li> model the background
+	<li> C-stat / Poisson likelihood
+	</ul>
+	<p>Proposed
+	<ul>
+	<li> Compute parameters, uncertainties
+	<li> Compute Z
+	<li> Compare Models
+	</ul>
+	<p> $\rightarrow$ see paper
+	<p>
+	<ul>
+	<li> A method for combining pieces of information
+	<ul>
+	<li> z + local information + X-ray data
+	</ul>
+	<li> Experiment design
+	</ul>
+	<p>
+	<p>
+</section>
+
+<section>
+	<h2>False detection probability</h2>
+	<img src="customimg/stackedarea3_0_1.png" style="float:right; background-color: white">
+	<p>
+</section>
+
+<section>
+	<h2>Model discovery</h2>
+	<img src="customimg/318_bg_qq_cmp.png" style="float:right; background-color: white">
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+	<p>
+</section>
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'cube',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+			Reveal.addEventListener( 'ready', function( event ) {
+				$('section').click(function( event ) {
+					if (!event.ctrlKey && !event.shiftKey && !event.altKey)
+						Reveal.next();
+				});
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );
+
+		</script>
+	</body>
+</html>
+

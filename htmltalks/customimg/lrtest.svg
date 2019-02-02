@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="13cm" height="12cm" viewBox="100 17 243 229" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="120" y1="220" x2="120" y2="29.7361"/>
+    <polygon style="fill: #000000" points="120,22.2361 125,32.2361 120,29.7361 115,32.2361 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="120,22.2361 125,32.2361 120,29.7361 115,32.2361 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="120" y="60" width="180" height="160"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="120" y="60" width="180" height="160"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="120" y1="220" x2="330.264" y2="220"/>
+    <polygon style="fill: #000000" points="337.764,220 327.764,225 330.264,220 327.764,215 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="337.764,220 327.764,225 330.264,220 327.764,215 "/>
+  </g>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="100" y="140">
+    <tspan x="100" y="140">A</tspan>
+  </text>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="200" y="240">
+    <tspan x="200" y="240">B</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 10; stroke: #000000" x1="120" y1="220" x2="300" y2="60"/>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="100">
+    <tspan x="200" y="100">A=B</tspan>
+  </text>
+  <g>
+    <path style="fill: #000000" d="M 190 148 C 190,153 195,158 200,158 C 195,158 190,163 190,168 C 190,163 185,158 180,158 C 185,158 190,153 190,148z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 190 148 C 190,153 195,158 200,158 C 195,158 190,163 190,168 C 190,163 185,158 180,158 C 185,158 190,153 190,148"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 190 148 C 190,153 195,158 200,158 C 195,158 190,163 190,168 C 190,163 185,158 180,158 C 185,158 190,153 190,148"/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 191 158 C 240.8,158 181.2,178 221.264,178"/>
+    <polygon style="fill: #000000" points="228.764,178 218.764,183 221.264,178 218.764,173 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="228.764,178 218.764,183 221.264,178 218.764,173 "/>
+  </g>
+  <g>
+    <path style="fill: #000000" d="M 241 168 C 241,173 246,178 251,178 C 246,178 241,183 241,188 C 241,183 236,178 231,178 C 236,178 241,173 241,168z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 241 168 C 241,173 246,178 251,178 C 246,178 241,183 241,188 C 241,183 236,178 231,178 C 236,178 241,173 241,168"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 241 168 C 241,173 246,178 251,178 C 246,178 241,183 241,188 C 241,183 236,178 231,178 C 236,178 241,173 241,168"/>
+  </g>
+</svg>

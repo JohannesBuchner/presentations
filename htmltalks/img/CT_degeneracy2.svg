@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="24cm" height="12cm" viewBox="70 68 480 235" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke-dasharray: 6; stroke: #666666" x1="182" y1="140" x2="393" y2="282"/>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="89" y1="302" x2="89" y2="104.236"/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="94,104.236 89,94.2361 84,104.236 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="71" y1="281" x2="488.764" y2="281"/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="488.764,286 498.764,281 488.764,276 "/>
+  </g>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="490" y="275.875">
+    <tspan x="490" y="275.875">energy</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="101" y1="291" x2="101" y2="281"/>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="101" y="277">
+    <tspan x="101" y="277">0.1</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="437" y1="289" x2="437" y2="281"/>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="437" y="277">
+    <tspan x="437" y="277">10</tspan>
+  </text>
+  <text font-size="8.46667" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="518" y="286">
+    <tspan x="518" y="286">(keV)</tspan>
+  </text>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="201" y="138">
+    <tspan x="201" y="138">photon-</tspan>
+    <tspan x="201" y="159.167">   absorbed </tspan>
+    <tspan x="201" y="180.333">          intrinsic</tspan>
+    <tspan x="201" y="201.5">               powerlaw</tspan>
+  </text>
+  <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="127.75" y="83.75">
+    <tspan x="127.75" y="83.75">photon flux</tspan>
+  </text>
+</svg>

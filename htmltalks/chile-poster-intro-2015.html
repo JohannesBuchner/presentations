@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The Fraction of Compton-thick AGN</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		body {
+		   background: white;
+		}
+		::selection, .reveal section {
+		   background: white;
+		}
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<h2>The Fraction of Compton-thick&nbsp;AGN</h2>
+	<h3>It is $38^{+8}_{-7}\%$</h3>
+	<p>Puerto Varas / Mar 2015</p>
+	<h3>Johannes Buchner</h3>
+	<a href="http://arxiv.org/abs/1501.02805">astro-ph:1501.02805</a>
+	<p style='font-size: 0.7em'>in collaboration with A. Georgakakis, K. Nandra, <br/>M. Brightman, ML. Menzel, L. Hsu, M. Salvato, C. Rangel, J. Aird, A. Merloni</p>
+</section>
+<!--
+Motivation/Intro: accretion density is highest, bad models currently used (), 
+question: what is 
+-->
+<section>
+	<h2>Data</h2>
+	<p>2000 AGN from</p>
+	<ul>
+	<li>CDFS 4Ms
+	<li>AEGIS-XD
+	<li>COSMOS
+	<li>XMM-XXL (20 sq deg)
+</section>
+
+<section>
+	<h2>Diff. to previous works</h2>
+<table style="font-size: 0.8em;">
+<tr>
+<th></th>
+<th>Aird+10</th>
+<th>Ueda+14</th>
+<th>Buchner+15</th>
+</tr>
+<tr>
+<td><i>sources without counterpart</i></td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><i>photometric redshift uncertainty</i></td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><i>+systematic uncertainty</i></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><i>absorption model</i></td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><i>soft scattering component</i></td>
+<td></td>
+<td>(fixed)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><i>Compton reflection component</i></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+</table>
+</section>
+
+
+<section>
+	<h2>Diff. to previous works</h2>
+<table style="font-size: 0.8em;">
+<tr>
+<th></th>
+<th>Aird+10</th>
+<th>Ueda+14</th>
+<th>Buchner+15</th>
+</tr>
+<tr>
+<td><i>Handles ambiguous solutions</i></td>
+<td>N/A</td>
+<td> </td>
+<td>yes</td>
+</tr>
+<tr>
+<td><i>Assumed column density distribution</i></td>
+<td>N/A</td>
+<td>LDDE</td>
+<td style="font-weight: bold">free</td>
+</tr>
+<tr>
+<td><i>Assumed evolution model</i></td>
+<td>LDDE</td>
+<td>LDDE</td>
+<td style="font-weight: bold">free</td>
+</tr>
+</table>
+</section>
+
+<section>
+	<h2>Results</h2>
+	<img src="img/fieldsummary_comparison_obscfrac_merged_L.png" style="background-color: white; ">
+</section>
+
+
+<section>
+<h2>Conclusions: AGN Model</h2>
+<ol>
+<li>Fraction of obscured AGN: $77^{+4}_{-5}\%$
+<li>Fraction of CT AGN: $38^{+8}_{-7}\%$
+<li>Luminosity-dependence evolves with z -- mass downsizing?
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'cube',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+			Reveal.addEventListener( 'ready', function( event ) {
+				$('section').click(function( event ) {
+					if (!event.ctrlKey && !event.shiftKey && !event.altKey)
+						Reveal.next();
+				});
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );
+
+		</script>
+	</body>
+</html>
+

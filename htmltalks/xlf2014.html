@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>XLF</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		.reveal img {
+			border-color: #AAA !important;
+		}
+		.reveal h2, .reveal h1, reveal .present {
+			padding-top: 0;
+			margin-top: 0;
+		}
+		.note {
+			color: #CCC;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<h1>XLF</h1>
+	<img src="customimg/mindmap.png" />
+	<p>X-ray AGN Workshop / Apr 2014</p>
+	<h3>Johannes Buchner</h3>
+	<p style='font-size: 0.7em'>in collaboration with A. Georgakakis, K. Nandra, L. Hsu, S. Fotopoulou, C. Rangel, M. Brightman, A. Merloni and M. Salvato</p>
+</section>
+
+<section>
+	<h1>Part I: Spectral Analysis</h1>
+	<p>Buchner et al 2014: ArXiV:1402.0004</p>
+</section>
+
+<section>
+	<h2>Chandra background model</h1>
+	<img src="customimg/318_bg_qq_cmp.png" />
+	<p class="note">larger extraction region, fitted. GoF methods</p>
+</section>
+
+<section>
+	<h2>What is the right model for AGN?</h1>
+</section>
+
+<section>
+	<h2>What is the not-so-wrong model for AGN?</h1>
+	<img src="img/spectral_features.svg" style="background-color: white;">
+</section>
+
+<section>
+<section>
+	<h2>Model selection</h1>
+	<img src="img/torusmodels.svg" style="background-color: white">
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>wabs</h4>
+	<img src="img/wabscomponents.png"></br>
+	<script type="math/tex">\log Z = -12.7, N_H=22.28\pm 0.04</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>torus+scattering</h4>
+	<img src="img/torus+scatteringcomponents.png"></br>
+	<script type="math/tex">\log Z = -4.7, N_H=22.45\pm 0.05</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>torus+pexmon+scattering</h4>
+	<img src="img/torus+reflection+scatteringcomponents.png"></br>
+	<script type="math/tex">\log Z = 0.0, N_H=22.44\pm 0.05</script>
+</section>
+</section>
+
+<section>
+	<h2>Model selection results in the CDFS</h2>
+	<p>torus+pexmon+scattering is the most probable model</p>
+	<img src="customimg/table2.png">
+	<p>Also for CT
+	<p>Also for <script type="math/tex">z>2</script>
+</section>
+
+<section>
+	<h2>What does it mean?</h2>
+	<ol><li>
+	<img src="img/torusmodels_posterior.svg" style="float:right; width: 60%; background-color: white;">
+	intrinsic powerlaw
+	<li>cold absorbed with Compton scattering, 
+	<li>additional cold reflection<li>soft scattering powerlaw
+	</ol>
+	<p>scattering - softer HR -> underestimate NH
+	<p>cold absorption - steeper photon index
+</section>
+
+<section>
+	<h2>Fine, so let's just fit...</h2>
+	<img src="img/CT_degeneracy4.svg" style="background-color: white; width:49%"/>
+	<img src="img/CT_degeneracy5.svg" style="background-color: white; width:49%"/>
+	<p>dual solutions
+</section>
+
+<section>
+	<h2>Fine, so let's just fit...</h2>
+	<img src="img/LNH_comp.svg" style="background-color: white"/>
+	<p>dual solutions; photo-z: pdf
+</section>
+
+<section>
+	<h2>Photo-z PDF: model misspecification</h2>
+	<img src="customimg/photoz_eq.png" style="background-color: white; width: 40%"/>
+	<img src="customimg/photoz.png" style="background-color: white; width: 40%"/>
+	<ul><li>wrong model, but useful
+	<li>small measurement errors - tiny uncertainties
+	<li>second peak is highly sensitive
+	<li>increase errors by some chosen values (systematic)
+</section>
+
+<section>
+	<h2>Photo-z PDF: </h2>
+	<img src="customimg/photozacc.png" style="background-color: white; width: 40%"/>
+	<img src="customimg/photoz_eq.png" style="background-color: white; width: 40%"/>
+	<p style="font-size: 0.5em; text-align: left;">(Hsu+14, submitted)
+	<ul><li>Add systematic uncertainty
+	<li>How useful is the second peak really?
+	</ul>
+</section>
+
+<section>
+	<h2>Given this ...</h2>
+	(Only a problem in few sources)
+	<img src="img/LNH_comp_NH.png" style="background-color: white; float:right;"/>
+	<p>Have <script type="math/tex">p(L, z, N_H, \Gamma, ...|D) </script>
+		for every object
+	<p>More: Buchner et al. 2014 
+	<p>ArXiV:1402.0004
+	<p>Goodness of Fit, Parameter estimation, Model comparison methods,
+	Model verification, Model discovery
+	<p>Model comparison of the obscurer of AGN in the CDFS
+</section>
+
+<section>
+	<h1>Part II: from samples to populations</h1>
+</section>
+<section>
+	<h2>Population properties vs Sample statistics</h2>
+	<img src="customimg/selection.svg" style="background-color: white"/>
+	<p>Sample is drawn from population: is it just a peculiar draw?
+	<p>Estimate of density <script type="math/tex">\Phi</script> as a 
+	function of properties
+</section>
+
+<section>
+	<h2>What is <script type="math/tex">\Phi</script>?</h2>
+	Even when no selection bias, and perfect knowledge of the objects
+	<p><img src="customimg/sample.svg" style="background-color: white; float: right;"/>
+	
+	<p><script type="math/tex">\Phi</script> has uncertainty
+	<script type="math/tex">Poisson(k = 3, n = V\times\Phi)</script>
+	<p><script type="math/tex">\Rightarrow \Phi</script> is not a real thing
+	<p>It is the <b>tendency</b>, or <b>propensity</b> <br/>
+	of a process to form/place objects
+	<br/>with properties (L, z, NH, ...).
+</section>
+
+<section>
+	<h2>Likelihood for LF</h2>
+	<p>Loredo+04:
+	<script type="math/tex">\cal{L}=p(D|\Phi)=</script>
+	<script type="math/tex">=\prod_i{\ln{\int{p(D_i|P)\Phi(P) dP}}} \cdot \exp\left(-{\int{p(\cal{D}|P)\Phi(P) dP}}\right)</script>
+	<p>Poisson. Kelly+08 for Binomial derivation: difference:
+	<p><script type="math/tex">\sum_i{\ln{\int{p(D_i|P)\Phi(P) dP}}} - \int{p(\cal{D}|P)\Phi(P) dP}</script>
+	<p><script type="math/tex">\sum_i{\ln{\int{p(D_i|P)\Phi(P) dP}}} - N\cdot \ln{\int{p(\cal{D}|P)\Phi(P) dP}} </script>
+	Normalisation is sampled separately. Poisson sufficient.
+</section>
+
+<section>
+	<h2>LF estimation: numerical likelihood</h2>
+	<p><script type="math/tex">\ln{\cal{L}}=\sum_i{\ln{\int{p(D_i|P)\Phi(P) dP}}} - \int{p({\cal{D}}|P)\Phi(P) dP}</script>
+	<p><script type="math/tex">\ln{\cal{L}}\approx\sum_i{\ln{\sum_j{\Phi(P_{ij}) \cdot w_{ij}}}} - {\sum_j{\Phi(P_{Aj}) \cdot w_{Aj}}}</script>
+	<p>Fast to compute. Takes 10 minutes for LDDE with full dataset.
+</section>
+
+<section>
+	<h2>Likelihood in practice</h2>
+	<p><script type="math/tex">\ln{\cal{L}}=\sum_i{\ln{\int{p(P|D_i)\Phi(P) dP}}} - \int{A(P)\Phi(P) dP}</script>
+	Astronomers use:
+	<p><script type="math/tex">\ln{\cal{L}}=\sum_i{\ln{\int{p(P|D_i)\Phi(P) A(P) dP}}} - \int{A(P)\Phi(P) dP}</script>
+	<p>Read Loredo+04 for detailed explanation.
+	<p>Why do people use the wrong formula?
+</section>
+
+<section>
+	<h2>Because it works</h2>
+	<p>Posterior from spectral fitting can yield L=0
+	<img src="customimg/lowL.svg" style="background-color: white"/>
+	<p>data is consistent with no AGN, only background
+	<p>But it was detected with <script type="math/tex">p(BG|D) \propto 10^{-6}</script>!
+	<p>What went wrong here?
+</section>
+
+
+<section>
+	<h2>Why is L=0 allowed?</h2>
+	<ul><li><img src="customimg/srcregions.svg" style="background-color: white; width: 50%; float: right; "/>
+	detection in small area
+	<li>extraction in large area.
+	<li>6 counts in small area by BG - tiny probability
+	<li>9 counts in large area by BG - probable
+	<li>We forgot about spatial distribution of counts
+	<li>Right way: fit with PSF for source, flat profile for BG
+</section>
+
+<section>
+	<h2>Approximations to the right way</h2>
+	<p><script type="math/tex">p(D_i, {\cal{D}}|L) = p({\cal{D}}|D_i, L) \cdot p(D_i|L)</script>
+	<p><script type="math/tex">\approx p(\text{k in this detection region}|D_i, L, BG) \cdot p(D_i|L)</script>
+	<p><script type="math/tex">\approx p(\text{k in a detection region of the field}|D_i, L, BG) \cdot p(D_i|L)</script>
+	<p><script type="math/tex">= A(L) \cdot \cal{L}</script>
+	<p>If you forgot the information, you can multiply to get crude estimate
+</section>
+
+
+<section>
+	<h2>Definition of AGN</h2>
+	<img src="img/Lzplane_withlimits.png" style="background-color: white; width: 50%; float: right; "/>
+	<p>Area curve ~ prob of detection, via torus model
+	<p>What are we detecting?
+	<p>= What are we computing the LF of
+	<p>Definition:</p>
+	<ul><li>hard-band detected
+	<li>not a star
+	<li>not a galaxy (e.g. Xue+11: <script type="math/tex">L<42, \Gamma_{eff}<1, X/O</script>)
+</section>
+
+<section>
+	<h2>Selection</h2>
+	<p>Example: CDFS
+	<ul>
+	<li>569 detected
+	<li>530 have z information
+	<li>526 of these have X-ray extracted
+	<li>502 are not stars
+	<li>376 are not galaxies
+	</ul>
+</section>
+
+<section>
+	<h2>Selection</h2>
+	Example: CDFS
+	<ul>
+	<li>what about the ones that do not have z information?
+	<li>what about those without X-ray data extracted?
+	</ul>
+	<p>Correct: use no z information (flat)
+	<p>Analyse (lack of) data
+</section>
+
+<section>
+	<h2>Priors &amp; Hierarchical Bayes</h2>
+	<p>We used priors in the normalisation, z,  <script type="math/tex">N_{H}</script>,
+	before considering data
+	<p>But LF should be the prior!
+	<p>i.e. the population propensity
+</section>
+<section>
+	<h2>Priors &amp; Hierarchical Bayes</h2>
+	<p><script type="math/tex">\int{p(D|\cal{D},\Phi) dP} = \int{p(D|\cal{D},P)p(P|\Phi) dP}</script>
+	<p><script type="math/tex">= \int{p(D|\cal{D}, P) {p(P)\over p(P)} \Phi(P) dP}</script>
+	<p>Divide prior away again. Hierarchical Bayes with Intermediate priors.
+	<p>for uniform priors in P=<script type="math/tex">\log L, z, \log N_H</script>: no problem, is a constant, because <script type="math/tex">\phi</script> is defined in these units
+	<p>use uniform priors in photo-z
+</section>
+
+<section>
+	<h2>Hierarchical Bayes</h2>
+	<img src="customimg/pidgeonholes.svg" style="background-color: white; float: left;"/>
+	<p>Two, equally probable solutions!
+	<p>Probability is not a frequency, but a state of information
+	<p>but: law of large numbers: more combinations in the middle
+</section>
+
+<section>
+	<h2>Binning and Visualisation</h2>
+	<p>probability clouds in <script type="math/tex">L, z, N_H</script>
+	<p>which pidgeon hole (bin) to stuff each object in? (for plotting)
+	<ol><li>interpret as frequency - weight
+	<li>bootstrap (also frequency interpretation)
+	<li>cumulative view: number of objects for which 
+	<script type="math/tex">L>44, z>2, N_H>24</script>?
+	</ol>
+	Answer: none of the above are satisfying
+</section>
+
+<section>
+	<h2>modeling</h2>
+	<p>modeling is safer: incorporates the probabilities correctly
+	<p>Output is density function, can be easily understood directly
+	<p>Problems:
+	<ul><li>is the model right?
+	<li>where is the model wrong?
+	<li>how to discover new models?
+</section>
+
+<section>
+	<h2>non-parametric parametric approach</h2>
+	<p>model is the field to recover itself
+	<p>Simple approach: 3d histogram, bin values are the parameters
+	<p>L=42...46 (11 bins)
+	<p>z=0.001...7 (11 bins)
+	<p>NH=20...26 (6 bins)
+	<p>-- ~1000 parameters.
+	<p>underdefined problem.
+</section>
+
+
+<section>
+	<h2>smoothness priors</h2>
+	<p>Additional knowledge: Smoothness in <script type="math/tex">L, z, N_H</script>
+	<p><img src="customimg/smoothnesspriors.svg" style="background-color: white"/>
+	<ul><li>other options: IFT, NIFTY: recover field independent of grid-choice
+	<li>later: use model (less sensitive to prior choice)
+	<li>compute Z, compare models
+</section>
+
+<section>
+	<h2>Summary</h2>
+	<img src="customimg/mindmap.png" style="background-color: white" />
+	<ul><li>Every point has subtleties. No-one has done all of them right so far.
+	<li>We are getting closer.
+</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				],
+			});
+			Reveal.addEventListener( 'ready', function( event ) {
+				$('section').click(function( event ) {
+					if (!event.ctrlKey && !event.shiftKey && !event.altKey)
+						Reveal.next();
+				});
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );
+
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="22cm" height="3cm" viewBox="19 149 424 58" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="20" y1="200" x2="20" y2="150"/>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="20" y1="200" x2="429" y2="200"/>
+    <polygon style="fill: #000000" points="429,205 439,200 429,195 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="429,205 439,200 429,195 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="34.2857,170 40.7143,170 45,174.286 45,180.714 40.7143,185 34.2857,185 30,180.714 30,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="34.2857,170 40.7143,170 45,174.286 45,180.714 40.7143,185 34.2857,185 30,180.714 30,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="34.2857,170 40.7143,170 45,174.286 45,180.714 40.7143,185 34.2857,185 30,180.714 30,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="54.2857,170 60.7143,170 65,174.286 65,180.714 60.7143,185 54.2857,185 50,180.714 50,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="54.2857,170 60.7143,170 65,174.286 65,180.714 60.7143,185 54.2857,185 50,180.714 50,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="54.2857,170 60.7143,170 65,174.286 65,180.714 60.7143,185 54.2857,185 50,180.714 50,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="124.286,170 130.714,170 135,174.286 135,180.714 130.714,185 124.286,185 120,180.714 120,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="124.286,170 130.714,170 135,174.286 135,180.714 130.714,185 124.286,185 120,180.714 120,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="124.286,170 130.714,170 135,174.286 135,180.714 130.714,185 124.286,185 120,180.714 120,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="84.2857,170 90.7143,170 95,174.286 95,180.714 90.7143,185 84.2857,185 80,180.714 80,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="84.2857,170 90.7143,170 95,174.286 95,180.714 90.7143,185 84.2857,185 80,180.714 80,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="84.2857,170 90.7143,170 95,174.286 95,180.714 90.7143,185 84.2857,185 80,180.714 80,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="224.286,170 230.714,170 235,174.286 235,180.714 230.714,185 224.286,185 220,180.714 220,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="224.286,170 230.714,170 235,174.286 235,180.714 230.714,185 224.286,185 220,180.714 220,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="224.286,170 230.714,170 235,174.286 235,180.714 230.714,185 224.286,185 220,180.714 220,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="134.286,170 140.714,170 145,174.286 145,180.714 140.714,185 134.286,185 130,180.714 130,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="134.286,170 140.714,170 145,174.286 145,180.714 140.714,185 134.286,185 130,180.714 130,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="134.286,170 140.714,170 145,174.286 145,180.714 140.714,185 134.286,185 130,180.714 130,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="154.286,170 160.714,170 165,174.286 165,180.714 160.714,185 154.286,185 150,180.714 150,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="154.286,170 160.714,170 165,174.286 165,180.714 160.714,185 154.286,185 150,180.714 150,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="154.286,170 160.714,170 165,174.286 165,180.714 160.714,185 154.286,185 150,180.714 150,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="274.286,170 280.714,170 285,174.286 285,180.714 280.714,185 274.286,185 270,180.714 270,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="274.286,170 280.714,170 285,174.286 285,180.714 280.714,185 274.286,185 270,180.714 270,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="274.286,170 280.714,170 285,174.286 285,180.714 280.714,185 274.286,185 270,180.714 270,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="314.286,170 320.714,170 325,174.286 325,180.714 320.714,185 314.286,185 310,180.714 310,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="314.286,170 320.714,170 325,174.286 325,180.714 320.714,185 314.286,185 310,180.714 310,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="314.286,170 320.714,170 325,174.286 325,180.714 320.714,185 314.286,185 310,180.714 310,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="354.286,170 360.714,170 365,174.286 365,180.714 360.714,185 354.286,185 350,180.714 350,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="354.286,170 360.714,170 365,174.286 365,180.714 360.714,185 354.286,185 350,180.714 350,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="354.286,170 360.714,170 365,174.286 365,180.714 360.714,185 354.286,185 350,180.714 350,174.286 "/>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="400" y1="200" x2="400" y2="150"/>
+  <g>
+    <polygon style="fill: #ffffff" points="44.2857,170 50.7143,170 55,174.286 55,180.714 50.7143,185 44.2857,185 40,180.714 40,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="44.2857,170 50.7143,170 55,174.286 55,180.714 50.7143,185 44.2857,185 40,180.714 40,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="44.2857,170 50.7143,170 55,174.286 55,180.714 50.7143,185 44.2857,185 40,180.714 40,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="74.2857,170 80.7143,170 85,174.286 85,180.714 80.7143,185 74.2857,185 70,180.714 70,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="74.2857,170 80.7143,170 85,174.286 85,180.714 80.7143,185 74.2857,185 70,180.714 70,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="74.2857,170 80.7143,170 85,174.286 85,180.714 80.7143,185 74.2857,185 70,180.714 70,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="114.286,170 120.714,170 125,174.286 125,180.714 120.714,185 114.286,185 110,180.714 110,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="114.286,170 120.714,170 125,174.286 125,180.714 120.714,185 114.286,185 110,180.714 110,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="114.286,170 120.714,170 125,174.286 125,180.714 120.714,185 114.286,185 110,180.714 110,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="174.286,170 180.714,170 185,174.286 185,180.714 180.714,185 174.286,185 170,180.714 170,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="174.286,170 180.714,170 185,174.286 185,180.714 180.714,185 174.286,185 170,180.714 170,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="174.286,170 180.714,170 185,174.286 185,180.714 180.714,185 174.286,185 170,180.714 170,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="244.286,170 250.714,170 255,174.286 255,180.714 250.714,185 244.286,185 240,180.714 240,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="244.286,170 250.714,170 255,174.286 255,180.714 250.714,185 244.286,185 240,180.714 240,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="244.286,170 250.714,170 255,174.286 255,180.714 250.714,185 244.286,185 240,180.714 240,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="254.286,170 260.714,170 265,174.286 265,180.714 260.714,185 254.286,185 250,180.714 250,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="254.286,170 260.714,170 265,174.286 265,180.714 260.714,185 254.286,185 250,180.714 250,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="254.286,170 260.714,170 265,174.286 265,180.714 260.714,185 254.286,185 250,180.714 250,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="284.286,170 290.714,170 295,174.286 295,180.714 290.714,185 284.286,185 280,180.714 280,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="284.286,170 290.714,170 295,174.286 295,180.714 290.714,185 284.286,185 280,180.714 280,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="284.286,170 290.714,170 295,174.286 295,180.714 290.714,185 284.286,185 280,180.714 280,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="334.286,170 340.714,170 345,174.286 345,180.714 340.714,185 334.286,185 330,180.714 330,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="334.286,170 340.714,170 345,174.286 345,180.714 340.714,185 334.286,185 330,180.714 330,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="334.286,170 340.714,170 345,174.286 345,180.714 340.714,185 334.286,185 330,180.714 330,174.286 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="384.286,170 390.714,170 395,174.286 395,180.714 390.714,185 384.286,185 380,180.714 380,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="384.286,170 390.714,170 395,174.286 395,180.714 390.714,185 384.286,185 380,180.714 380,174.286 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="384.286,170 390.714,170 395,174.286 395,180.714 390.714,185 384.286,185 380,180.714 380,174.286 "/>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #aaaaaa" x1="370" y1="200" x2="370" y2="190"/>
+</svg>

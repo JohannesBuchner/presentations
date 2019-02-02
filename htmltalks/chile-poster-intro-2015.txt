@@ -1,0 +1,33 @@
+
+ For your convenience I put what the fraction of Compton-thick AGN in the Universe is
+ 
+ right there, it is 38%+-8%.
+ 
+ And this is the fraction of obscured AGN, also averaged over cosmic time.
+ These numbers should be quite robust, because all selection biases and uncertainties are incorporated, and no empirical models are assumed.
+ 
+ My name is Johannes Buchner. Today I am presenting a paper just accepted to ApJ
+ which you can find here. My collaborators are listed in the top right.
+ 
+ Let me explain the measurement. We used hard X-ray detected 2000 AGN, for which we analysed the 
+ spectra in detail with realistic, physically motivated models, incorporating redshift uncertainties.
+ In 2014, I published a Bayesian method for X-ray spectral analysis, which gives for each object probability distributions in 
+ intrinsic X-ray luminosity, redshift and obscuring column density.
+ This is then propagated into a luminosity function approach, incorporating the selection bias.
+ And here I am simultaneously constraining the NH distribution and the luminosity function as well as their evolution,
+ and this is done in a non-parametric way.
+ 
+ Now that I have the AGN demographics I can devide the population by obscuration.
+ For the Compton-thick fraction, I do not find any luminosity dependence at any redshift intervals, and averaged over
+ cosmic time it is 38%.
+ For the remainder of the population, I find the well-known luminosity dependence of the obscured fraction.
+ Comparing across redshift panels -- the red star is always at the same point -- the luminosity dependence appears to set on at higher and higher luminosities. The whole shape appears to move to the right, also connecting to local observations.
+  And in the paper I speculate on why such a evolution would appear. Essentially, this is possible if there is mass downsizing, as mentioned by Andreas Schulze, as the destruction of obscuration depends on black hole mass in some models.
+ 
+ 
+ 
+ 
+ 
+ 
+
+

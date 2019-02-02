@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The Geometry of the Obscurer in X-rays</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<h1>The geometry of the obscurer</h1>
+	<h3>in high-redshift X-ray AGN</h3>
+	<p>AGN club / Oct 2013</p>
+	<h3>Johannes Buchner</h3>
+	<p style='font-size: 0.7em'>in collaboration with A. Georgakakis, K. Nandra, L. Hsu, C. Rangel, M. Brightman, A. Merloni and M. Salvato</p>
+</section>
+<!--
+Motivation/Intro: accretion density is highest, bad models currently used (), 
+question: what is 
+-->
+<section>
+	<h2>Motivation</h2>
+	<ul><li>Accretion density peaks at <script type="math/tex">z = 0.5 - 3</script>
+	<li>X-ray luminosity usually used as proxy for Eddington accretion rate
+	<li>LF, evolution of <script type="math/tex">N_H</script>, AGN-Host studies, ...
+	<li>Common to do with simple models, hardness ratios
+	<li>What model is justified by the data?
+</section>
+
+<section>
+	<h2>Sample</h2>
+	<img src="img/counts_z.svg" style="float:right; background-color: white">
+	<ul>
+	<li>CDF-S 4Ms: 569 detections, 334 used (galaxy contamination)
+	<li>for photo-z: Coverage by Space and Ground-based telescopes (Li-Ting Hsu, in prep)
+	</ul>
+</section>
+
+<section>
+	<h2>AGN X-ray spectra</h2>
+	<img src="img/spectral_features.svg" style="background-color: white">
+</section>
+<section>
+	<h2>Model selection on AGN X-ray spectra</h2>
+	<img src="img/torusmodels.svg" style="background-color: white">
+</section>
+
+<section>
+<section>
+	<h3>Spectral analysis</h3>
+	<p>photometric redshift distribution + X-ray data + model
+	<p><script type="math/tex">\Rightarrow</script>model parameter probability distributions + <script type="math/tex">\log Z</script>
+</section>
+
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>powerlaw</h4>
+	<img src="img/powerlawcomponents.png"></br>
+	<script type="math/tex">\log Z = -64.3, N_H=20</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>wabs</h4>
+	<img src="img/wabscomponents.png"></br>
+	<script type="math/tex">\log Z = -12.7, N_H=22.28\pm 0.04</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>torus+scattering</h4>
+	<img src="img/torus+scatteringcomponents.png"></br>
+	<script type="math/tex">\log Z = -4.7, N_H=22.45\pm 0.05</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>torus+pexmon+scattering</h4>
+	<img src="img/torus+reflection+scatteringcomponents.png"></br>
+	<script type="math/tex">\log Z = 0.0, N_H=22.44\pm 0.05</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>wabs+pexmon+scattering</h4>
+	<img src="img/wabs+reflection+scatteringcomponents.png"></br>
+	<script type="math/tex">\log Z = -0.3, N_H=22.49\pm 0.05</script>
+</section>
+
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>torus+pexmon+scattering</h4>
+	<img src="img/torus+reflection+scatteringmarg.png">
+</section>
+
+</section>
+
+<!-- evidence plot: 
+	CThick: torus
+	overall: t+r+s mostly
+-->
+
+<section>
+	<h2>Preferred geometry</h2>
+	<p style="font-size: 0.5em">red: torus - small blob (wabs)
+	<img src="img/ev_vs_nH.svg" style="width: 100%; background-color: white">
+</section>
+
+<section>
+<h2>Conclusions: AGN Model</h2>
+<p>
+<ol>
+<img src="img/torusmodels_posterior.svg" style="float:right; background-color: white; width: 45%">
+<li>Obscuring torus is not a sphere, not a disk, something in between
+<li>Thomson scattering of intrinsic radiation
+<li>Additional compton scattering into LOS from dense region
+</ol>
+</p>
+<p>Have now probability distributions for CDF-S, AEGIS, COSMOS
+<ul>
+<li>Upcoming: relations between <script type="math/tex">N_H</script> and <script type="math/tex">f_{scat}</script>, <script type="math/tex">R</script>
+<li>Upcoming: Luminosity function
+</ul></p>
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'cube',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+			Reveal.addEventListener( 'ready', function( event ) {
+				$('section').click(function( event ) {
+					if (!event.ctrlKey && !event.shiftKey && !event.altKey)
+						Reveal.next();
+				});
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );
+
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>X-ray Spectral Analysis</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		.reveal img {
+			border-color: #AAA !important;
+		}
+		.reveal h2, .reveal h1, reveal .present {
+			padding-top: 0;
+			margin-top: 0;
+		}
+		.note {
+			color: #CCC;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<h2>Advancing statistical methods for <nobr>X-ray spectra</nobr></h2>
+	<p>Kaffeerunde / Apr 2014</p>
+	<h3>Johannes Buchner / MPE</h3>
+	<p style='font-size: 0.7em'>in collaboration with A. Georgakakis, K. Nandra, L. Hsu, C. Rangel, M. Brightman, A. Merloni and M. Salvato</p>
+	<p>Buchner et al. 2014 - <a href="http://arxiv.org/abs/1402.0004">arxiv:1402.0004</a><br/>
+	 X-ray spectral modelling of the AGN obscuring region in the CDFS: Bayesian model selection and catalogue
+	<p><a href="https://github.com/JohannesBuchner/BXA">github.com/JohannesBuchner/BXA</a>
+</section>
+
+<section>
+	<h2>Introduction</h2>
+	<ul>
+	<li>X-ray data + background data
+	<li>Set/fit background model
+	<li>Define source model 3-20 parameters
+	<li>Set Poisson likelihood (C-Stat), no re-binning
+	<p>How to attack this parameter space?
+</section>
+
+<section>
+	<h1>Model comparison</h1>
+</section>
+<section>
+	<h2>Likelihood ratio tests / F-test</h2>
+	<ul><li>
+	<img src="customimg/lrtest.svg" style="background-color: white; width: 40%; float: right;" />
+	only if special case
+	<li>not at borders (feature detection)
+	<li>only if $n\rightarrow\infty$
+	<li class="fragment">do not compute it, interpretation is wrong; critisize papers mis-interpreting the statistic
+</section>
+
+
+<section>
+	<h2>Pragmatic viewpoint</h2>
+	<p>distinguish two models via data can use any statistic
+	<p>does not have to be probabilistic
+	
+	<ul><li>can be counts in the 6keV bin
+	<li>determine discriminating threshold via simulations
+	<ul style="font-size: 0.7em;"><li>false association rate ($B\rightarrow A$, $A\rightarrow B$)
+	<li>correct association rate ($A\rightarrow A$, $B\rightarrow B$)
+</section>
+
+<section>
+	<h2>Comparison $\hat{L}$ vs. $Z$</h2>
+	<p style="text-align: left;">
+	<img src="customimg/stackedarea3_0_1_lower.png" style="background-color: white; width: 60%; margin-right: 1em; float:left; vertical-align: top;" />
+	red: falsely choose powerlaw, for wabs input
+	<br />
+	<br />red: falsely choose wabs, for powerlaw input
+	<div style="float:right; color: grey;">(Appendix 2)</div>
+</section>
+
+<section>
+	<h2>$Z$ more effective than $\hat{L}$</h2>
+	<div style="text-align: left">
+	what is $Z$? Integral of likelihood / average
+	<p>Bayesian evidence
+	$$ {P(A|D)\over P(B|D)} = {P(A)\over P(B)} \times {Z_A\over Z_B} $$
+	<p>interpretation of Z-ratio under flat priors:
+	<ul><li>prob. that this model is the right one, rather than the other.
+	<li>A, B or equal
+	</div>
+	How to compute integral?
+</section>
+
+
+<section>
+	<h2>More motivation</h2>
+	<p>Best fit alone does not mean anything. Need uncertainties.</p>
+	<ul><li>
+	<img src="customimg/banana.png" style="background-color: white; width: 50%; float: right;"/>
+	1d search: underestimates uncertainties
+	<li>2d contours: solve (computationally expensively) in 2d
+	What about the other 10d?
+	<li style="color: grey;">Fisher matrix/Hessian: only for simple correlations, not bananas
+</section>
+
+<section>
+	<h2>Example: Absorbed powerlaw on background</h2>
+	<img src="img/CT_degeneracy4.svg" style="background-color: white; width:40%"/>
+	<img src="img/CT_degeneracy5.svg" style="background-color: white; width:40%"/>
+	<p>two solutions
+	<div style="text-align: center; color: grey;">(Appendix 3)</div>
+</section>
+
+<section>
+	<h2>Example: Absorbed powerlaw on background</h2>
+	
+	<ul><li><img src="customimg/dual.svg" style="background-color: white; width: 55%; float: right;"/>
+	Occurs in real data
+	<li>We just do not know which solution is the right one (uncertain)
+	<li>keep both!
+	<li>measure both/all!
+	<li>not just in 2d, but n-dim; not user-specified
+</section>
+
+
+
+
+
+
+<section>
+	<h2>Nested Sampling</h2>
+	<ul>
+	<div><img src="customimg/nested0.png" style="background-color: white; width:4.5em; vertical-align: top; float: left; margin-right: 1em;"/>draw randomly uniformly 200 points
+	<br/>always remove least likely point, replace with a new draw of higher likelihood
+	</div><br style="clear: both">
+	<div><img src="customimg/nested1.png" style="background-color: white; width:4.5em; vertical-align: top; float: left; margin-right: 1em;"/>converges to maximum likelihood, stops when flat
+	</div><br style="clear: both">
+	<div><img src="customimg/nested2.png" style="background-color: white; width:4.5em; vertical-align: top; float: left; margin-right: 1em;"/>how to draw new points efficiently?
+	<br/>MultiNest does it via clustering and ellipses
+	</div><br style="clear: both">
+</section>
+
+<section>
+	<h2>Nested Sampling with MultiNest</h2>
+	<p style="text-align: left;">explores the problem in 
+	<ul><li>high dimensions (3-20)
+	<li>handles multiple maxima
+	<li>handles peculiar shapes
+	<li>runs efficiently to convergence <br/>(typically 10000-40000 points)
+	</ul>
+	<p style="text-align: left;">measures and describes shapes (like MCMC)
+</section>
+
+<section>
+	<h2>Connecting</h2>
+	Need to connect C-stat calculation with algorithm
+	<h3>BXA: Bayesian X-ray Analysis</h3>
+	<ul><li>MultiNest for Sherpa / (Py)Xspec
+	<li>installed on ds42 under <pre style="display: inline;">/utils/bxa</pre>
+	<li>documentation: <a href="https://github.com/JohannesBuchner/BXA">github.com/JohannesBuchner/BXA</a>
+	</ul>
+</section>
+
+<section>
+	<h2>Analysis</h2>
+	<p style="text-align: left;">Likelihood value evaluated "everywhere"
+	
+	<ul><li><img src="customimg/intervals.png" style="background-color: white; width: 40%; float: right; margin: 0.5em;"/>
+	ML analysis: find confidence intervals
+	<ul style="font-size: 0.7em;"><li>defined via: how often the estimator (maximum) gives the right answer
+	<li>different for different estimators - property of the method
+	</ul>
+	<li>credible intervals
+	<ul style="font-size: 0.7em;"><li>defined via: prob. that the true value is inside this range rather than outside is x%.
+	</ul>
+	</ul>
+	<p style="text-align: left;">results coincide for some choice of prior (usually "flat").
+</section>
+
+<section>
+	<h2>How?</h2>
+	posterior "chain" from MCMC/nested sampling: 
+	representation through point density
+	<img src="img/LNH_comp.svg" style="background-color: white; width: 60%; float: right;"/>
+	<table style="font-size: 0.7em;">
+	<thead>
+	<tr><th>norm<th>$N_H$<th>$z$</tr>
+	</thead>
+	<tr><td>-4.1<td>22.4<td>2.3</tr>
+	<tr><td>-4.3<td>22.45<td>2.4</tr>
+	<tr><td>-4.3<td>22.38<td>2.5</tr>
+	<tr><td>...<td>...<td>&nbsp;</tr>
+	</table>
+	<p>just make histogram of 1/2 columns
+	<p>contains all correlations
+</section>
+
+
+<section>
+	<h2>Error propagation: example</h2>
+	<table style="font-size: 0.7em; float: left;">
+	<thead>
+	<tr><th>norm<th>$N_H$<th>$z$</tr>
+	</thead>
+	<tr><td>-4.1<td>22.4<td>2.3</tr>
+	<tr><td>-4.3<td>22.45<td>2.4</tr>
+	<tr><td>-4.3<td>22.38<td>2.5</tr>
+	<tr><td>...<td>...<td>&nbsp;</tr>
+	</table>
+	for every parameter vector <br/> (norm, $N_H$, $z$, ...), set the model
+	<ul><li>set $N_H$ = 0
+	<li>compute intrinsic flux
+	<li>compute luminosity <br/>using $z$ and flux
+	</ul>
+	<hr style="clear: both;" />
+	<p>incorporates uncertainty in $z$ <u>and</u> the parameters!
+	<ul><li>just do your calculation with every value instead of one
+</section>
+
+
+<section>
+	<h1>model inadequacy</h1>
+	Have cool tools now, but:
+	<ul>
+	<li>Is the model right?
+	<li>Where is the model wrong?
+	<li>Systematic effects?
+	<li>Discover new physics beyond the model
+</section>
+
+<section>
+	<h2>Common route: residuals</h2>
+	New idea: Q-Q plot (no binning) 
+	<div style="float:right; color: grey;">(Appendix 1)</div>
+	<img src="customimg/qq-intro.png" style="background-color: white" />
+	<p>good fit if straight line
+</section>
+
+<section>
+	<h2>Q-Q plot primer</h2>
+	<img src="customimg/qq-primer.png" style="background-color: white" />
+</section>
+
+<section>
+	<img src="customimg/318_bg_qq_cmp.png" style="background-color: white" />
+</section>
+
+<section>
+	<h2>Generate ideas for new models</h2>
+	<img src="customimg/discovery-loop2.png" style="background-color: white" />
+</section>
+
+
+<section>
+	<h2>Summary</h2>
+	<ul><li>
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.1, Appendix 3)</div>
+	<b>Parameter estimation</b>: <br/>explore multiple maxima
+	<br/>general solution with nested sampling <br/>
+	<li>
+	<b>Model comparison</b>: <br/>Likelihood ratio is less effective than Z ratios
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.2, Appendix 2)</div>
+	<br/>computed by nested sampling; has right interpretation
+	<li>
+	<div style='color: grey; font-size: 0.7em; float: right'>(see 5.3, Appendix 1)</div>
+	<b>Model discovery</b>: <br/>Q-Q plots + model comparison
+	</ul>
+	
+	<p><a href="http://arxiv.org/abs/1402.0004">arxiv:1402.0004</a> 
+	<a href="https://github.com/JohannesBuchner/BXA">github.com/JohannesBuchner/BXA</a>
+</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				],
+			});
+			Reveal.addEventListener( 'ready', function( event ) {
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );
+
+		</script>
+	</body>
+</html>
+

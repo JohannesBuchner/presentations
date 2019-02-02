@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="18cm" height="9cm" viewBox="40 48 343 175" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <polygon style="fill: #8b6914" points="320,160 324,160 332,168 340,196 350,200 290,200 300,196 308,168 316,160 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2.35099e-37; stroke: #000000" points="320,160 324,160 332,168 340,196 350,200 290,200 300,196 308,168 316,160 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="240" y1="200" x2="370.264" y2="200"/>
+    <polygon style="fill: #000000" points="377.764,200 367.764,205 370.264,200 367.764,195 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="377.764,200 367.764,205 370.264,200 367.764,195 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="280" y="220">
+    <tspan x="280" y="220">energy</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="60" y1="200" x2="190.264" y2="200"/>
+    <polygon style="fill: #000000" points="197.764,200 187.764,205 190.264,200 187.764,195 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="197.764,200 187.764,205 190.264,200 187.764,195 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" x1="60" y1="200" x2="60" y2="89.7361"/>
+    <polygon style="fill: #ff0000" points="60,82.2361 65,92.2361 60,89.7361 55,92.2361 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="60,82.2361 65,92.2361 60,89.7361 55,92.2361 "/>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 6; stroke: #8b6914" x1="60" y1="200" x2="200" y2="80"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="100" y="220">
+    <tspan x="100" y="220">data counts</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #ff0000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="40" y="60">
+    <tspan x="40" y="60">model </tspan>
+    <tspan x="40" y="76">counts</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="240" y1="200" x2="240" y2="89.7361"/>
+    <polygon style="fill: #000000" points="240,82.2361 245,92.2361 240,89.7361 235,92.2361 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="240,82.2361 245,92.2361 240,89.7361 235,92.2361 "/>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 6; stroke: #1e90ff" x1="110" y1="90" x2="110" y2="170"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 6; stroke: #1e90ff" x1="140" y1="90" x2="140" y2="170"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 6; stroke: #8b6914" x1="60" y1="170" x2="190" y2="60"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 140 100 C 150,90 170,80 180,70"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 60 200 C 140,140 120,120 140,100"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 350 200 C 330,200 340,160 320,160"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 290 200 C 310,200 300,160 320,160"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 6; stroke: #1e90ff" x1="300" y1="120" x2="300" y2="200"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 6; stroke: #1e90ff" x1="340" y1="120" x2="340" y2="200"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="248" y="92">
+    <tspan x="248" y="92">counts</tspan>
+  </text>
+</svg>

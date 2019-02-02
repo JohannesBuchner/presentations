@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Counting and Characterizing X-ray AGN</title>
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<style type="text/css">
+		.reveal li { margin-top: 0.2em; }
+		.reveal p, .reveal h3, .reveal h2, .reveal h1 { margin-top: 0.75em; }
+		.reveal h1 { font-size: 3em; }
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+			hyphens: none; 
+			-moz-hyphens: none; 
+			-webkit-hyphens: none; word-wrap: none; }
+		.reveal table, .reveal td, .reveal th, .reveal tr {
+		padding: 0;
+		margin: 0;
+		}
+		.reveal td {
+		border-left: 1px dashed #CCC;
+		}
+		.reveal td, .reveal th {
+		padding: 0.2em 0.5em;
+		border-bottom: 1px dashed #CCC;
+		}
+		</style>
+		
+		<script type="text/javascript">
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<h1>The population behind X-ray AGN samples</h1>
+	<h2>Counting and Characterizing</h2>
+	<p>Ringberg Group Meeting / Oct 2013</p>
+	<h3>Johannes Buchner</h3>
+	<p style='font-size: 0.7em'>in collaboration with A. Georgakakis, K. Nandra, L. Hsu, S. Fotopoulou, C. Rangel, M. Brightman, A. Merloni and M. Salvato</p>
+</section>
+
+<section>
+	<h2>Luminosity function &nbsp;&mdash;&nbsp; <script type="math/tex">\Phi(L, z, N_{H})</script></h2>
+	<p>#/space density of AGN with certain properties
+	<ul><li>How many obscured AGN?
+	<li><script type="math/tex">L - N_H</script> &mdash; Central engine
+	<li><script type="math/tex">z - N_H</script> &mdash; LSS assembly
+</section>
+
+<section>
+	<h2>State of the field</h2>
+	<ul>
+	<li>Maximum likelihood estimators <script type="math/tex">1/V_{max}</script> with bins
+	<li>"Bayesian" inference on ad-hoc parametric models
+	<ul>
+	<li>Priors can not be motivated for LDDE, LADE with evolving obscured fraction
+	<li>essentially doing maximum likelihood style parameter estimation, but with Monte-Carlo
+	</ul>
+	</ul>
+</section>
+
+<section>
+	<h2>The right way: a 3D field</h2>
+	<p>
+	<div style='float:right; width: 45%' class='fragment'>
+	<ul><li><script type="math/tex">9\times 9 \times 7=567</script> degrees of freedom<br/>
+	<img src="img/LzNH_directgrid_pies.svg" style='width: 70%'/>
+	<li>but prior: neighboring points should have similar values
+	<li class='fragment'>or similar slope 
+	</ul>
+	</div>
+	<ul style='width: 45%'><li>reconstruct continuous field <script type="math/tex">\Phi(L, z, N_{H})</script>
+	<li>With strong, varying selection bias!<br/>
+	<img src="img/torusfluxinterpLz.svg"/>
+	</ul>
+	</p>
+</section>
+
+<section>
+	<h2>non-parametric parametric reconstruction</h2>
+	<ul>
+	<li>single parameter maximum
+	<li>weak correlations through priors
+	<li>Best fit with optimization algorithms
+	<li>Parameter estimation with MCMC (probably will not converge)
+	<li>Model selection using AIC: Information loss for going to simpler
+	    LADE, LDDE
+	</ul>
+</section>
+
+<section data-transition="fade" data-transition-speed="slow" data-background-transition="fade">
+<section>
+<h2>Requirements for Luminosity function analyses</h2>
+<ul>
+<li>good <script type="math/tex">L, z, N_H</script> estimates
+<li>good <script type="math/tex">L, z, N_H</script> uncertainty estimates!
+<li>handling ambiguities
+</ul>
+</section>
+<section>
+<h2>Ambiguity</h2>
+<img src="img/CT_degeneracy4.svg" style="background-color: white; width:49%"/>
+<img src="img/CT_degeneracy5.svg" style="background-color: white; width:49%"/>
+</section>
+
+<section>
+<h3>Maximum likelihood lottery</h3>
+<img src="img/LNH_comp.svg" style="background-color: white"/>
+</section>
+
+</section>
+
+<section>
+<ul>
+<li>How can parameters be derived from few counts?
+<li>How to deal with multiple solutions?
+<li>How to find the <strike>correct</strike> sufficient model?
+</ul>
+<div class="fragment">
+<h3><script type="math/tex">\rightarrow</script> Spectral analysis with Bayesian inference</h3>
+<ul>
+<li>Full probability distribution (uncertainty) on all model parameters
+<li>Global algorithm (nested sampling, not MCMC or fitting)
+</li>
+<li class="fragment">Model comparison
+<div style="float:right">Likelihood ratios are problematic:
+<ul>
+<li>only nested models
+<li>not on borders
+<li>when in doubt, remains with simpler model
+</ul>
+</div>
+</ul>
+</div>
+</section>
+
+<section>
+<section>
+	<h2>Model selection on AGN X-ray spectra</h2>
+	<div>
+	<img src="img/spectral_features.svg" style="background-color: white; width: 50%; z-index: 1; position: fixed; left: 55%; top: 55%;">
+	<img src="img/torusmodels.svg" style="background-color: white">
+	</div>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>powerlaw</h4>
+	<img src="img/powerlawcomponents.png"></br>
+	<script type="math/tex">\log Z = -64.3, N_H=20</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>wabs</h4>
+	<img src="img/wabscomponents.png"></br>
+	<script type="math/tex">\log Z = -12.7, N_H=22.28\pm 0.04</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>torus+scattering</h4>
+	<img src="img/torus+scatteringcomponents.png"></br>
+	<script type="math/tex">\log Z = -4.7, N_H=22.45\pm 0.05</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>torus+pexmon+scattering</h4>
+	<img src="img/torus+reflection+scatteringcomponents.png"></br>
+	<script type="math/tex">\log Z = 0.0, N_H=22.44\pm 0.05</script>
+</section>
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>wabs+pexmon+scattering</h4>
+	<img src="img/wabs+reflection+scatteringcomponents.png"></br>
+	<script type="math/tex">\log Z = -0.3, N_H=22.49\pm 0.05</script>
+</section>
+
+
+<section>
+	<h3>Example - Source 179 z=0.605, 2485 counts</h3>
+	<h4>torus+pexmon+scattering</h4>
+	<img src="img/torus+reflection+scatteringmarg.png">
+</section>
+
+</section>
+
+<section>
+<h2>X-ray spectral analysis methodology</h2>
+<table style="font-size: 0.6em;">
+<tr><th>
+	<td>good ol' times
+	<td>Current
+	<td>Suggested
+</tr>
+<tr>
+<th>Statistic
+	<td><script type="math/tex">\chi^2</script> with binning
+	<td>C-stat
+	<td>&nbsp;
+</tr>
+<tr>
+<th>Error estimation
+	<td><script type="math/tex">\Delta \chi^2</script>
+	<td><script type="math/tex">\Delta C</script>-stat, Contours of pairs, Fisher matrix, stepping
+	<td>marginal distributions
+</tr>
+<tr>
+<th>Model comparison
+	<td>what looks better
+	<td>Likelihood ratio tests
+	<td>Bayesian model comparison
+</tr>
+<tr><th>Background handling
+	<td>subtracted
+	<td>bin-wise estimates,
+	continuous background model
+	<td>continuous background model
+</tr>
+<tr><th style="width: 25%">Goodness-of-Fit & discover model deviation
+	<td><script type="math/tex">\chi_{red}^2</script> binned, residuals
+	<td><script type="math/tex">\chi_{red}^2</script> binned, residuals
+	<td>+QQ-plots
+</tr>
+</table>
+</section>
+
+<section>
+<h2>Why switch?</h2>
+<ul>
+<li>No fiddling with finding optimum (does not fail)
+<li>No fiddling with exploring contours
+<li>Shows multiple solutions
+<li>Produces estimators, uncertainties and model "evidence" simultaneously
+<li>Allows comparing arbitrary models
+<li>Easier!
+</ul>
+</section>
+
+
+<section>
+<h2>Conclusions: AGN Model</h2>
+<p>
+<ol>
+<img src="img/torusmodels_posterior.svg" style="float:right; background-color: white; width: 45%">
+<li>Obscuring torus is not a sphere, not a disk, something in between
+<li>Thomson scattering of intrinsic radiation
+<li>Additional compton scattering into LOS from dense region
+</ol>
+</p>
+<p>Have now probability distributions for CDF-S, AEGIS, COSMOS
+<ul>
+<li>Upcoming: relations between <script type="math/tex">N_H</script> and <script type="math/tex">f_{scat}</script>, <script type="math/tex">R</script>
+<li>Upcoming: Luminosity function
+</ul></p>
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/squiggle.min.js"></script>
+		<script src="js/arrows.js"></script>
+
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'cube',
+				overview: true,
+				/*backgroundTransition: 'fade',*/
+				math: {
+					mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					// mathjax: 'js/mathjax/MathJax.js',
+					config: 'TeX-AMS-MML_HTMLorMML-full',
+					//config: 'TeX-AMS_HTML-full',
+				},
+
+				dependencies: [
+					{ src: 'lib/js/classList.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+			Reveal.addEventListener( 'ready', function( event ) {
+				$('section').click(function( event ) {
+					if (!event.ctrlKey && !event.shiftKey && !event.altKey)
+						Reveal.next();
+				});
+				$("strike").squiggle({
+					intensity:15,
+					
+				});
+				$("strike").css('text-decoration', 'none');
+				arrowsdraw()
+			} );
+
+		</script>
+	</body>
+</html>
+

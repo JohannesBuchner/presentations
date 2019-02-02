@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="12cm" height="14cm" viewBox="39 59 227 272" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="40" y="60" width="180" height="90"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="40" y="60" width="180" height="90"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="130" y="101.45">
+    <tspan x="130" y="101.45">Population </tspan>
+    <tspan x="130" y="117.45">demography of L, z, NH</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="40" y="200" width="180" height="40"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="40" y="200" width="180" height="40"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="130" y="216.45">
+    <tspan x="130" y="216.45">Sample</tspan>
+    <tspan x="130" y="232.45">statistics of L, z, NH</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="40" y="290" width="180" height="40"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="40" y="290" width="180" height="40"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="130" y="314.45">
+    <tspan x="130" y="314.45">Object measurements</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="130" y1="150" x2="130" y2="190.264"/>
+    <polygon style="fill: #000000" points="130,197.764 125,187.764 130,190.264 135,187.764 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="130,197.764 125,187.764 130,190.264 135,187.764 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="130" y1="240" x2="130" y2="279.269"/>
+    <polygon style="fill: #000000" points="130,286.769 125,276.769 130,279.269 135,276.769 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="130,286.769 125,276.769 130,279.269 135,276.769 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="120" y1="240" x2="120" y2="280.264"/>
+    <polygon style="fill: #000000" points="120,287.764 115,277.764 120,280.264 125,277.764 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="120,287.764 115,277.764 120,280.264 125,277.764 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="140" y1="240" x2="140" y2="280.264"/>
+    <polygon style="fill: #000000" points="140,287.764 135,277.764 140,280.264 145,277.764 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="140,287.764 135,277.764 140,280.264 145,277.764 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="152" y="171.45">
+    <tspan x="152" y="171.45">Poisson draw, </tspan>
+    <tspan x="152" y="187.45">selection bias</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="149" y="261.45">
+    <tspan x="149" y="261.45">data uncertainties</tspan>
+    <tspan x="149" y="277.45">(Poisson)</tspan>
+  </text>
+</svg>
