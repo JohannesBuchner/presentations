@@ -14,7 +14,8 @@ echo "Creating slide show with unoconv ..."
 LANG=en unoconv --doctype=presentation --format=html \
 	-e PublishMode=0 \
 	-e IsExportContentsPage=true \
-	-e IsUseDocumentColors=true \
+	-e IsUseDocumentColors=false \
+	-e UseButtonSet=0 \
 	-e Width=900 \
 	-e Format=2 \
 	-e Compression='99%' \
