@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+  <meta HTTP-EQUIV=CONTENT-TYPE CONTENT="text/html; charset=utf-8">
+  <title>Slide 11</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#000080" vlink="#0000CC" alink="#000080">
+<center>
+<a href="text0.html">First page</a> <a href="text9.html">Back</a> <a href="text11.html">Continue</a> <a href="text20.html">Last page</a> <a href="2017-head-bxa.html">Overview</a> <a href="img10.html">Image</a></center><br>
+<h1>BXA in practice (with pyxspec)</h1>
+<ul>
+<li>Set up spectrum &amp; model</li>
+<li>Set up parameter space
+
+
+
+
+
+
+</li>
+<li>Run!</li>
+</ul>
+<p>s = Spectrum('example-file.fak')</p>
+<p>s.ignore(&quot;**&quot;); s.notice(&quot;0.2-8.0&quot;)</p>
+<p>m = Model(&quot;pow&quot;)</p>
+<p>m.powerlaw.norm.values = &quot;,,1e-10,1e-10,1e1,1e1&quot; # 10^-10 .. 10</p>
+<p>m.powerlaw.PhoIndex.values = &quot;,,1,1,3,3&quot;                #     1 .. 3</p>
+<p># define prior</p>
+<p>transformations = [</p>
+<p>	bxa.create_uniform_prior_for( m, m.powerlaw.PhoIndex),</p>
+<p>	bxa.create_jeffreys_prior_for(m, m.powerlaw.norm),</p>
+<p>]</p>
+<p>bxa.standard_analysis(transformations, 
+           outputfiles_basename = 'simple-example')</p>
+</body>
+</html>

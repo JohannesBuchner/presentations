@@ -1,0 +1,18 @@
+AGN surveys in the X-ray regime have revealed that the majority of AGN
+(3/4) are obscured, with 1/3 showing Compton-thick column densities.
+This indicates that hidden accretion is an important phase in the growth
+of super-massive black holes. However, it remains unclear how much of
+this obscuration is already provided by the host galaxy itself; a
+question which cannot be answered using a central point source alone.
+Our novel approach employs 600 long gamma-ray bursts to “x-ray” the
+metal gas in galaxies at. This requires a good understanding of the
+obscurer and biases introduced. The highly complete SHOALS survey
+allowed us to discover a relation between stellar masses and X-ray
+derived column densities NH, pointing to the host galaxy as the dominant
+obscurer of LGRBs. This obscuration is expected according to local
+galaxy analogues and current hydrodynamic cosmological simulations.
+We could then constrain the typical covering factor of the nuclear AGN
+obscurer (torus) alone by subtracting away the host galaxy contribution,
+under some caveats related to star-formation rate of AGN hosts. Our
+findings recast the discussion of the evolution and
+luminosity-dependence of the AGN obscured fraction.

@@ -1,0 +1,17 @@
+Virtually all X-rays observed in deep fields originate close to
+growing supermassive black holes. X-rays indeed provide a clean and
+efficient selection of both unobscured and obscured AGN (active galactic
+nuclei).
+Recent work with deeper observations and improved analysis methodology
+allowed us to extend constraints on highly obscured, Compton-thick
+growth, thought to occur e.g. as a phase in mergers.
+We put constraints on the mass locked into black holes over cosmic time,
+an important constraint for cosmological simulations and our
+understanding of the co-evolution with galaxies.
+Further study of the obscurer of AGN reveals a complex behaviour with
+luminosity and redshift, which rules out entire sets of obscurer models.
+A new paradigm is proposed, the radiation-lifted torus model,
+in which the obscurer is Eddington-rate dependent and radiation pressure
+from the accretion process creates and displaces torus clouds. We place
+observational limits on the behaviour of this mechanism.
+

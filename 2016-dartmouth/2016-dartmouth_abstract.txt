@@ -1,0 +1,19 @@
+AGN surveys in the X-ray regime have revealed that the majority of AGN
+(3/4) are obscured, with 1/3 showing Compton-thick columns. This
+indicates that hidden accretion is an important phase in the growth of
+super-massive black holes. However, it remains unclear how much of this
+obscuration is provided by the host galaxy; a question which can not be
+answered using a central point source.
+Our novel approach employs 600 long gamma-ray bursts to x-ray galaxies.
+From the column densities we reconstruct the gas distribution of a
+statistically average galaxy at z=0.5-3. We find a host stellar-mass
+dependence but little redshift evolution. Our result can be applied to
+the AGN population, under some caveats (star-formation rate,
+metallicity). Under the AGN stellar-mass distribution, we find that host
+galaxy gas does not provide Compton-thick column densities, but is an
+important, luminosity-independent obscurers at N_H~1e22/cm².
+Our approach allows us to separate the galaxy-scale gas and nuclear
+("torus") obscurer, and sheds light on the luminosity-dependence of the
+torus as well as its covering factors. We corroborate our findings by
+ray-tracing hydrodynamical simulations of galaxies, and analytic limits
+valid also to mergers.

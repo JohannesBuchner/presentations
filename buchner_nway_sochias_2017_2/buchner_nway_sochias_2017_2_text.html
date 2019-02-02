@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+  <meta name="created" content="2017-01-22T21:59:52.690434471"/>
+  <meta name="changed" content="2017-01-24T15:29:01.864338350"/>
+  <meta name="description" content="Based on &quot;What About Fedora ?&quot; by Bert Desmet (https://fedoraproject.org/wiki/Presentations_Previous_Releases). License: CC-BY-SA"/>
+</head>
+<body>
+<h1><b>NWAY – the versatile cross-matching algorithm</b></h1>
+<h2>+ application towards eROSITA </h2>
+<h2>Johannes Buchner</h2>
+<h2><u>http://astrost.at/istics/</u></h2>
+<h2>Mara Salvato @MPE</h2>
+<h2>Tamás Budavári
+Tom Dwelly (MPE, SPIDERS)</h2>
+<h1 style="page-break-before:always; "><b>NWAY 
+multi-catalog association</b></h1>
+<ul>
+<li>Based on solid Bayesian statistics</li>
+<li>Can process simultaneously N catalogs</li>
+<li>Handles absent sources</li>
+<li>Handles ambiguous cases</li>
+<li>Gives probabilities for each possible association</li>
+<li>Can ingest prior information</li>
+<ul>
+<li>magnitude, color (SED information), or other</li>
+</ul>
+<li>Fast and automatic</li>
+<li>Generic</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Matching in opt/NIR vs X</b></h1>
+<p><b>g band, 3’</b></p>
+<p><b>z band, 3’</b></p>
+<p><b>XMM, 3’</b></p>
+<h1 style="page-break-before:always; "><b>pos. error &amp; centering</b></h1>
+<ul>
+<li>PSF depends on position and instrument</li>
+</ul>
+<p><b>Chandra</b></p>
+<p><b>XMM</b></p>
+<h2>Few sources per pointing, can make astrometry hard</h2>
+<h1 style="page-break-before:always; "><b>Association depends on SNR</b></h1>
+<ul>
+<li>PSF depends on flux</li>
+</ul>
+<p><b>Chandra</b></p>
+<p><b>XMM</b></p>
+<ul>
+<li># of sources depends 
+on image depth</li>
+<li>real counterpart absent?</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Likelihood Ratio Method</b></h1>
+<p> </p>
+<p> </p>
+<p>Brusa+07</p>
+<p>magnitude</p>
+<p>Naylor+13 for a review</p>
+<p>LR=f(r) q(m) / n(m)</p>
+<p>magnitude</p>
+<p>random</p>
+<p>near target</p>
+<p>subtraction</p>
+<h1 style="page-break-before:always; "><b>eROSITA Challenge</b></h1>
+<p><b>Chandra</b></p>
+<p><b>XMM</b></p>
+<p><b>ROSAT</b></p>
+<p><b>eROSITA</b></p>
+<h1 style="page-break-before:always; "><b>Our method in a nutshell</b></h1>
+<ul>
+<li>Salvato, Buchner, Budavári et al. 2017</li>
+<li>Hypothesis 1: chance alignment of unrelated srcs</li>
+<li>Hypothesis 2: single source</li>
+</ul>
+<p> </p>
+<p>Bayes 
+factor</p>
+<p>Angular separation</p>
+<p>Positional uncertainties</p>
+<p>Weighting term
+(mag, colors,etc)</p>
+<p>The posterior probability for a match 
+between an X-ray source, i, </p>
+<p>and a potential counterpart j</p>
+<p>depends on </p>
+<p>counterpart sky number density ρs
+and expected counterpart fraction ηx</p>
+<h1 style="page-break-before:always; "><b>Combinatorics</b></h1>
+<p>Pineau+16</p>
+<h1 style="page-break-before:always; "><b>Test 1: XMM-COSMOS</b></h1>
+<ul>
+<li>ML: 1281 considered reliable, after careful visual inspection</li>
+<li>Now with Chandra coverage (higher accuracy) we know 139 were mis-associated</li>
+<li>NWAY: fast, automatic, with single band, self-learning magnitude distribution: additional 49/139 sources right</li>
+<li>NWAY with 
+1+3.6um 
+catalogues: 
+got 86/139 
+sources right</li>
+<li>Fast!</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Test 2: ROSAT</b></h1>
+<ul>
+<li>Learn color prior from XMM counterparts at same depth</li>
+<li>BOSS 10,000 deg² area: 4524 XMM sources. </li>
+<li>With only ROSAT+SDSS: 96% recovered</li>
+<li>Shifting ROSAT by 6’ gives false-association fraction: 4%</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Open issues</b></h1>
+<p>XMM cut at ROSAT depth</p>
+<p>ROSAT distribution</p>
+<p>XMM cut at eROSITA depth</p>
+<ul>
+<li>For eROSITA need 
+better discriminators</li>
+<li>Lack of all-sky survey</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Conclusions</b></h1>
+<ul>
+<li>Knowing correct counterpart for X-ray sources is crucial for galaxy-AGN co-evolution, BH physics and stellar evolution studies</li>
+<li>NWAY is a better way!</li>
+<li>‣ algorithm based on Bayesian statistics</li>
+<li>‣ can process simultaneously N catalogues</li>
+<li>‣ not limited to use of magnitude</li>
+<li>‣ can ingest any kind of prior (ideally entire SED)</li>
+</ul>
+</body>
+</html>

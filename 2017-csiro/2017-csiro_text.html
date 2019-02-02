@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+  <meta name="created" content="2016-02-29T13:58:28.878147300"/>
+  <meta name="changed" content="2017-08-10T11:56:07.975879163"/>
+</head>
+<body>
+<h1><b>A high-energy view of the galaxy-scale metal gas at z=0.5-3</b></h1>
+<p>Johannes Buchner</p>
+<p>FONDECYT fellow</p>
+<p>astrost.at/istics</p>
+<p>
+
+Collaborators: @PUC: Steve Schulze, Franz Bauer</p>
+<p>Previously: @MPE HEG: A. Georgakakis, K. Nandra, 
+M. Salvato, L-T. Hsu, J. Aird, M-L. Menzel, Z. Liu</p>
+<h1 style="page-break-before:always; "><b>About me: Johannes Buchner</b></h1>
+<ul>
+<li>Astrophysics interests</li>
+<ul>
+<li>AGN; SMBH growth; X-ray surveys</li>
+<li>Obscurer of AGN; galaxy-scale obscuration</li>
+<li>Obscuration of Gamma-ray burst afterglows</li>
+<li>Simulations: X-ray illumination; cosmological simulations</li>
+</ul>
+<li>Astrostatistics interests</li>
+<ul>
+<li>PyMultinest, nested sampling algorithms</li>
+<li>Improving X-ray spectral analysis (BXA) </li>
+<ul>
+<li>invited talk HEAD meeting August 2017, astrostatistics for X-rays</li>
+</ul>
+<li>Consulting for papers, Astrostatistics group</li>
+<li>astrost.at/istics</li>
+</ul>
+</ul>
+<p>Buchner+14</p>
+<p>Buchner14</p>
+<p>Buchner15</p>
+<p>Buchner16a</p>
+<p>Buchner17a</p>
+<p>Buchner17b + in prep</p>
+<h1 style="page-break-before:always; "><b>Topic today:</b></h1>
+<ul>
+<li>Buchner, Schulze &amp; Bauer (2017)</li>
+<li>Buchner &amp; Bauer (2017)</li>
+</ul>
+<h1 style="page-break-before:always; "><b>The obscurer</b></h1>
+<p>UV, Opt, X-ray, ...</p>
+<p>Accretion Disk</p>
+<p>“Torus” Obscurer</p>
+<p>&lt;0.1pc</p>
+<p>10pc</p>
+<p>10 kpc</p>
+<p>Galactic Center gas</p>
+<p>Star forming regions</p>
+<p>e.g. in spiral arms</p>
+<p>1 kpc</p>
+<p><b>Nuclear obscuration</b></p>
+<p><b>Galaxy-scale obscuration</b></p>
+<p>Separation?</p>
+<h1 style="page-break-before:always; "><b>Column density NH</b></h1>
+<ul>
+<li>NH … number of H atoms along line-of-sight</li>
+<li>NH = few atoms / cm³    x    few kpc   =   10²²/cm²</li>
+<li>Compton-thick: ~ 1024 cm²</li>
+<li>O, Fe, He</li>
+<ul>
+<li>absorb soft X-rays via photo-electric effect</li>
+<li>Measure NH assuming local abundances from X-ray spectrum</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "><b>GRBs x-raying Galaxies</b></h1>
+<ul>
+<li>Long (&gt;2s) Gamma Ray Bursts: </li>
+<ul>
+<li>Collapse of massive stars</li>
+<li>Produce γ-ray</li>
+<ul>
+<li>Detected through any obscuration</li>
+<li>Detected at z=0-10</li>
+</ul>
+<li>X-ray, Opt, … Radio</li>
+<li>Follow blue light, general SF</li>
+<ul>
+<li>But: avoid high-Z galaxies</li>
+<li>SF, low-mass galaxies</li>
+</ul>
+</ul>
+</ul>
+<ul>
+<li>Idea: </li>
+<ul>
+<li>X-ray tomography</li>
+<li>Can we reconstruct the galaxy from LOS densities</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<p>HST, blue or ultraviolet rest-frame  images of GRB host galaxies</p>
+<p>Fruchter+06</p>
+<p>SN: proportional</p>
+<p>to blue light</p>
+<p>GRB: </p>
+<p>concentrated at bluest regions</p>
+<p>Massive O/B stars</p>
+<p>Die early</p>
+<p>In star-forming regions, molecular clouds</p>
+<p>Need low metallicity gas</p>
+<p>Follow blue light, general SF</p>
+<p>But: avoid high-Z galaxies</p>
+<p>SF, low-mass galaxies</p>
+<h1 style="page-break-before:always; "><b>LGRB surveys</b></h1>
+<ul>
+<li>Swift: &gt;900 sample of LGRBs, good positioning</li>
+<li>Limited follow-up = redshift bias</li>
+<li>Solutions:</li>
+<ul>
+<li>Include sources without redshift in analysis</li>
+<li>Use highly complete, unbiased samples</li>
+<ul>
+<li>SHOALS: defines criteria that do not depend on properties of the host galaxy</li>
+</ul>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "><b>Data</b></h1>
+<ul>
+<li>Entire swift.ac.uk archive</li>
+<li>Exclude flares &amp; prompt emission</li>
+<ul>
+<li>Automated + visual inspection</li>
+</ul>
+<li>Samples</li>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "><b>X-ray spectroscopy</b></h1>
+<ul>
+<li>Obscurer model: </li>
+<ul>
+<li>Intrinsic powerlaw</li>
+<li>Absorber (photo-electric absorption, 
+Compton scattering)</li>
+</ul>
+</ul>
+<p><b>Normalisation</b></p>
+<h1 style="page-break-before:always; "><b>Column density distribution</b></h1>
+<h1 style="page-break-before:always; "><b>NH distribution: Primer</b></h1>
+<ul>
+<li>~0.5 dex from geometry</li>
+</ul>
+<h1 style="page-break-before:always; "><b>NH distribution: observed</b></h1>
+<ul>
+<li>Model comparison (AIC): 
+broken powerlaw is better</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Redshift evolution</b></h1>
+<ul>
+<li>Not monotonic</li>
+<li>Consistent within factor 2</li>
+<li>KS test not valid</li>
+<li>Splitting sample not valid</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Host Mass – Obscuration</b></h1>
+<ul>
+<li>SHOALS</li>
+<ul>
+<li>Perley+15</li>
+<li>Deep follow-up</li>
+<li>~90% redshift complete</li>
+<li>Spitzer masses</li>
+</ul>
+</ul>
+<p>“Galaxy gas as obscurer: I.”
+Buchner, Schulze &amp; Bauer (submitted)</p>
+<h1 style="page-break-before:always; "><b>Expected Scatter</b></h1>
+<ul>
+<li>~0.5 dex from geometry</li>
+</ul>
+<p>“Galaxy gas as obscurer: I.”
+Buchner, Schulze &amp; Bauer (submitted)</p>
+<h1 style="page-break-before:always; "><b>Local Galaxies</b></h1>
+<p>1% densest column from HI maps</p>
+<p>Gas metallicity-corrected</p>
+<p>“Galaxy gas as obscurer: I.”
+Buchner, Schulze &amp; Bauer (submitted)</p>
+<h1 style="page-break-before:always; "><b>Predictions by simulations</b></h1>
+<p>“Galaxy gas as obscurer: I.”
+Buchner, Schulze &amp; Bauer (submitted)</p>
+<h1 style="page-break-before:always; "><b>Host Mass – Obscuration</b></h1>
+<ul>
+<li>SHOALS</li>
+<ul>
+<li>Perley+15</li>
+<li>Deep follow-up</li>
+<li>~90% redshift complete</li>
+</ul>
+<li>Hosts?</li>
+<ul>
+<li>Actively star-forming, AGN not necessarily</li>
+<li>Metallicity bias</li>
+</ul>
+</ul>
+<p>“Galaxy gas as obscurer: I.”
+Buchner, Schulze &amp; Bauer (submitted)</p>
+<ul>
+<li><b>NH – M* relation</b></li>
+<li><b>Obscurer is host galaxy</b></li>
+<li><b>Understand normalisation</b></li>
+<li><b>Understand slope</b></li>
+<li><b>Understand scatter</b></li>
+</ul>
+<h1 style="page-break-before:always; "><b>Caveats</b></h1>
+<ul>
+<li>Stellar mass</li>
+<li>Redshift evolution</li>
+<li>SFR</li>
+<ul>
+<li>Lower in AGN</li>
+</ul>
+<li>Metallicity</li>
+<ul>
+<li>Overlapping</li>
+<li>Stellar metallicity vs. gas metallicity</li>
+</ul>
+<li>Vantage point</li>
+</ul>
+<h1 style="page-break-before:always; "><b>From GRBs to AGN</b></h1>
+<p>New Relation from GRBs</p>
+<p>AGN fraction</p>
+<p>Aird+12, Bongiorno+12</p>
+<p>Stellar Mass Function</p>
+<p>Ilbert+13, Muzzin+13</p>
+<p>Marginalisation</p>
+<p>“Galaxy gas as obscurer: II.”
+Buchner &amp; Bauer (2017)</p>
+<h1 style="page-break-before:always; "><b>Predictions for AGN</b></h1>
+<ul>
+<li>Slight overprediction: </li>
+<ul>
+<li>GRB-SF?</li>
+<li>Ellipticals?</li>
+</ul>
+</ul>
+<ul>
+<li>No CT AGN</li>
+<li>Substantial % C-thin obscured</li>
+</ul>
+<p>“Galaxy gas as obscurer: II.”
+Buchner &amp; Bauer (2017)</p>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Successfully (to a degree) reproducing:</b></p>
+<p>SMF</p>
+<p>Star formation history</p>
+<p>Galaxy size distribution</p>
+<p>CO masses</p>
+<p>H surface densities</p>
+<p>Cluster X-ray gas</p>
+<p>Fractal substructure of ISM</p>
+<p>As an aside – 
+z=0.5 formation of solar system</p>
+<h1 style="page-break-before:always; "><b>Obscurers of AGN</b></h1>
+<p>“Galaxy gas as obscurer: II.”
+Buchner &amp; Bauer (2017)</p>
+<h1 style="page-break-before:always; "><b>Implications for the Torus</b></h1>
+<p>Definitely nuclear</p>
+<p>nuclear</p>
+<p>galactic</p>
+<p>“Galaxy gas as obscurer: II.”
+Buchner &amp; Bauer (2017)</p>
+<h1 style="page-break-before:always; "><b>“Radiation-lifted torus”</b></h1>
+<ul>
+<li>Predict covering factor</li>
+<li>f(LX, MBH)</li>
+<ul>
+<li>Redshift evolution Buchner+15</li>
+<li>LX/(MBH2/3) rad. pressure Elitzur+15, Wada15  </li>
+<li>Opt./SDSS  Oh+15</li>
+</ul>
+<li>replace receding torus</li>
+<ul>
+<li>Unphysical for X-rays</li>
+</ul>
+</ul>
+<p>“Galaxy gas as obscurer: II.”
+Buchner &amp; Bauer (2017)</p>
+<h1 style="page-break-before:always; "><b>Summary</b></h1>
+<ul>
+<li>GRB show <b>mass-dependent obscuration</b></li>
+<ul>
+<li>Predicted by simulations</li>
+<li>Metallicity-effects</li>
+</ul>
+<li>Host galaxy obscuration for <b>AGN population</b></li>
+<ul>
+<li>Caveats: SF distribution</li>
+<li>Galaxy-scale obscuration important at NH = 1022 – 1023 cm-2</li>
+<li>Fractions consistent with simulations</li>
+</ul>
+<li>Nuclear obscurer model for Torus modellers &amp; simulations</li>
+<ul>
+<li>Covering factors is dependent on </li>
+<ul>
+<li>Black hole mass</li>
+<li>Accretion rate (X-ray luminosity)</li>
+<li>Host galaxy mass</li>
+</ul>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<ul>
+<li>Metal gas 
+in galaxies</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+  <meta name="created" content="2017-01-22T21:59:52.690434471"/>
+  <meta name="changed" content="2017-02-15T09:28:03.084467266"/>
+  <meta name="description" content="Based on &quot;What About Fedora ?&quot; by Bert Desmet (https://fedoraproject.org/wiki/Presentations_Previous_Releases). License: CC-BY-SA"/>
+</head>
+<body>
+<h1><b>Learning about the torus geometry from X-ray surveys</b></h1>
+<p>Johannes Buchner</p>
+<p>FONDECYT fellow</p>
+<p><u>http://astrost.at/istics/</u></p>
+<p><u></u></p>
+<p><u></u></p>
+<p>Collaborators: @PUC: Steve Schulze, Franz Bauer</p>
+<p>@MPE: A. Georgakakis, K. Nandra, M. Brightman, ML. Menzel, 
+Z. Liu, L-T. Hsu, M. Salvato, C. Rangel, J. Aird, A. Merloni</p>
+<h1 style="page-break-before:always; ">Better X-ray Analysis</h1>
+<p>Energy</p>
+<p>Counts</p>
+<ul>
+<li>BXA connects xspec/sherpa with MultiNest</li>
+<ul>
+<li>Global parameter space exploration – PDFs – handles dual solutions easily</li>
+</ul>
+<li>Automatic background fitting routines 
+– more information per photon</li>
+</ul>
+<p>Simple 
+optimization</p>
+<p>Poisson
+statistics</p>
+<p>subtract</p>
+<p>background </p>
+<p>Model 
+background</p>
+<p>rebinning, </p>
+<p>Gaussian
+statistics </p>
+<p>Profile 
+likelihood</p>
+<p>MultiNest
+(global)</p>
+<p>MCMC</p>
+<p>github.com/JohannesBuchner/BXA</p>
+<h1 style="page-break-before:always; ">XZ – X-ray spectroscopic redshifts</h1>
+<p>Solve simultaneously for:</p>
+<p>Column density</p>
+<p>Photon Index</p>
+<p>Redshift</p>
+<p>Luminosity</p>
+<p>Soft scattering </p>
+<p>Small redshift uncertainties for obscured sources</p>
+<p>CDFS</p>
+<h1 style="page-break-before:always; ">XZ – X-ray spectroscopic redshifts</h1>
+<p>Compton-thick – through FeKa line</p>
+<p>Compton-thin – through edges</p>
+<p>Similar to Lyman-dropout technique</p>
+<p>Similar to optical line spectroscopy</p>
+<p>Can be blindly applied, gives constraints for obscured AGN, low error fraction &lt;1%</p>
+<p><b>Charlotte Simmonds – student @ PUC</b></p>
+<h1 style="page-break-before:always; ">BXA – Bayesian model comparison</h1>
+<ul>
+<li>chi² test requirements:</li>
+<ul>
+<li>High-data regime</li>
+<li>Not at edge of parameter space</li>
+<li>Linear in parameters</li>
+</ul>
+<li>Alternatives:</li>
+<ul>
+<li>simulations</li>
+<li>AIC</li>
+<li>Bayesian model comparison – Easy with BXA!</li>
+<ul>
+<li>Buchner+14: Compare AGN obscurer geometries</li>
+</ul>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "><strike>sample statistics</strike>
+population demographics</h1>
+<p>C=(L,z,NH)</p>
+<p>Marshall 1983</p>
+<ul>
+<li>Incorporates</li>
+<li>Uncertainties in z, L, NH from spectra</li>
+<li>Sensitivity / Censorship</li>
+</ul>
+<p>Is hierarchical inference with Censorship (Loredo04, Kelly+08)</p>
+<h1 style="page-break-before:always; "><b>Host Mass – Obscuration</b></h1>
+<ul>
+<li>Swift GRB 
+X-ray afterglows</li>
+<li>SHOALS
+(Perley+15)</li>
+<ul>
+<li>Deep follow-up</li>
+<li>~90% redshift complete</li>
+<li>Spitzer masses</li>
+</ul>
+</ul>
+<p>“Galaxy gas as obscurer: I.”
+Buchner, Schulze &amp; Bauer (2017)</p>
+<h1 style="page-break-before:always; "><b>Local Galaxies</b></h1>
+<p>1% densest column from HI maps</p>
+<p>Gas metallicity-corrected</p>
+<p>“Galaxy gas as obscurer: I.”
+Buchner, Schulze &amp; Bauer (2017)</p>
+<p>Metal galaxy gas at z=0.5-3!</p>
+<p>Impact of galaxy gas on AGN obscuration?
+see Buchner &amp; Bauer (2017)</p>
+<h1 style="page-break-before:always; ">AGN Surveys</h1>
+<ul>
+<li>2-10 keV Chandra detection</li>
+<li>Wedding-cake</li>
+<li>~2000 objects</li>
+<li>&gt;100 CT (Brightman+14)</li>
+</ul>
+<p>Bin Luo’s talk</p>
+<h1 style="page-break-before:always; ">2-10keV X-ray selection</h1>
+<p>Gilli+07</p>
+<p>ROSAT</p>
+<p>Chandra z=0</p>
+<p>Chandra z=2</p>
+<p>NuSTAR z=0</p>
+<h1 style="page-break-before:always; ">Consistent Bayesian Analysis</h1>
+<ul>
+<li>Advanced matching to opt/IR (Hsu+14, M. Brusa)</li>
+<li>Deep multi-wavelength coverage</li>
+<ul>
+<li>High redshift completeness</li>
+<li>Precise &amp; accurate photo-z (M. Salvato, Hsu+14)</li>
+</ul>
+<li>Include sources without counterparts consistently</li>
+<li>Uncertainty in photometric redshift, multiple solutions</li>
+<li>Systematic errors of photometric redshift</li>
+<li>Full spectral analysis of unbinned spectrum</li>
+<ul>
+<li>Uncertainty clouds in L, z, NH</li>
+</ul>
+<li>Propagated into luminosity function analysis</li>
+<ul>
+<li>Recover a smooth field ϕ(L, z, NH) / d...</li>
+<li>Non-parametric, model-independent</li>
+</ul>
+</ul>
+<p>Robust Results – Realistic Uncertainties</p>
+<h1 style="page-break-before:always; ">Intrinsic LF shape</h1>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; ">Compton-thick Luminosity Function</h1>
+<ul>
+<li>Reconstruction of a smooth field</li>
+<ul>
+<li>Results insensitive to chosen 
+smoothing length </li>
+<ul>
+<li> 0.5 mag between bins</li>
+</ul>
+<li>Consistent Cthin total LF with 
+Ueda+14, Aird+10</li>
+</ul>
+</ul>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; ">Obscured accretion history</h1>
+<p>unobscured</p>
+<p>CTK</p>
+<p>CTN obscured</p>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; ">Black Hole Mass Accretion</h1>
+<ul>
+<li>Merloni15</li>
+</ul>
+<p>ε=10%</p>
+<p>Bol. Corr.:
+Marconi+04
+not Hopkins+07</p>
+<p>Convert to mass flowing into BH Accretion consistent with local BHMD</p>
+<h1 style="page-break-before:always; ">Simulations</h1>
+<p>Became a standard for testing 
+cosmological simulations 
+and their AGN feedback</p>
+<p><b>Horizon-AGN</b> Volonteri+16</p>
+<p>Buchner+15</p>
+<h1 style="page-break-before:always; ">Simulations</h1>
+<p><b>Buchner+15</b></p>
+<p><b>EAGLE Rosas-Guevara+16</b></p>
+<h1 style="page-break-before:always; ">Obscured fractions</h1>
+<ul>
+<li>Total number density</li>
+<li>Obscured fraction:  </li>
+<li>Compton-thick fraction:
+
+Ricci+16: Swift/BAT, z=0 lum-dep
+Annuar in prep: NuSTAR z=0
+Wilkes+13: Radio, z~2 CTK fraction &lt; 40%</li>
+</ul>
+<p>38 +8-7%</p>
+<p>77 +4-5%</p>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; ">3CR high-z Radio results</h1>
+<ul>
+<li>radio-selected, high-L; 38 total, 9 CTK, 3 more?</li>
+<li>z~2, complete</li>
+<li>spectral analysis</li>
+<li>Results confirm</li>
+<li>Wikes+13</li>
+</ul>
+<p>Compton-thin</p>
+<p>obscured</p>
+<p>Compton-thick</p>
+<p>Unobscured</p>
+<h1 style="page-break-before:always; ">Total covering fractions</h1>
+<h1 style="page-break-before:always; ">Obscuration – Luminosity – Redshift </h1>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<p>z evol</p>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<p>z evol</p>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<p>z evol</p>
+<p>With BHM downsizing</p>
+<ul>
+<li>Buchner+15</li>
+</ul>
+<h1 style="page-break-before:always; ">Radiation-lifted torus model</h1>
+<ul>
+<li>Buchner+17b</li>
+<li>Alternative to 
+“receding torus”</li>
+<li>Mdot-dep</li>
+</ul>
+<h1 style="page-break-before:always; ">Summary</h1>
+<ul>
+<li>Improving X-ray spectroscopy</li>
+<ul>
+<li>Model comparison</li>
+<li>Get more information out of observations</li>
+</ul>
+<li>X-ray surveys: obscuration</li>
+<ul>
+<li>hidden growth revealed</li>
+<li>Luminosity-dependence evolves over cosmic time</li>
+<li>Possibly Eddington-rate dependent obscurer</li>
+<li>= radiation-lifted torus</li>
+</ul>
+<li>http://astrost.at/istics – Johannes Buchner </li>
+</ul>
+</body>
+</html>

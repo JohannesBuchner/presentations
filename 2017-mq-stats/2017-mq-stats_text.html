@@ -1,0 +1,582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+  <meta name="created" content="2017-01-22T21:59:52.690434471"/>
+  <meta name="changed" content="2017-04-24T14:18:34.047213692"/>
+  <meta name="description" content="Based on &quot;What About Fedora ?&quot; by Bert Desmet (https://fedoraproject.org/wiki/Presentations_Previous_Releases). License: CC-BY-SA"/>
+</head>
+<body>
+<h1><b>Astrostatistics toolkit of the 21st century astronomer</b></h1>
+<h2>Johannes Buchner</h2>
+<h2>FONDECYT fellow</h2>
+<h2><a href="http://astrost.at/istics/"><u>http://astrost.at/istics/</u></a></h2>
+<h2><u></u></h2>
+<h1 style="page-break-before:always; "><b>Astrostatistics toolkit of the 21st century astronomer</b></h1>
+<p>Johannes Buchner</p>
+<p>FONDECYT fellow</p>
+<p>PUC, Chile</p>
+<p>Formerly MPE</p>
+<p><u>astrost.at/istics</u></p>
+<p>Nested sampling</p>
+<p>UltraNest</p>
+<p><b>PyMultiNest</b></p>
+<p>Obscured Black Holes</p>
+<p>Bayesian X-ray spectroscopy</p>
+<p>ArXiV</p>
+<p>Minimal statistics checklist</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>p=0.04</b></p>
+<h1 style="page-break-before:always; "><b>Intro: p-values</b></h1>
+<ul>
+<li>p&lt;0.001 – from Pearson correlation, KS test, etc.
+what can you infer:</li>
+<ul>
+<li>You have absolutely disproved the null hypothesis (e.g. &quot;no correlation&quot; is ruled out, the data are not sampled from this model, there is no difference between the samples).</li>
+<li>You have found the probability of the null hypothesis being true.</li>
+<li>You have absolutely proved your experimental hypothesis (e.g. that there is a correlation, there is a difference between two samples, the data are sampled from this model).</li>
+<li>You can deduce the probability of the experimental hypothesis being true.</li>
+<li>You know, if you decide to reject the null hypothesis, the probability that you are making the wrong decision.</li>
+<li>You have a reliable experimental finding in the sense that if, hypothetically, the experiment were repeated a great number of times, you would obtain a significant result on 99.9% of occasions.</li>
+</ul>
+<li>Choose the right answer A - F</li>
+</ul>
+<p>From:<i> “The Null Ritual: What You Always Wanted to Know About Significance Testing but Were Afraid to Ask”</i></p>
+<h1 style="page-break-before:always; "><b>Intro: p-values</b></h1>
+<ul>
+<li>Originally: to indicate a problem with a model worth investigating. Not: p small therefore other model correct. </li>
+<li>p-values are not probabilities</li>
+<li>p-values are random variables between 0 and 1</li>
+<ul>
+<li><b>if</b> the null hypothesis is true</li>
+</ul>
+<li>So the p-values should <i>rarely</i> be at one extreme</li>
+<ul>
+<li>If try often enough, it will happen</li>
+</ul>
+<li>The exact value of p-values below 1e-6 is unreliable</li>
+<ul>
+<li>don’t compare p=10-200 and p=10-100 </li>
+</ul>
+<li>Effect size may be more interesting</li>
+</ul>
+<p>http://astrost.at/istics/minimal-statistics-checklist.html </p>
+<h1 style="page-break-before:always; "></h1>
+<p>https://xkcd.com/882/</p>
+<h1 style="page-break-before:always; "><b>Intro: p-values</b></h1>
+<p>https://xkcd.com/882/</p>
+<h1 style="page-break-before:always; "><b>Intro: p-values</b></h1>
+<p>https://xkcd.com/882/</p>
+<h1 style="page-break-before:always; "></h1>
+<p><i>Also in single papers:</i></p>
+<p>Multiple tests – Bonferri correction</p>
+<p>Multiple variables, many possible correlations
+Look for large sample longitudinal studies (nsubjects&gt;&gt;nparam)</p>
+<p>Multiple ways to prepare the data</p>
+<p>Publication bias</p>
+<p>Don’t get your health information from internet news</p>
+<p>https://xkcd.com/882/</p>
+<h1 style="page-break-before:always; "></h1>
+<p> “You know, the most amazing thing happened to me tonight... I saw a car with the license plate ARW 357. Can you imagine? Of all the millions of license plates in the state, what was the chance that I would see that particular one tonight? Amazing!” 
+– R. Feynman</p>
+<h1 style="page-break-before:always; "><b>Era of large surveys</b></h1>
+<ul>
+<li>Beware of size of parent population</li>
+<ul>
+<li>Given 109 stars (Gaia, etc), you will find plenty of 3,4,5 sigma outliers.</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "><b>About me: Johannes Buchner</b></h1>
+<ul>
+<li>Astrophysics interests</li>
+<ul>
+<li>Supermassive black hole growth; X-ray surveys</li>
+<li>Obscuration of AGN: “torus”, galaxy-scale</li>
+<li>Obscuration of Gamma-ray burst afterglows</li>
+</ul>
+<li>Astrostatistics interests</li>
+<ul>
+<li>nested sampling algorithms (Buchner 2014)</li>
+<li>Improving X-ray spectral analysis (BXA) </li>
+<ul>
+<li>Modern statistical tools for parameter estimation and spectral model comparison  – invited talk HEAD meeting August 2017</li>
+</ul>
+<li>Consulting for papers, Astrostatistics group; astrost.at/istics</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "><b>Research overview</b></h1>
+<ul>
+<li>Buchner+14:</li>
+<ul>
+<li>Introduced model comparison for analysing X-ray spectra –&gt; BXA, pymultinest</li>
+<li>Compare obscurer geometries</li>
+</ul>
+</ul>
+<p><i>“X-ray spectral modelling of the AGN obscuring region in the CDFS: Bayesian model selection and catalogue”</i></p>
+<h1 style="page-break-before:always; "><b>Research overview</b></h1>
+<ul>
+<li>Buchner+15:</li>
+<ul>
+<li>Population analysis from 2000 AGN</li>
+<li>Intrinsic luminosity function of AGN</li>
+<li>Density of Compton-thick AGN</li>
+<li>Total accretion onto SMBH over cosmic time</li>
+<li>New interpretation for luminosity-dependence of obscurer</li>
+</ul>
+</ul>
+<p><i>“Obscuration-dependent Evolution of Active Galactic Nuclei”</i></p>
+<h1 style="page-break-before:always; "><b>Research overview</b></h1>
+<ul>
+<li>Buchner+17a:</li>
+<ul>
+<li>Population analysis from 700 Swift GRB</li>
+<li>Obscuration is stellar mass dependent</li>
+<li>Probably the host galaxy</li>
+</ul>
+<li>Buchner+17b:</li>
+<ul>
+<li>Reweight with stellar mass function of AGN</li>
+<li>Prediction of AGN obscuration by host galaxies alone (non-nuclear)</li>
+<li>Comparison to cosmological hydro simulations</li>
+<li>Eddington-rate dependent nuclear obscurer model</li>
+</ul>
+</ul>
+<p><i>Galaxy gas as obscurer - I. GRBs x-ray galaxies 
+and find an NH³ ~ M* relation</i></p>
+<p><i>Galaxy gas as obscurer - II. Separating the galaxy-scale and nuclear obscurers of active galactic nuclei</i></p>
+<h1 style="page-break-before:always; "><b>Research overview</b></h1>
+<ul>
+<li>Buchner 2014: </li>
+<ul>
+<li>How to verify the correctness of 
+nested sampling algorithms (such as MULTINEST)</li>
+</ul>
+</ul>
+<p><i>“A statistical test for Nested Sampling algorithms”, Statistics &amp; Computing</i></p>
+<h1 style="page-break-before:always; ">Common problems 
+in astrophysics</h1>
+<ul>
+<li>Characterising a source</li>
+<ul>
+<li>Spectral lines, pulsation frequencies</li>
+<li>Orbital parameters</li>
+<li><i>Learn physical parameters</i></li>
+</ul>
+<li>Comparing physical effects</li>
+<ul>
+<li>Include a mechanism or not. 0, 1 or 2 planets?</li>
+<li>Is the distribution a log-normal, a powerlaw or a broken powerlaw?</li>
+</ul>
+<li>Characterising a population of sources</li>
+<ul>
+<li>Intrinsic distribution behind measurements</li>
+<li>Luminosity functions</li>
+<li><i>Population demographic behind drawn sample</i></li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Example</h1>
+<ul>
+<li>Period? </li>
+<ul>
+<li>e.g. Binaries, Exoplanets, rotating neutron star</li>
+</ul>
+<li>Scatter beyond measurement errors?</li>
+<ul>
+<li>intrinsic variability</li>
+</ul>
+</ul>
+<p>time</p>
+<p>flux</p>
+<h1 style="page-break-before:always; ">Approach 1: Estimators</h1>
+<ul>
+<li>Take data and compute back</li>
+<li>Compare data scatter to measurement scatter</li>
+<li>Fourier transform of values, find maximum power</li>
+<ul>
+<li>Measurement errors? – Monte Carlo simulations</li>
+<li>Missing data?</li>
+<li>Significance of peak?</li>
+</ul>
+<li>Need to characterise estimators:</li>
+<ul>
+<li>Variance – is a property of the estimator</li>
+<li>Type 1 error – false positive</li>
+<li>Type 2 error – false negative</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Approach 1: Estimators</h1>
+<ul>
+<li>Benefits:</li>
+<ul>
+<li>Fast &amp; simple to compute</li>
+</ul>
+<li>Drawbacks: </li>
+<ul>
+<li>characteristics describe estimator, not the probability of the system having property X</li>
+<li>Limitations of assumptions can not easily extended:</li>
+<ul>
+<li>Homogeneous measurement data</li>
+<li>Gaussian</li>
+<li>Regular sampling</li>
+<li>Specific model shape</li>
+</ul>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Approach 2: Forward-modelling</h1>
+<ul>
+<li>Assume a model, assume parameters</li>
+<li>Compute likelihood=frequency that data are produced</li>
+<li>Vary parameters (+vary model)</li>
+<li>Produces “allowed” parameter ranges</li>
+</ul>
+<h1 style="page-break-before:always; ">Approach 2: Forward-modelling</h1>
+<ul>
+<li>Drawbacks: </li>
+<ul>
+<li>Requires a model, can be complex</li>
+<li>Can be costly to compute</li>
+</ul>
+<li>Benefit: </li>
+<ul>
+<li>can be as realistic as you want</li>
+<li>gives actual answer to probability of the system having property X</li>
+<li>transferable results/predictions for other experiments</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Example</h1>
+<ul>
+<li>mean and standard deviation of distribution</li>
+<li>What if not exactly Gaussian? What if multiple Gaussians?</li>
+<li>What if measurements are not Gaussian. Correlated noise?</li>
+</ul>
+<p>time</p>
+<p>flux</p>
+<h1 style="page-break-before:always; ">Example</h1>
+<ul>
+<li>Forward fitting with MCMC is popular. </li>
+<li>How does it work?</li>
+</ul>
+<p>time</p>
+<p>flux</p>
+<h1 style="page-break-before:always; ">Preliminaries</h1>
+<ul>
+<li>Likelihood function – tendency/propensity to produce such data:</li>
+<li>Prediction function m(x|theta) = model</li>
+<li>Explore possible a,b,c,d – likelihood function surface</li>
+<li>Probable ranges of a,b,c,d – need a density</li>
+</ul>
+<h1 style="page-break-before:always; ">Likelihoods</h1>
+<ul>
+<li>Can construct a likelihood that produces always and only the observed data  </li>
+<li>But that process is not very <i>probable</i></li>
+<li><i></i></li>
+<li>L is a function, not a probability density</li>
+</ul>
+<ul>
+<li>Data: hear squeaking</li>
+<li>Model: 
+<i>Cat</i></li>
+<ul>
+<li>Meows</li>
+<li>Sleeps</li>
+<li>Walks around on squeaky stairs L=1/3</li>
+</ul>
+<li><i>Ghost</i></li>
+<ul>
+<li>makes squeaky noise L=1</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Bayes Theorem</h1>
+<h1 style="page-break-before:always; ">Bayes as density update rule</h1>
+<h1 style="page-break-before:always; ">Discrete introduction to BI</h1>
+<h1 style="page-break-before:always; ">How to place grid points</h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; ">Exploration</h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; ">Missing ingredients</h1>
+<ul>
+<li>MCMC: Insert tuned transition kernel</li>
+<li>NS: Insert constrained drawing algorithm</li>
+<ul>
+<li>General solutions: MultiNest, MCMC, HMCMC, Galilean, RadFriends, PolyChord</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; ">Methods summary</h1>
+<ul>
+<li>Parameter estimation</li>
+<ul>
+<li><i>Low-dim</i>: Nested sampling - MultiNest</li>
+<li><i>High-dim</i>: HMCMC with multiple chains - Stan</li>
+</ul>
+</ul>
+<ul>
+<li>Model comparison</li>
+<ul>
+<li><i>Low-dim</i>: Nested sampling - MultiNest</li>
+<li><i>High-dim</i>: open research problem. NS+some MCMC variant. More research needed</li>
+</ul>
+</ul>
+<ul>
+<li>To handle multiple maxima, low state of information, peculiar shapes in likelihood, numerical likelihood definitions</li>
+</ul>
+<h1 style="page-break-before:always; ">PyMultiNest</h1>
+<p>No starting points</p>
+<p>Automatic convergence</p>
+<p>Pythonic</p>
+<p>Parameter estimation +</p>
+<p>Model comparison</p>
+<h1 style="page-break-before:always; ">PyMultiNest</h1>
+<p>No starting points</p>
+<p>Automatic convergence</p>
+<p>Pythonic</p>
+<p>Parameter estimation +</p>
+<p>Model comparison</p>
+<p>Posterior probability 
+distributions: 1d &amp; 2d
+“MCMC chains” in 
+post_equal_weights.dat file</p>
+<h1 style="page-break-before:always; ">Stan</h1>
+<p>data {</p>
+<p>  int&lt;lower=0&gt; N;</p>
+<p>  real[N] x;</p>
+<p>  real[N] y;</p>
+<p>  real[N] y_err;</p>
+<p>}</p>
+<p>parameters {</p>
+<p>  real a;</p>
+<p>  real b;</p>
+<p>  real c;</p>
+<p>  real d;</p>
+<p>}</p>
+<p>model {</p>
+<p>  for (i in 1:N) {</p>
+<p>    real m;</p>
+<p>    m &lt;- a*sin(x[i]*b + c) + d;</p>
+<p>    y[i] ~ normal(m, y_err[i]);</p>
+<p>  }</p>
+<p>}</p>
+<p>http://mc-stan.org</p>
+<h1 style="page-break-before:always; ">Common problems 
+in astrophysics</h1>
+<ul>
+<li>Characterising a source</li>
+<ul>
+<li>Spectral lines, pulsation frequencies</li>
+<li>Orbital parameters</li>
+<li><i>Learn physical parameters</i></li>
+</ul>
+<li>Comparing physical effects</li>
+<ul>
+<li>Include a mechanism or not. 0, 1 or 2 planets?</li>
+<li>Is the distribution a log-normal, a powerlaw or a broken powerlaw?</li>
+</ul>
+</ul>
+<p>Define a generative data model – likelihood + parameter space definition</p>
+<p>Find parameter ranges</p>
+<p>Distinguish models with Z</p>
+<p><b>Robustness</b>:</p>
+<p>Test sensitivity to different priors</p>
+<p>Cross-validation – leave some data out</p>
+<h1 style="page-break-before:always; ">Common problems 
+in astrophysics</h1>
+<ul>
+<li>Characterising a source</li>
+<ul>
+<li>Spectral lines, pulsation frequencies</li>
+<li>Orbital parameters</li>
+<li><i>Learn physical parameters</i></li>
+</ul>
+<li>Comparing physical effects</li>
+<ul>
+<li>Include a mechanism or not. 0, 1 or 2 planets?</li>
+<li>Is the distribution a log-normal, a powerlaw or a broken powerlaw?</li>
+</ul>
+<li>Characterising a population of sources</li>
+<ul>
+<li>Intrinsic distribution behind measurements</li>
+<li>Luminosity functions</li>
+<li><i>Population demographic behind drawn sample</i></li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "><b>Literature</b></h1>
+<ul>
+<li>In luminosity functions:</li>
+<ul>
+<li>Marshall+83, likely earlier</li>
+</ul>
+<li>In astrostatistics:</li>
+<ul>
+<li>Loredo04	: Samples drawn from Poisson</li>
+<li>Kelly+08	: Samples drawn from Bernoulli</li>
+<li>Buchner+15: Side-to-side comparison, give same formula unless selection bias is applied.</li>
+</ul>
+<li>In statistics/cross-fields: </li>
+<ul>
+<li>Hierarchical models, multi-level models</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "><b>A common problem</b></h1>
+<ul>
+<li>Detected a set of objects</li>
+<ul>
+<li>Galaxies, stars, asteroids</li>
+</ul>
+<li>Measured some property</li>
+<ul>
+<li>Luminosity, Mass, Obscuration, Metallicity</li>
+</ul>
+<li>With uncertainty, upper limits, missing data</li>
+<li>Limited sample size</li>
+<li>What is the <u>distribution of that property</u> in the <u>underlying population</u></li>
+</ul>
+<h1 style="page-break-before:always; "><b>Uncertainties</b></h1>
+<p>P(x)</p>
+<p>Upper limit</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>“Degeneracy”</p>
+<p>Multiple solutions</p>
+<p>Multiple modes</p>
+<ul>
+<li>Related to our measuring instrument and observing conditions</li>
+<li>One of these values inside the posterior is the true one (LOGICAL XOR)</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Intrinsic Scatter</b></h1>
+<ul>
+<li>Width of the distribution of the underlying population</li>
+<li>Intrinsic to the astrophysical population</li>
+<li>The population produced all of the objects 
+(LOGICAL AND)</li>
+</ul>
+<p>f(x)</p>
+<p>x</p>
+<p>Spectral slope, Photon Index distribution</p>
+<p>Mass, Luminosity distributions: Powerlaw-like, truncated</p>
+<p>Beta distribution = Schechter function</p>
+<h1 style="page-break-before:always; "><b>Different “distributions”</b></h1>
+<ul>
+<li>Frequency distribution</li>
+<ul>
+<li>Population</li>
+</ul>
+<li>Uncertainty, probability distribution</li>
+<ul>
+<li>Observation</li>
+</ul>
+<li>social sciences, ML, non-parametric methods: Use point estimator, look at total distribution</li>
+<li>Physics: Separate out measurement uncertainty</li>
+</ul>
+<p>Political opinions</p>
+<p>Ad-hoc behavior models</p>
+<h1 style="page-break-before:always; "><b>How to do it wrong</b></h1>
+<ul>
+<li>Generate N random points from measurements, treat them as pseudo-objects (weight 1/N)</li>
+<li>Stack posteriors</li>
+<li>Mixes uncertainty with intrinsic scatter</li>
+<li>Can under-estimate or over-estimate</li>
+<li>Also difficult: splitting sample (histograms, Vmax)</li>
+</ul>
+<p>x</p>
+<h1 style="page-break-before:always; "><b>Parametric Methods</b></h1>
+<ul>
+<li>Assume a model for the underlying population</li>
+<li>e.g. Gaussian distribution with intrinsic scatter</li>
+<li>For a individual object, the likelihood to have x is</li>
+<li>convolve measurement uncertainty with model</li>
+<li>LOGICAL OR</li>
+<li>Must be true for all objects --&gt; LOGICAL AND</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Example</b></h1>
+<ul>
+<li>Measurement gave</li>
+<li>x1 = 4+-1</li>
+<li>x2 = 5+-0.1</li>
+<li>Generate 100 samples for each</li>
+</ul>
+<p>100xN matrix of x</p>
+<h1 style="page-break-before:always; "><b>Example</b></h1>
+<ul>
+<li>Evaluate model</li>
+<li>
+
+
+
+
+F(x)</li>
+</ul>
+<p>100xN matrix of F</p>
+<p>100xN matrix of x</p>
+<h1 style="page-break-before:always; "><b>Example</b></h1>
+<ul>
+<li>Sum probabilities</li>
+<li>Multiply probabilities</li>
+<li>Then try out other model parameters</li>
+</ul>
+<p>100xN matrix of F</p>
+<p>N 
+vector</p>
+<p>L</p>
+<h1 style="page-break-before:always; "><b>Graphic explanation</b></h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; "><b>Graphic explanation</b></h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; "><b>Graphic explanation</b></h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; "><b>Graphic explanation</b></h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<ul>
+<li>Generate from 6+-2 with measurement errors</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+  <meta name="created" content="2017-01-22T21:59:52.690434471"/>
+  <meta name="changed" content="2017-08-21T15:44:15.474518789"/>
+  <meta name="description" content="Based on &quot;What About Fedora ?&quot; by Bert Desmet (https://fedoraproject.org/wiki/Presentations_Previous_Releases). License: CC-BY-SA"/>
+</head>
+<body>
+<h1><b>BXA
+robust parameter estimation &amp;  practical model comparison</b></h1>
+<h2>Johannes Buchner</h2>
+<h2>FONDECYT fellow</h2>
+<h2><a href="http://astrost.at/istics/"><u>http://astrost.at/istics/</u></a></h2>
+<h2><u></u></h2>
+<h1 style="page-break-before:always; ">BXA – Bayesian X-ray Analysis</h1>
+<ul>
+<li>Plugin connecting xspec/sherpa with MultiNest</li>
+<ul>
+<li><u>https://github.com/JohannesBuchner/BXA</u></li>
+</ul>
+<li>Nested Sampling vs. MCMC for parameter estimation</li>
+<li>Model comparison with evidences/Bayes factors</li>
+<li>Population inference instead of samples statistics</li>
+</ul>
+<p>Buchner+14</p>
+<p>Buchner+15</p>
+<h1 style="page-break-before:always; ">L, NH from X-ray spectrum</h1>
+<p>Scattered Powerlaw component</p>
+<p>CTK flat spectrum + FeK line</p>
+<h1 style="page-break-before:always; ">L, NH from X-ray spectrum</h1>
+<p>Probability cloud</p>
+<h1 style="page-break-before:always; ">L, NH from X-ray spectrum</h1>
+<p>Nested Sampling (BXA/Multinest)</p>
+<p>MCMC (emcee/GW)</p>
+<p>Simple fitting:</p>
+<p>   One minimum</p>
+<p>MCMC:
+   One minimum
+   convergence tests
+   can be fooled</p>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; ">Missing ingredients</h1>
+<ul>
+<li>MCMC: Insert tuned transition kernel</li>
+<li>NS: Insert constrained drawing algorithm</li>
+<ul>
+<li>General solutions: MultiNest, MCMC, HMCMC, Galilean, RadFriends, PolyChord</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<p>Buchner (2014)</p>
+<h1 style="page-break-before:always; ">Working with BXA</h1>
+<ul>
+<li>Do not need to abandon xspec/sherpa</li>
+<li>Specify working parameter space </li>
+<ul>
+<li>log, linear, etc. ~ priors      – or ML MCMC approach</li>
+</ul>
+<li>Run once, be done!</li>
+<ul>
+<li>No stepping, no convergence worries</li>
+<li>No wondering about other solutions</li>
+</ul>
+<li>Output: PDF of each parameter</li>
+</ul>
+<h1 style="page-break-before:always; ">BXA in practice (with pyxspec)</h1>
+<ul>
+<li>Set up spectrum &amp; model</li>
+<li>Set up parameter space
+
+
+
+
+
+
+</li>
+<li>Run!</li>
+</ul>
+<p>s = Spectrum('example-file.fak')</p>
+<p>s.ignore(&quot;**&quot;); s.notice(&quot;0.2-8.0&quot;)</p>
+<p>m = Model(&quot;pow&quot;)</p>
+<p>m.powerlaw.norm.values = &quot;,,1e-10,1e-10,1e1,1e1&quot; # 10^-10 .. 10</p>
+<p>m.powerlaw.PhoIndex.values = &quot;,,1,1,3,3&quot;                #     1 .. 3</p>
+<p># define prior</p>
+<p>transformations = [</p>
+<p>	bxa.create_uniform_prior_for( m, m.powerlaw.PhoIndex),</p>
+<p>	bxa.create_jeffreys_prior_for(m, m.powerlaw.norm),</p>
+<p>]</p>
+<p>bxa.standard_analysis(transformations, 
+           outputfiles_basename = 'simple-example')</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Parameter probability distributions</p>
+<p>Parameter correlations</p>
+<p>That was parameter estimation</p>
+<p>– now for model comparison!</p>
+<h1 style="page-break-before:always; ">Model comparison</h1>
+<ul>
+<li>Z = p(D|M) = </li>
+<ul>
+<ul>
+<li>“marginal likelihood”, “evidence” … </li>
+<li>average likelihood over parameter space</li>
+</ul>
+</ul>
+<li>Z1/Z2: </li>
+<ul>
+<li>Probability for model M1 compared to M2</li>
+</ul>
+<li>Example:</li>
+<ul>
+<li>M1: wabs*pl – photo-el absorbed powerlaw</li>
+<li>M2: table{sphere}: includes Compton scattering</li>
+</ul>
+</ul>
+<p>M1:</p>
+<p>M2:</p>
+<p>Z1/Z2 was 10</p>
+<p>CDFS source 179</p>
+<p>see Buchner+14</p>
+<h1 style="page-break-before:always; ">Comparison of several models</h1>
+<p>see Buchner+14</p>
+<p>Zi = p(Mi|D) </p>
+<p>Model i</p>
+<p>%</p>
+<h1 style="page-break-before:always; ">Example applications</h1>
+<ul>
+<li>Comparison between obscurer geometries (Buchner+14)</li>
+<li>Identifying relativistic broad lines:</li>
+<ul>
+<li>Narrow line model vs.</li>
+<li>Relativistic broad line models  (Baronchelli+in prep.)</li>
+</ul>
+<li>Threshold for decisions? False selection rates?</li>
+</ul>
+<h1 style="page-break-before:always; ">False selection rates</h1>
+<ul>
+<li>As with any other estimator!</li>
+<ul>
+<li>Simulate many times without effect</li>
+<li>measure false decisions</li>
+<li>Calibrate threshold</li>
+</ul>
+<li>Feasible with BXA</li>
+</ul>
+<h1 style="page-break-before:always; ">Population inference</h1>
+<ul>
+<li>Example: Photon index, NH distribution of population of LGRBs, AGN</li>
+<li>sample statistics</li>
+<li>(selection effects – see Buchner+15, A1)</li>
+<li>Keep uncertainties, Upper limits</li>
+<li>Don’t:</li>
+<ul>
+<li>Plot histogram of means</li>
+<li>Stack posteriors</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Hierarchical Bayesian inference</h1>
+<ul>
+<li>Assume flexible population model</li>
+<ul>
+<li>Examples: Gaussian, Gaussian mixture, beta distribution</li>
+</ul>
+<li>Fold in posterior samples             for object i</li>
+<li>Likelihood for population parameters!</li>
+<li>Importance sampling from posteriors</li>
+<ul>
+<li>need flat priors, see Buchner+15 A1 for details</li>
+</ul>
+</ul>
+<p>Product over objects</p>
+<p>Mean over samples</p>
+<h1 style="page-break-before:always; ">Hierarchical Bayesian inference</h1>
+<ul>
+<li>Assume flexible population model</li>
+<ul>
+<li>Examples: Gaussian, Gaussian mixture, beta distribution</li>
+</ul>
+<li>Fold in posterior samples             for object i</li>
+<li>Likelihood for population parameters - MCMC</li>
+<li>Importance sampling from posteriors</li>
+<ul>
+<li>need flat priors, see Buchner+17a for details</li>
+</ul>
+</ul>
+<p>Product over objects</p>
+<p>Mean over samples</p>
+<h1 style="page-break-before:always; ">Population inference</h1>
+<ul>
+<li>Keeps uncertainties</li>
+<ul>
+<li>Fold in redshift uncertainties</li>
+<li>(unlike X-ray stacking!)</li>
+</ul>
+<li>Population uncertainties</li>
+<ul>
+<li>Include limited sample size</li>
+<li>Model can be 1d,2d,3d,…</li>
+</ul>
+<li>Special case of 
+luminosity function 
+analysis (Loredo2004)</li>
+</ul>
+<h1 style="page-break-before:always; ">Summary</h1>
+<ul>
+<li>BXA: a MultiNest plugin for xspec/sherpa </li>
+<li>BXA: parameter estimation</li>
+<ul>
+<li>Robust to multiple solutions, convergence issues, etc.</li>
+</ul>
+<li>BXA: Bayesian model comparison</li>
+<ul>
+<li>Sensitive; can be interpreted; calibrated to FDR</li>
+</ul>
+<li>Population inference</li>
+<ul>
+<li>Understand the population from a limited sample</li>
+<li>Forward-fold all uncertainties</li>
+</ul>
+<li>more in: Buchner+14, +15, +17a + their refs</li>
+</ul>
+</body>
+</html>

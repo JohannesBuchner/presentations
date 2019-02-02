@@ -1,0 +1,20 @@
+A robust determination of fraction of obscured and Compton-thick AGN
+is a long-standing issue in AGN research. We address this question using a
+multi-tiered survey of 2000 X-ray hard-band detected AGN covering well
+the redshift range of z=0.5-4, luminosities of L=10^42-46 erg/s and
+column densities of NH=10^20-26 cm^-2. We analyse the spectrum of each
+source in detail with a Bayesian fitting technique capable of
+handling also the low counts, and propagate errors in association and
+photometric redshift. We developed a new non-parametric method that
+reveals the distribution of the AGN population in luminosity,
+obscuration and redshift.
+We find the fraction of Compton-thick AGN to be 36%(+-8) averaged over
+cosmic time, while 75%(+-4) AGN are obscured. These fractions evolve
+with cosmic time, as AGN of different obscuration show distinct
+evolutionary patterns, with AGN around NH~10^23 cm^-2 evolving
+fastest. We study the luminosity dependence of the fraction of
+obscured and Compton-thick AGN in detail, and find that this
+relationship evolves over cosmic time.
+In my talk I will discuss models that can explain the large fraction
+of Compton-thick AGN as well as the luminosity-obscuration relationship.
+
