@@ -65,8 +65,6 @@ Please let me know if you find any issues.
 * https://johannesbuchner.github.io/presentations/htmltalks/slide-backgrounds.html
 * https://johannesbuchner.github.io/presentations/htmltalks/statistics2014.html
 * https://johannesbuchner.github.io/presentations/htmltalks/statistics2014.talk.html
-* https://johannesbuchner.github.io/presentations/htmltalks/template.html
-* https://johannesbuchner.github.io/presentations/htmltalks/test.html
 * https://johannesbuchner.github.io/presentations/htmltalks/xlf2014.html
 * https://johannesbuchner.github.io/presentations/kaffeerunde/kaffeerunde.html
 * https://johannesbuchner.github.io/presentations/masworkshop-2016/masworkshop-2016.html
@@ -74,5 +72,7 @@ Please let me know if you find any issues.
 * https://johannesbuchner.github.io/presentations/slides_agn_intro/slides_agn_intro.html
 * https://johannesbuchner.github.io/presentations/slide/slide.html
 * https://johannesbuchner.github.io/presentations/torus2015-poster-intro/torus2015-poster-intro.html
+
+I used Reveal.js, Multitalk and Libreoffice Impress.
 
 
