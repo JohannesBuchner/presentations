@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+  <meta name="created" content="2017-01-22T21:59:52.690434471"/>
+  <meta name="changed" content="2019-10-23T14:28:23.976193680"/>
+  <meta name="description" content="Based on &quot;What About Fedora ?&quot; by Bert Desmet (https://fedoraproject.org/wiki/Presentations_Previous_Releases). License: CC-BY-SA"/>
+</head>
+<body>
+<h1><b>Nested sampling &amp; 
+population inference</b></h1>
+<h2>Johannes Buchner</h2>
+<h2>astrost.at/istics</h2>
+<h2>Max Planck Institute for extraterrestrial Physics</h2>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; ">Bayesian inference is integral</h1>
+<ul>
+<li>What parameters are probable under a given model?</li>
+<li>What models are probable?</li>
+</ul>
+<p>“physical model prediction”</p>
+<p>	non-linear, complex, slow</p>
+<p>statistical measurement process</p>
+<p>data vs. model</p>
+<h1 style="page-break-before:always; ">Bayesian inference is integral</h1>
+<p>Function:</p>
+<p><b>Likelihood</b></p>
+<p>dx</p>
+<p>dx</p>
+<p>dx</p>
+<p>Integration measure:</p>
+<p><b>Prior</b></p>
+<ul>
+<li><u>Parameter estimation</u>: Identify parameter space subset</li>
+<li><u>Model comparison</u>: identify model subset</li>
+</ul>
+<p>containing 99% of probability mass</p>
+<h1 style="page-break-before:always; ">Integration algorithms</h1>
+<ul>
+<li>Parameter estimation</li>
+<ul>
+<li>HMCMC (<u>Stan)</u></li>
+<li>emcee (?)</li>
+</ul>
+<li><u></u></li>
+<li>Model comparison</li>
+<ul>
+<li>Nested sampling</li>
+</ul>
+</ul>
+<ul>
+<li>Challenges:</li>
+<ul>
+<li>In tails</li>
+<li>In missed modes</li>
+<li>In high-dimensions</li>
+<li>Reliability against assumptions</li>
+<li>Visualisation</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Nested sampling idea</h1>
+<ul>
+<li>Keeping track of volume </li>
+<ul>
+<li>Exponential shrinkage (~1/N)</li>
+</ul>
+<li>Keeping track of height</li>
+</ul>
+<p>Skilling ‘04,06,09</p>
+<p>Evans ‘07</p>
+<p>Chopin&amp;Robert ‘07,10</p>
+<p>Walter ‘14</p>
+<p>Sorted live points</p>
+<p>To be replaced</p>
+<h1 style="page-break-before:always; ">Nested sampling idea</h1>
+<ul>
+<li>Keeping track of volume </li>
+<ul>
+<li>Exponential shrinkage (~1/N)</li>
+</ul>
+<li>Keeping track of height</li>
+</ul>
+<p>Skilling ‘04,06,09</p>
+<p>Evans ‘07</p>
+<p>Chopin&amp;Robert ‘07,10</p>
+<p>Walter ‘14</p>
+<p>V</p>
+<p>L</p>
+<p>Dead points’ L &amp; V</p>
+<h1 style="page-break-before:always; ">Constrained sampling</h1>
+<p>Skilling ‘04,06,09</p>
+<p>Evans ‘07</p>
+<p>Chopin&amp;Robert ‘07,10</p>
+<p>Walter ‘14</p>
+<h1 style="page-break-before:always; ">Multi-dimensional case</h1>
+<ul>
+<li>Ordering of samples well-defined by L</li>
+<li>“Indep. of dim”</li>
+<ul>
+<li>depends primarily on constrained sampler!</li>
+</ul>
+<li>no need for fixed dim, continuous spaces</li>
+</ul>
+<h1 style="page-break-before:always; ">Multi-dimensional case</h1>
+<ul>
+<li>Ellipsoidal sampling</li>
+<ul>
+<li>Mukherjee+06</li>
+</ul>
+<li>Multi-ellipsoidal sampling</li>
+<ul>
+<li>Shaw+07, Feroz&amp;Hobson08, Feroz+09</li>
+<li>MultiNest (pymultinest)</li>
+</ul>
+<li>Very popular!</li>
+</ul>
+<p>Wilks’ theorem</p>
+<p>Elliptical distributions</p>
+<h1 style="page-break-before:always; ">Nested sampling</h1>
+<p>For efficiency:</p>
+<p>Reconstruct a region</p>
+<p>Sample uniformly</p>
+<p>RadFriends: ellipsoid around each point</p>
+<p>Circle size cross-validated to recover current points</p>
+<p>Alternative: MCMC</p>
+<p>https://chi-feng.github.io/mcmc-demo/app.html</p>
+<h1 style="page-break-before:always; ">Nested Sampling Extensions</h1>
+<ul>
+<li>Dynamic NS</li>
+<li>No hard borders: </li>
+<ul>
+<li>Daemonic NS</li>
+<li>Diffusive NS</li>
+</ul>
+<li>Using thrown-away points</li>
+<ul>
+<li>Importance NS</li>
+</ul>
+</ul>
+<p>Higson+17</p>
+<p>Habeck15</p>
+<p>Chopin &amp; Roberts 07, 08,10</p>
+<p>Brewer+11</p>
+<h1 style="page-break-before:always; ">Similar datasets</h1>
+<ul>
+<li>What happens if similar datasets run with same RNG?</li>
+<li>Ordering of points same in beginning</li>
+<li>–&gt; can save model evaluations in beginning</li>
+<li>then diverge</li>
+<li>–&gt; sample from superset</li>
+</ul>
+<p>Buchner (2018): collaborative nested sampling</p>
+<p>Model prediction</p>
+<p>D1</p>
+<p>D2</p>
+<p>D3</p>
+<p>D4</p>
+<p><u>Multi-likelihood</u></p>
+<p>Sorted live points</p>
+<p>To be replaced</p>
+<p>V</p>
+<p>L</p>
+<p>Dead points’ L &amp; V</p>
+<h1 style="page-break-before:always; ">Sharing live points</h1>
+<p>Buchner (2018): collaborative nested sampling</p>
+<p>V</p>
+<p>L</p>
+<p>Dead points’ L &amp; V</p>
+<h1 style="page-break-before:always; ">Constructing super-regions</h1>
+<p>Buchner (2018): collaborative nested sampling</p>
+<ul>
+<li>across all data </li>
+<ul>
+<li>“Superset draw”</li>
+</ul>
+<li>across empty queues</li>
+<ul>
+<li>“Focussed draw”</li>
+</ul>
+<li>Trade-off: sharing efficiency</li>
+</ul>
+<h1 style="page-break-before:always; ">Sharing live points</h1>
+<p>Buchner (2018): collaborative nested sampling</p>
+<ul>
+<li>Shared live points = acceleration</li>
+<li>Diverging runs = independence</li>
+<li>Find disjoint graph = overhead</li>
+</ul>
+<h1 style="page-break-before:always; ">When could this be useful?</h1>
+<ul>
+<li>Large # of data sets</li>
+<ul>
+<li>Similarly structured &amp; potentially similar parameters</li>
+<li>Optimal if uncertainties substantial</li>
+</ul>
+<li>Complex models</li>
+<ul>
+<li>Physics slow, not analytical</li>
+<li>Arbitrarily complex statistical process</li>
+</ul>
+<li>separate measurement process from physics!</li>
+<ul>
+<li>Get uncertainties on physical parameters</li>
+<li>Model comparison</li>
+</ul>
+</ul>
+<p>Buchner (2018): collaborative nested sampling</p>
+<p>(in contrast to  </p>
+<p> standard ML)</p>
+<h1 style="page-break-before:always; ">Toy demo: Fit a line</h1>
+<p>Buchner (2018): collaborative nested sampling</p>
+<p>Simulated</p>
+<p>Gaussian line = “slow model”</p>
+<p>Gaussian noise = “fast likelihood”</p>
+<p>Fitted with Collaborative NS + RadFriends</p>
+<h1 style="page-break-before:always; ">Toy demo: Fit a line</h1>
+<p>Buchner (2018): collaborative nested sampling</p>
+<p>Sub-linear scaling</p>
+<p>Monte Carlo simulations</p>
+<h1 style="page-break-before:always; ">Demo: MUSE IFU</h1>
+<p>1arcmin² FOV, 
+480-930nm</p>
+<p>Abell 370 galaxy cluster</p>
+<h1 style="page-break-before:always; ">Demo: MUSE IFU</h1>
+<p>1arcmin² FOV, 
+480-930nm</p>
+<p>Abell 370 galaxy cluster</p>
+<h1 style="page-break-before:always; ">Demo: MUSE IFU</h1>
+<p>1arcmin² FOV, 
+480-930nm</p>
+<p>Abell 370 galaxy cluster</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Buchner (2018): collaborative nested sampling</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Buchner (2018): collaborative nested sampling</p>
+<p><b>	4223 fibers	140h	14.4e6 likelihood evaluations</b></p>
+<p><b>	  100 fibers	14.9h	  2.8e6 likelihood evaluations</b></p>
+<p><b></b></p>
+<p><b>			speed-up: 4x</b></p>
+<h1 style="page-break-before:always; ">Limitations &amp; Open problems</h1>
+<ul>
+<li>M. slower than point bookkeeping</li>
+<li>Complexity </li>
+<ul>
+<li>Python implementation @ <u>https://github.com/JohannesBuchner/massivedatans/</u></li>
+</ul>
+<li>Problem formulation</li>
+<ul>
+<li>Physical model uncertainties</li>
+</ul>
+<li>How to do NS while accumulating data?</li>
+</ul>
+<p>Buchner (2018): collaborative nested sampling</p>
+<p>Model prediction</p>
+<p>D1</p>
+<p>D2</p>
+<p>D3</p>
+<p>D4</p>
+<p><u>Multi-likelihood</u></p>
+<h1 style="page-break-before:always; "><b>Intrinsic
+parameter distributions</b></h1>
+<h1 style="page-break-before:always; "><b>Example</b></h1>
+<ul>
+<li>Measurement gave</li>
+<li>x1 = 4+-1</li>
+<li>x2 = 5+-0.1</li>
+<li>Generate 100 samples for each</li>
+</ul>
+<p>100xN matrix of x</p>
+<h1 style="page-break-before:always; "><b>Example</b></h1>
+<ul>
+<li>Evaluate model</li>
+<li>
+
+
+
+
+F(x)</li>
+</ul>
+<p>100xN matrix of F</p>
+<p>100xN matrix of x</p>
+<h1 style="page-break-before:always; "><b>Example</b></h1>
+<ul>
+<li>Sum probabilities</li>
+<li>Multiply probabilities</li>
+<li>Then try out other model parameters</li>
+</ul>
+<p>100xN matrix of F</p>
+<p>N 
+vector</p>
+<p>L</p>
+<h1 style="page-break-before:always; "><b>Graphic explanation</b></h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; "><b>Graphic explanation</b></h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; "><b>Graphic explanation</b></h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; "><b>Graphic explanation</b></h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<ul>
+<li>Generate from 6+-2 with measurement errors</li>
+</ul>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; "><b>Behaviour</b></h1>
+<h1 style="page-break-before:always; ">“Luminosity functions”</h1>
+<p>Multi-wavelength 
+Association NWAY</p>
+<p>Obscured, CTK fraction</p>
+<p>f(L,z)</p>
+<p>Obscured, CTK fraction</p>
+<p>by galaxy gas f(M*,z)</p>
+<p>Hierarchical Bayesian
+Models</p>
+<p>Nested Sampling &amp;
+PyMultiNest</p>
+<p>Cosmological Sims</p>
+<p>Spectral fitting 
+with low counts (BXA)</p>
+<p>CDFS: Luo+17</p>
+<p>COSMOS, 
+AEGIS-XD,
+XMM-XXL
+</p>
+<p>Buchner+15</p>
+<p>Buchner+15, Kelley+10, Loredo02</p>
+<h1 style="page-break-before:always; ">X-ray Survey analysis</h1>
+<p>Multi-wavelength 
+Association NWAY</p>
+<p>Obscured, CTK fraction</p>
+<p>f(L,z)</p>
+<p>Obscured, CTK fraction</p>
+<p>by galaxy gas f(M*,z)</p>
+<p>Hierarchical Bayesian
+Models</p>
+<p>Nested Sampling &amp;
+PyMultiNest</p>
+<p>Cosmological Sims</p>
+<p>Spectral fitting 
+with low counts (BXA)</p>
+<p>CDFS: Luo+17</p>
+<p>COSMOS, 
+AEGIS-XD,
+XMM-XXL
+</p>
+<p>Buchner+15</p>
+<p>Buchner+15, Kelley+10, Loredo02</p>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+  <meta name="created" content="2019-09-16T18:30:57.581131354"/>
+  <meta name="changed" content="2019-10-24T09:50:44.182866816"/>
+</head>
+<body>
+<h1>Spectral fitting methods &amp; BXA</h1>
+<h2>Johannes Buchner</h2>
+<h2>astrost.at/istics</h2>
+<h2>Max Planck Institute for extraterrestrial Physics</h2>
+<h1 style="page-break-before:always; ">eROSITA on SRG</h1>
+<p>Launch 13.07.2019</p>
+<h1 style="page-break-before:always; ">eROSITA on SRG</h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<p>F. Haberl, M. Freyberg, C. Maitra	 MPE/IKI</p>
+<h1 style="page-break-before:always; "></h1>
+<table>
+  <tr>
+    <td>
+<p>Energy range &amp; resolution@6keV</p>
+    </td>
+    <td>
+<p>0.2-10keV</p>
+<p>130eV</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>Angular resolution HEW@1.5keV</p>
+    </td>
+    <td>
+<p>&lt;15’’ on axis,
+20’’ on average</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>Field of View</p>
+<p>All-sky scans</p>
+    </td>
+    <td>
+<p>0.833 deg²</p>
+<p>Every 6 months
+8 times</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>Soft flux limit</p>
+<p>Hard flux limit</p>
+    </td>
+    <td>
+<p>1e-14 erg/s/cm² </p>
+<p>1e-13 erg/s/cm²</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<p>Data access eROSITA_DE</p>
+    </td>
+    <td>
+<p>2y proprietary;
+ext. collaborator</p>
+    </td>
+  </tr>
+</table>
+<p>https://arxiv.org/abs/1209.3114</p>
+<h1 style="page-break-before:always; ">Survey grasp</h1>
+<p>https://arxiv.org/abs/1209.3114</p>
+<h1 style="page-break-before:always; ">Spectral fitting methods</h1>
+<h2>Workshop at the </h2>
+<h2>Max Planck Institute for extraterrestrial Physics</h2>
+<h2>24-25.09.2019
+organised by</h2>
+<h2>Johannes Buchner, J Michael Burgess, Joern Wilms</h2>
+<h1 style="page-break-before:always; ">Spectral fitting methods</h1>
+<ul>
+<li>Linear data model</li>
+<li>Statistics – Poisson vs Gaussian</li>
+<li>Background handling</li>
+<li>Parameter space exploration methods</li>
+<li>Model comparison methods</li>
+<li>Information stacking</li>
+<li>Imaging spectroscopy</li>
+<li>Calibration</li>
+</ul>
+<p>Johannes Buchner, J Michael Burgess, Joern Wilms, Konrad Dennerl, Jeremy Sanders</p>
+<p>https://tinyurl.com/xrayspectra</p>
+<h1 style="page-break-before:always; ">Spectral fitting methods</h1>
+<ul>
+<li>Linear data model</li>
+<li>Statistics – Poisson vs Gaussian</li>
+<li>Background handling</li>
+<li><b>Parameter space exploration methods</b></li>
+<li><b>Model comparison methods</b></li>
+<li>Information stacking</li>
+<li>Imaging spectroscopy</li>
+<li>Calibration</li>
+</ul>
+<p>Johannes Buchner, J Michael Burgess, Joern Wilms, Konrad Dennerl, Jeremy Sanders</p>
+<p>https://tinyurl.com/xrayspectra</p>
+<h1 style="page-break-before:always; "></h1>
+<h2>Parameter space exploration</h2>
+<h1 style="page-break-before:always; ">Parameter space exploration</h1>
+<ul>
+<li>Local optimization</li>
+<ul>
+<li>LM, simplex, … (many)</li>
+<li>Monte carlo optimization</li>
+</ul>
+<li>Global optimization</li>
+<ul>
+<li>Genetic algorithms (DE)</li>
+</ul>
+<li>Local sampling: MCMC</li>
+<ul>
+<li>Tempering</li>
+<li>Limitations</li>
+</ul>
+<li>Global sampling</li>
+<ul>
+<li>Nested sampling</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Best fit parameters</h1>
+<ul>
+<li>If away from boundary</li>
+<li>If model is linear</li>
+<li>If ndata → high</li>
+<li>If θ is true parameter</li>
+<li>→ then</li>
+</ul>
+<p>(symmetric, single gauss)</p>
+<p>If many data are created under θ</p>
+<p>logL interval -1 below best fit</p>
+<p>Contains true value 68% of realisations</p>
+<p>Confidence interval</p>
+<p>What was the question again?</p>
+<p>Are conditions fulfilled?</p>
+<p>What do unequal “errors” mean?</p>
+<h1 style="page-break-before:always; ">Best fit distributions</h1>
+<p>θ</p>
+<p>L</p>
+<p>Convolution of </p>
+<p>True parameter distribution +</p>
+<p>Measurement error &amp; analysis method</p>
+<p>Confidence intervals</p>
+<p>Histogram of best fits</p>
+<p>Cumulative distribution</p>
+<p>Clean solution:
+Model population distribution (HBM)</p>
+<p>Meaning?</p>
+<p>Upper limits?</p>
+<p>Buchner+17a</p>
+<h1 style="page-break-before:always; ">Bayesian posterior</h1>
+<p>Volume</p>
+<p>Density</p>
+<p>Probability mass</p>
+<p>Find regions with high probability mass</p>
+<p>θ</p>
+<p>L</p>
+<p>L</p>
+<p>Idea: Sample parameter solutions proportionally to their probability</p>
+<p>For example with a grid</p>
+<h1 style="page-break-before:always; ">Posterior grid</h1>
+<h1 style="page-break-before:always; ">Posterior grid</h1>
+<h1 style="page-break-before:always; ">Bayesian posterior</h1>
+<p>θ</p>
+<p>P</p>
+<p>parameter solutions weighted by their probability</p>
+<p>Credible intervals</p>
+<p>Definitions:</p>
+<p>	Density → cumulative → quantiles</p>
+<p>	Highest Density Intervals</p>
+<p>	Borders (upper limits)</p>
+<h1 style="page-break-before:always; ">Using posterior chains</h1>
+<ul>
+<li>Posterior chain</li>
+<ul>
+<li> θ1  θ2	θ3 ….</li>
+</ul>
+<li>Find regions with high prob</li>
+<li>Compute prob. of regions</li>
+<li>Posterior predictions</li>
+<li>Derived quantities</li>
+</ul>
+<p>P</p>
+<p>q10     q50      q90</p>
+<p>P</p>
+<p>P(x&gt;4)= 
+sample fraction</p>
+<p>F, z → L, z</p>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<p>Posterior </p>
+<p>odds ratio</p>
+<p>Prior</p>
+<p>odds ratio</p>
+<p>Bayes
+factor</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Buchner+14</p>
+<h1 style="page-break-before:always; ">Punishing prediction diversity</h1>
+<p>Flexible model</p>
+<p>Inflexible model</p>
+<p>Data</p>
+<p>L high, V tiny</p>
+<p>L medium, V medium</p>
+<p>(not number of parameters)</p>
+<h1 style="page-break-before:always; ">Model comparison</h1>
+<ul>
+<li>Empirical models</li>
+<ul>
+<li>Information content</li>
+<li>Prediction quality</li>
+</ul>
+<li>Component presence</li>
+<ul>
+<li>Regions of practical equivalence</li>
+</ul>
+<li>Physical effects</li>
+<ul>
+<li>Bayesian model comparison</li>
+<li>Priors often well-justified</li>
+</ul>
+</ul>
+<p><a href="https://arxiv.org/abs/1506.02273">https://arxiv.org/abs/1506.02273</a></p>
+<p>Betancourt (2015)</p>
+<p>Buchner+14</p>
+<h1 style="page-break-before:always; ">Information criteria</h1>
+<ul>
+<li>Akaike information criterion</li>
+<li>Is more complex worth storing?</li>
+</ul>
+<p>AIC = 2 * d – 2 * Lmax</p>
+<p>AIC = 2 * d + CStat</p>
+<p>Akaike (1973)</p>
+<p>Advantages: </p>
+<p>  - rooted in information theory</p>
+<p>  - independent of prior</p>
+<p>Disadvantages:</p>
+<p>  - No uncertainties, thresholds unclear</p>
+<p>  - …</p>
+<h1 style="page-break-before:always; "></h1>
+<h2>Nested sampling</h2>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; ">Missing ingredients</h1>
+<ul>
+<li>MCMC: Insert tuned transition kernel</li>
+<li>NS: Insert constrained drawing algorithm</li>
+<ul>
+<li>General solutions: MultiNest, MCMC, HMCMC, Galilean, RadFriends, PolyChord</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; "></h1>
+<p>Animation:</p>
+<p><a href="https://johannesbuchner.github.io/mcmc-demo/app.html#RadFriends-NS,standard">https://johannesbuchner.github.io/mcmc-demo/app.html#RadFriends-NS,standard</a>(via chi-feng.github.io)</p>
+<h1 style="page-break-before:always; "></h1>
+<h1 style="page-break-before:always; "></h1>
+<p>Posterior </p>
+<p>odds ratio</p>
+<p>Prior</p>
+<p>odds ratio</p>
+<p>Bayes
+factor</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Buchner+14</p>
+<h1 style="page-break-before:always; ">Model comparison</h1>
+<p>Test model in isolation?</p>
+<p>PPC</p>
+<p>Parametric bootstrap</p>
+<p>Compare physical models or
+empirical descriptions?</p>
+<p>yes</p>
+<p>no, relative</p>
+<p>Information content (AIC)
+Prediction quality (Cross validation)</p>
+<p>empirical</p>
+<p>physical effects</p>
+<p>Additive component</p>
+<p>Parameter estimation</p>
+<p>Region of equivalence</p>
+<p>Bayesian model comparison</p>
+<p>yes</p>
+<p>no</p>
+<p>Bayesian model comparison</p>
+<h1 style="page-break-before:always; ">Spectra with 
+few counts</h1>
+<h1 style="page-break-before:always; ">Spectra with few counts</h1>
+<ul>
+<li>Are nothing special</li>
+<li>Poisson likelihood + good background handling</li>
+<li>0 counts</li>
+<li>Think in terms of allowed regions</li>
+</ul>
+<p>N</p>
+<p>T</p>
+<h1 style="page-break-before:always; ">L, NH from X-ray spectrum</h1>
+<p>Scattered Powerlaw component</p>
+<p>CTK flat spectrum + FeK line</p>
+<h1 style="page-break-before:always; ">L, NH from X-ray spectrum</h1>
+<p>Probability cloud</p>
+<h1 style="page-break-before:always; ">BXA in practice</h1>
+<h1 style="page-break-before:always; "></h1>
+<p>https://github.com/JohannesBuchner/BXA</p>
+<h1 style="page-break-before:always; "></h1>
+<p>pyxspec</p>
+<p>Specify priors</p>
+<p>Where to store</p>
+<p>Run!</p>
+<h1 style="page-break-before:always; "></h1>
+<p>sherpa</p>
+<p>Specify priors</p>
+<p>Run!</p>
+<h1 style="page-break-before:always; ">Background</h1>
+<h1 style="page-break-before:always; ">eROSITA background</h1>
+<ul>
+<li>Diffuse emission</li>
+<ul>
+<li>Local hot bubble</li>
+<li>Galactic disk</li>
+<li>Galactic halo</li>
+</ul>
+<li>Cosmic background</li>
+<ul>
+<li>Unresolved AGN</li>
+</ul>
+<li>High-energy particle background</li>
+</ul>
+<p><a href="https://wiki.mpe.mpg.de/eRosita/ScienceRelatedStuff/Background">https://wiki.mpe.mpg.de/eRosita/ScienceRelatedStuff/Background</a> </p>
+<h1 style="page-break-before:always; ">Empirical background models</h1>
+<p>Maximize poisson likelihood at all bins</p>
+<p>→shape </p>
+<p>Chandra</p>
+<p>(XMM, Chandra, Swift models in-house)</p>
+<ul>
+<li>Pros: </li>
+<ul>
+<li>Can contain physical knowledge &amp; smoothness</li>
+<li>Small uncertainties</li>
+<li>0 bin counts ok</li>
+</ul>
+<li>Cons: </li>
+<ul>
+<li>Need to specify model</li>
+<li>Fit can be poor</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Empirical background models</h1>
+<p>Automated shape finding 
+Simmonds, Buchner et al. (2017)</p>
+<p>XMM/PN,MOS, Chandra/ACIS, NuSTAR, </p>
+<p>Suzaku, RXTE, Swift/XRT</p>
+<h1 style="page-break-before:always; ">Intrinsic
+parameter distributions</h1>
+<h1 style="page-break-before:always; ">Example</h1>
+<ul>
+<li>Measurement gave</li>
+<li>x1 = 4+-1</li>
+<li>x2 = 5+-0.1</li>
+<li>Generate 100 samples for each</li>
+</ul>
+<p>100xN matrix of x</p>
+<h1 style="page-break-before:always; ">Example</h1>
+<ul>
+<li>Evaluate model</li>
+<li>
+
+
+
+
+F(x)</li>
+</ul>
+<p>100xN matrix of F</p>
+<p>100xN matrix of x</p>
+<h1 style="page-break-before:always; ">Example</h1>
+<ul>
+<li>Sum probabilities</li>
+<li>Multiply probabilities</li>
+<li>Then try out other model parameters</li>
+</ul>
+<p>100xN matrix of F</p>
+<p>N 
+vector</p>
+<p>L</p>
+<h1 style="page-break-before:always; ">Graphic explanation</h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; ">Graphic explanation</h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; ">Graphic explanation</h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; ">Graphic explanation</h1>
+<p>P(x)</p>
+<p>x</p>
+<p>Measurement error</p>
+<p>F(x)</p>
+<p>Population distribution</p>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<ul>
+<li>Generate from 6+-2 with measurement errors</li>
+</ul>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+<h1 style="page-break-before:always; ">Behaviour</h1>
+</body>
+</html>
