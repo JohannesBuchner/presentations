@@ -5,7 +5,11 @@ Research presentations on Active Galactic Nuclei, Gamma Ray Bursts, Nested Sampl
 These are quite specialised and may not be useful/interesting to you.
 Please let me know if you find any issues.
 
+* https://johannesbuchner.github.io/presentations/2019-BXA-CfA/2019-BXA-CfA.html
+* https://johannesbuchner.github.io/presentations/2019-CfA-MLJC/2019-CfA-MLJC.html
+* https://johannesbuchner.github.io/presentations/2019-xray-astronomy/2019-xray-astronomy.html
 * https://johannesbuchner.github.io/presentations/2019_quasar_tea/2019_quasar_tea.html
+* https://johannesbuchner.github.io/presentations/2019_cfagalaxies/2019_cfagalaxies.html
 * https://johannesbuchner.github.io/presentations/2018-basal/2018-basal.html
 * https://johannesbuchner.github.io/presentations/2018-basal-seeds/2018-basal-seeds.html
 * https://johannesbuchner.github.io/presentations/2018-bayesforum/2018-bayesforum.html
