@@ -2,13 +2,11 @@
 Research presentations on Active Galactic Nuclei, Gamma Ray Bursts, Nested Sampling, Astrostatistics
 ========================================================================================================
 
+by `Johannes Buchner <https://astrost.at/istics/>`_
+
 These are quite specialised and may not be useful/interesting to you.
 Please let me know if you find any issues.
 
-
-* https://johannesbuchner.github.io/presentations/2020-yale-seeds/2020-yale-seeds.html
-* https://johannesbuchner.github.io/presentations/2020-aas-clumpy/2020-aas-clumpy.html
-* https://johannesbuchner.github.io/presentations/2019_eso_agnclub/2019_eso_agnclub.html
 * https://johannesbuchner.github.io/presentations/2019-BXA-CfA/2019-BXA-CfA.html
 * https://johannesbuchner.github.io/presentations/2019-CfA-MLJC/2019-CfA-MLJC.html
 * https://johannesbuchner.github.io/presentations/2019-xray-astronomy/2019-xray-astronomy.html
@@ -81,6 +79,8 @@ Please let me know if you find any issues.
 * https://johannesbuchner.github.io/presentations/slide/slide.html
 * https://johannesbuchner.github.io/presentations/torus2015-poster-intro/torus2015-poster-intro.html
 
-I used Reveal.js, Multitalk and Libreoffice Impress.
 
-https://github.com/JohannesBuchner/presentations
+List of presentations: https://johannesbuchner.github.io/presentations/
+
+I used Reveal.js, Multitalk and Libreoffice Impress. Code repository at https://github.com/JohannesBuchner/presentations/
+
