@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+  <meta HTTP-EQUIV=CONTENT-TYPE CONTENT="text/html; charset=utf-8">
+  <title>Slide 14</title>
+</head>
+<body>
+<center>
+<a href="text0.html">First page</a> <a href="text12.html">Back</a> <a href="text14.html">Continue</a> <a href="text23.html">Last page</a> <a href="pymultinest.html">Overview</a> <a href="img13.html">Image</a></center><br>
+<h1>Specifying likelihoods</h1>
+<ul>
+<li>Gaussian example</li>
+</ul>
+<p>mydata = numpy.loadtxt(“mydata.txt”)</p>
+<p>x, y, yerr = mydata.transpose()</p>
+<p>def my_likelihood(params):</p>
+<p>	# params is a d-dimensional array</p>
+<p>	# already transformed</p>
+<p>	a, b, c, d = params</p>
+<p>	# compute model prediction:</p>
+<p>	m = (a + numpy.sin(x * c)) * d</p>
+<p>	# compute gaussian likelihood</p>
+<p>	return (((m – y)/yerr)**2).sum()</p>
+<p>result = solve(
+	LogLikelihood=my_likelihood, </p>
+<p>	Prior=my_prior_transform, </p>
+<p>	n_dims=4,</p>
+<p> 	outputfiles_basename=’mysine_’)</p>
+<p>x</p>
+<p>y +- yerr</p>
+<p>Arbitrarily complex model calculation → </p>
+<p>Arbitrarily complex data uncertainties → </p>
+</body>
+</html>

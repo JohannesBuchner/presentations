@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+  <meta name="created" content="2019-09-16T18:30:57.581131354"/>
+  <meta name="changed" content="2019-09-18T21:02:32.304563305"/>
+</head>
+<body>
+<h1>Practical Bayesian Inference
+
+with PyMultiNest</h1>
+<h2>Johannes Buchner</h2>
+<h2>Max Planck Institute for extraterrestrial Physics</h2>
+<h2><a href="http://astrost.at/istics/"><u>http://astrost.at/istics/</u></a></h2>
+<h1 style="page-break-before:always; ">Astronomy &amp; Astrophysics</h1>
+<p><u>Understanding individual objects</u></p>
+<p>In wavelength or energy → </p>
+<p>In time → </p>
+<p>In space →
+In multiple → </p>
+<p>Light &amp; beyond</p>
+<p>Physical model
+Poisson data</p>
+<p>... 1020eV</p>
+<h1 style="page-break-before:always; ">Astronomy &amp; Astrophysics</h1>
+<p><u>Understanding samples</u></p>
+<p>Empirical models, correlations
+
+Physical interpretation
+
+ reproduction with galaxy simulations</p>
+<p>Blac Hole Mass</p>
+<p>Velocity dispersion of stars</p>
+<h1 style="page-break-before:always; ">Astronomy &amp; Astrophysics</h1>
+<p><u>Understanding underlying populations</u></p>
+<p>Censorship (but understood)</p>
+<p> heavily heterogeneous uncertainties (but understood)</p>
+<p>Hierarchical Bayesian Model with censorship (1983)</p>
+<p>(N+1)*nested sampling + importance sampling</p>
+<p>N * nested sampling + Stan</p>
+<h1 style="page-break-before:always; ">Johannes Buchner</h1>
+<ul>
+<li>Johannes Buchner</li>
+<li><u>http://astrost.at/istics/</u>
+Max Planck Institute for Extraterrestrial Physics
+Garching, Munich</li>
+</ul>
+<p>Galaxy clusters for Dark Energy </p>
+<p>3 million Active Galactic Nuclei</p>
+<p>@eROSITA_SRG</p>
+<h1 style="page-break-before:always; ">Agenda</h1>
+<ul>
+<li>Choice of tools</li>
+<li>Setting up problems, running</li>
+<li>Use of posterior samples</li>
+<li>Workflow</li>
+<ul>
+<li>Visualisation</li>
+<li>Comparison of model comparison methods (BF vs IC vs prediction-based)</li>
+</ul>
+<li>How to break things</li>
+</ul>
+<h1 style="page-break-before:always; ">Inference requirements</h1>
+<ul>
+<li>Forward modeling with Bayesian inference pretty popular</li>
+<li>Physical models can be complex &amp; expensive Monte Carlo simulations</li>
+<li>“degenerate” parameter constraints</li>
+<li>multiple solutions</li>
+<li>Sometimes little data</li>
+<li>Often 2-15d    (or 1e6d)</li>
+<li>Competing physical effects</li>
+</ul>
+<h1 style="page-break-before:always; ">Bayesian tools</h1>
+<p>low-d:</p>
+<ul>
+<li><u>Parameter estimation</u></li>
+<li>
+Nested sampling (MultiNest)
+</li>
+<li>HMCMC with multiple chains – Stan
+</li>
+<li>→ posterior samples</li>
+</ul>
+<ul>
+<li><u>Model comparison</u></li>
+<li><u>
+</u>Nested sampling (MultiNest)</li>
+<li>
+open research problem. NS+some MCMC variant. More research needed</li>
+<li>→ lnZ</li>
+</ul>
+<ul>
+<li>To handle multiple maxima, low state of information, peculiar posterior shapes, numerical likelihoods
+
+(&amp; have a life beyond convergence criteria)</li>
+</ul>
+<p>Other tools: emcee, PolyChord</p>
+<p>high-d:</p>
+<p>(~20d)</p>
+<p>GP: george, celerite</p>
+<p>https://arxiv.org/abs/1703.09710</p>
+<h1 style="page-break-before:always; ">PyMultiNest in practice</h1>
+<ul>
+<li>Inputs</li>
+<ul>
+<li>Dimensionality of problem</li>
+<li>Number of live points </li>
+<li>Efficiency parameter</li>
+<li>Prior transformation function</li>
+<li>Likelihood function</li>
+</ul>
+<li>Outputs</li>
+<ul>
+<li>Posterior samples</li>
+<li>ln(Z) with uncertainties</li>
+</ul>
+</ul>
+<p>(~400-1000)</p>
+<p>In Python</p>
+<p>Easy to load data</p>
+<p>complex calculations, legacy code</p>
+<p>visualize results</p>
+<p>automate</p>
+<p>(like in MCMC)</p>
+<p>30%</p>
+<p>https://github.com/JohannesBuchner/PyMultiNest/</p>
+<h1 style="page-break-before:always; ">Specifying priors</h1>
+<ul>
+<li>Transform uniform cube to physical parameters</li>
+</ul>
+<p>0</p>
+<p>1</p>
+<p>0</p>
+<p>10</p>
+<p>def my_prior_transform(cube):</p>
+<p>	# cube is a d-dimensional array</p>
+<p>	params = cube.copy()</p>
+<p>	# from 0 to 10</p>
+<p>	params[0] = cube[0] * 10</p>
+<p>	return params</p>
+<h1 style="page-break-before:always; ">Specifying priors</h1>
+<ul>
+<li>Transform uniform cube to physical parameters</li>
+</ul>
+<p>0</p>
+<p>1</p>
+<p>-10</p>
+<p>10</p>
+<p>def my_prior_transform(cube):</p>
+<p>	# cube is a d-dimensional array</p>
+<p>	params = cube.copy()</p>
+<p>	# from -10 to +10</p>
+<p>	params[0] = cube[0] * 20 - 10</p>
+<p>	return params</p>
+<h1 style="page-break-before:always; ">Specifying priors</h1>
+<ul>
+<li>Transform uniform cube to physical parameters</li>
+</ul>
+<p>0</p>
+<p>1</p>
+<p>0</p>
+<p>10</p>
+<p>def my_prior_transform(cube):</p>
+<p>	# cube is a d-dimensional array</p>
+<p>	params = cube.copy()</p>
+<p>	# from -10 to +10</p>
+<p>	params[0] = cube[0] * 20 – 10</p>
+<p>	# from 1 to 1010</p>
+<p>	params[1] = 10**(cube[1] * 10)</p>
+<p>	# via inverse CDF</p>
+<p>	params[2] = rv.ppf(cube[2])</p>
+<p>	return params</p>
+<p># Gaussian prior 5+-1</p>
+<p>rv = scipy.stats.norm(5, 1)</p>
+<p>0</p>
+<p>1</p>
+<p>0</p>
+<p>1</p>
+<h1 style="page-break-before:always; ">Specifying likelihoods</h1>
+<ul>
+<li>Gaussian example</li>
+</ul>
+<p>mydata = numpy.loadtxt(“mydata.txt”)</p>
+<p>x, y, yerr = mydata.transpose()</p>
+<p>def my_likelihood(params):</p>
+<p>	# params is a d-dimensional array</p>
+<p>	# already transformed</p>
+<p>	a, b, c, d = params</p>
+<p>	# compute model prediction:</p>
+<p>	m = (a + numpy.sin(x * c)) * d</p>
+<p>	# compute gaussian likelihood</p>
+<p>	return (((m – y)/yerr)**2).sum()</p>
+<p>x</p>
+<p>y +- yerr</p>
+<h1 style="page-break-before:always; ">Specifying likelihoods</h1>
+<ul>
+<li>Gaussian example</li>
+</ul>
+<p>mydata = numpy.loadtxt(“mydata.txt”)</p>
+<p>x, y, yerr = mydata.transpose()</p>
+<p>def my_likelihood(params):</p>
+<p>	# params is a d-dimensional array</p>
+<p>	# already transformed</p>
+<p>	a, b, c, d = params</p>
+<p>	# compute model prediction:</p>
+<p>	m = (a + numpy.sin(x * c)) * d</p>
+<p>	# compute gaussian likelihood</p>
+<p>	return (((m – y)/yerr)**2).sum()</p>
+<p>result = solve(
+	LogLikelihood=my_likelihood, </p>
+<p>	Prior=my_prior_transform, </p>
+<p>	n_dims=4,</p>
+<p> 	outputfiles_basename=’mysine_’)</p>
+<p>x</p>
+<p>y +- yerr</p>
+<p>Arbitrarily complex model calculation → </p>
+<p>Arbitrarily complex data uncertainties → </p>
+<h1 style="page-break-before:always; "></h1>
+<p>MultiNest: 	Feroz, Hobson &amp; Bridges (2009)</p>
+<p>PyMultiNest: 	Buchner et al. (2014)</p>
+<p>RadFriends: 	Buchner (2014)</p>
+<h1 style="page-break-before:always; ">Example</h1>
+<h1 style="page-break-before:always; ">Important files</h1>
+<ul>
+<li>&lt;prefix&gt;post_equal_weights.dat</li>
+<li>&lt;prefix&gt;stats.dat</li>
+<li>multinest_marginals*.py &lt;prefix&gt;</li>
+</ul>
+<p>Higson+19</p>
+<h1 style="page-break-before:always; ">Model comparison</h1>
+<ul>
+<li>Empirical models</li>
+<ul>
+<li>Information content</li>
+</ul>
+<li>Component presence</li>
+<ul>
+<li>Regions of practical equivalence</li>
+</ul>
+<li>Physical effects</li>
+<ul>
+<li>Bayes factors</li>
+<li>Priors often well-justified</li>
+</ul>
+</ul>
+<p><a href="https://arxiv.org/abs/1506.02273">https://arxiv.org/abs/1506.02273</a></p>
+<p>Betancourt (2015)</p>
+<p>Monte Carlo simulations 
+(parametric bootstrap)</p>
+<p>Vary priors</p>
+<p>Zwicky’s morphological analysis + Bayesian inference</p>
+<p>(exoplanets)</p>
+<h1 style="page-break-before:always; ">Workflows</h1>
+<p>Parameters go to extremes</p>
+<p>Visualisations</p>
+<p>empirical 
+model 
+modification</p>
+<p>Parameters go to extremes</p>
+<p>Thinking</p>
+<p>Best model</p>
+<p>AIC</p>
+<p>New 
+physical 
+model</p>
+<p>Add to model</p>
+<p>comparison set</p>
+<p>BMC</p>
+<p>Model set</p>
+<p>Visualisations (PPC)</p>
+<p>model 
+modification</p>
+<p>Best 
+empirical 
+model</p>
+<p>LOO CV/WAIC</p>
+<p>(economics/political science)</p>
+<p>(physics)</p>
+<h1 style="page-break-before:always; ">Stan</h1>
+<p>data {</p>
+<p>  int&lt;lower=0&gt; N;</p>
+<p>  real[N] x;</p>
+<p>  real[N] y;</p>
+<p>  real[N] y_err;</p>
+<p>}</p>
+<p>parameters {</p>
+<p>  real a;</p>
+<p>  real b;</p>
+<p>  real c;</p>
+<p>  real d;</p>
+<p>}</p>
+<p>model {</p>
+<p>  for (i in 1:N) {</p>
+<p>    real m;</p>
+<p>    m &lt;- a*sin(x[i]*b + c) + d;</p>
+<p>    y[i] ~ normal(m, y_err[i]);</p>
+<p>  }</p>
+<p>}</p>
+<p>http://mc-stan.org </p>
+<p>Excellent manual</p>
+<h1 style="page-break-before:always; ">Strengths</h1>
+<ul>
+<li>In general robust &amp; reliable</li>
+<li>MPI capable</li>
+<li>Can resume</li>
+</ul>
+<p>$ pip install mpi4py</p>
+<p>$ mpiexec -np 4 python myprog.py</p>
+<h1 style="page-break-before:always; ">Failure modes</h1>
+<ul>
+<li>estimators INS!=NS</li>
+<ul>
+<li>Multiple runs 
+→ lnZ scatter</li>
+<li>Check with other techniques (RadFriends, VB+IS)</li>
+</ul>
+</ul>
+<h1 style="page-break-before:always; ">Creating difficulties</h1>
+<ul>
+<li>When ellipsoids approximation is poor</li>
+<li>Multi-modal</li>
+<li>Posterior is heavy-tailed/asymmetric</li>
+</ul>
+<h1 style="page-break-before:always; ">Future</h1>
+<ul>
+<li>Failure modes &amp; tuning of step-based methods</li>
+<li>region reconstruction + 
+step-based methods</li>
+<li>Rigorous extensions to dynamic nested sampling</li>
+<li>Analysis of many similar datasets</li>
+<li>Review of nested sampling extensions</li>
+</ul>
+<p>Stay tuned!</p>
+<p>(UltraNest3)</p>
+<p>slice sampling, NUTS</p>
+<p><a href="http://astrost.at/istics/"><u>http://astrost.at/istics/</u></a></p>
+<p><u>http://github.com/JohannesBuchner</u></p>
+</body>
+</html>

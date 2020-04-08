@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+  <meta HTTP-EQUIV=CONTENT-TYPE CONTENT="text/html; charset=utf-8">
+  <title>Slide 12</title>
+</head>
+<body>
+<center>
+<a href="text0.html">First page</a> <a href="text10.html">Back</a> <a href="text12.html">Continue</a> <a href="text23.html">Last page</a> <a href="pymultinest.html">Overview</a> <a href="img11.html">Image</a></center><br>
+<h1>Specifying priors</h1>
+<ul>
+<li>Transform uniform cube to physical parameters</li>
+</ul>
+<p>0</p>
+<p>1</p>
+<p>0</p>
+<p>10</p>
+<p>def my_prior_transform(cube):</p>
+<p>	# cube is a d-dimensional array</p>
+<p>	params = cube.copy()</p>
+<p>	# from -10 to +10</p>
+<p>	params[0] = cube[0] * 20 – 10</p>
+<p>	# from 1 to 1010</p>
+<p>	params[1] = 10**(cube[1] * 10)</p>
+<p>	# via inverse CDF</p>
+<p>	params[2] = rv.ppf(cube[2])</p>
+<p>	return params</p>
+<p># Gaussian prior 5+-1</p>
+<p>rv = scipy.stats.norm(5, 1)</p>
+<p>0</p>
+<p>1</p>
+<p>0</p>
+<p>1</p>
+</body>
+</html>
